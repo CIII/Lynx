@@ -1,0 +1,10 @@
+GET     /browser_id.js                              controllers.ApplicationController.browser_id
+GET     /external/lynx_reporting.js                 controllers.ExternalController.lynx_reporting(domain="tapxs")
+
+POST    /event/create                               controllers.EventController.create
+GET     /page_loading                               controllers.EventController.page_loading
+GET     /external/wp/page_render.js            controllers.ExternalController.wordpress_page_render
+
+# From here down is only to create compatibility with easiersolar.routes, as this seems to override some generated code.
+GET     /                                           controllers.PageController.index_new(domain = "tapxs")
+GET     /get-quotes/thanks                          controllers.PageController.thank_you

@@ -1,0 +1,49 @@
+@(siteSettings: utils.templates.SiteSettings)(implicit configuration: play.api.Configuration, environment: play.api.Environment)
+@import utils.utilities.construct_url
+@{play.api.Logger.debug(environment.toString())}
+@if(utils.templates.TemplateSettings.show_solar_cal(siteSettings)){
+<div class="col-xs-12 col-sm-12 col-md-8 col-lg-9 y-scroll">
+}else{
+<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 y-scroll">
+}
+<div name="form-2" ng-init="ctrl.formPageLoaded('Ownership');">
+    <div class="form-right-col">
+        <div class="inner address-block" ng-style="{
+        '-webkit-transition-duration': ctrl.speed + 'ms',
+        '-moz-transition-duration': ctrl.speed + 'ms',
+        '-ms-transition-duration': ctrl.speed + 'ms',
+        '-o-transition-duration': ctrl.speed + 'ms',
+        'transition-duration': ctrl.speed + 'ms'
+    }">
+    <h1>Are you a renter or a homeowner?</h1>
+    <div class="homeowner-wrap">
+        <form>
+            <div id="renter-block" class="homeowner-block renter" data-ng-click="ctrl.form.property_ownership = 'RENT'" ng-class="{'homeowner-block-active': ctrl.form.property_ownership == 'RENT'}" >
+                <img src="@construct_url("app/images/renter.png")" alt="">
+                <h4>renter</h4>
+                <div class="radio radio-success">
+                    <input type="radio" name="radio1" id="radio1" value="RENT" data-ng-model="ctrl.form.property_ownership" onkeydown="if(event.keyCode == 13) document.getElementById('continueBtn').click()">
+                    <label for="radio1"></label>
+                </div>
+            </div>
+            <div id="owner-block" class="homeowner-block owner" data-ng-click="ctrl.form.property_ownership = 'OWN'"  ng-class="{'homeowner-block-active': ctrl.form.property_ownership == 'OWN'}">
+                <img src="@construct_url("app/images/owner.png")" alt="">
+                <h4> owner</h4>
+                <div class="radio radio-success">
+                    <input type="radio" name="radio1" id="radio2" value="OWN" data-ng-model="ctrl.form.property_ownership" onkeydown="if(event.keyCode == 13) document.getElementById('continueBtn').click()">
+                    <label for="radio2"></label>
+                </div>
+            </div>
+            <input type="hidden" id="leadid_token" name="form.leadid_token" data-ng-model="ctrl.form.leadid_token" />
+            <div class="col-md-12 col-sm-12 col-xs-12">
+                <button id="continueBtn" class="continue-button" data-ng-click="ctrl.submitInfoForm([ctrl.BASE_CONSTS.OWNERSHIP_COMPLETED]);" ng-class="{'continue-button-active':ctrl.form.property_ownership}" ng-disabled="!ctrl.form.property_ownership"><div class="loader" ng-show="ctrl.$rootScope.loading" >Loading...</div>Continue</button>
+            </div>
+        </form>
+    </div>
+</div><!-- 2 form end-->
+<div class="row">
+</div>
+</div>
+@views.html.angular.forms.back_reset()
+</div>
+</div>

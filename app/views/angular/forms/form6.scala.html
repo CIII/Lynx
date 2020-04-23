@@ -1,0 +1,39 @@
+@(siteSettings: utils.templates.SiteSettings)(implicit configuration: play.api.Configuration, environment: play.api.Environment)
+@import utils.utilities.construct_url
+@if(utils.templates.TemplateSettings.show_solar_cal(siteSettings)){
+<div class="col-xs-12 col-sm-12 col-md-8 col-lg-9 y-scroll">
+}else{
+<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 y-scroll">
+}
+<div name="form-6" ng-init="ctrl.formPageLoaded('First and Last Name')">
+    <div class="form-right-col" onclick="void(0)">
+        <div class="inner address-block" ng-style="{
+        '-webkit-transition-duration': ctrl.speed + 'ms',
+        '-moz-transition-duration': ctrl.speed + 'ms',
+        '-ms-transition-duration': ctrl.speed + 'ms',
+        '-o-transition-duration': ctrl.speed + 'ms',
+        'transition-duration': ctrl.speed + 'ms'
+    }">
+    <h1>What is your name?
+    </h1>
+    <div style="width:90%;margin: 0px auto; display: block;">
+        <div class="error-Msg" ng-show="ctrl.nameErr"><i class="fa fa-info-circle" aria-hidden="true"></i>Should be at least 2 chars long</div>
+        <form class="address-block row">
+            <div class="form-group col-md-6">
+                <input type="text" class="form-control input-type-2" placeholder="First Name" id="firstname" autocomplete="off" autocorrect="off" spellcheck="off" ng-model="ctrl.form.first_name" ng-change="ctrl.nameErr = false;" ng-class="{'error-border': ctrl.nameErr}">
+            </div>
+
+            <div class="form-group col-md-6">
+                <input type="text" class="form-control input-type-2" placeholder="Last Name" id="lastname" autocomplete="off" autocorrect="off" spellcheck="off" ng-model="ctrl.form.last_name" ng-change="ctrl.nameErr = false;" ng-class="{'error-border': ctrl.nameErr}">
+            </div>
+            <div class="col-md-12 col-sm-12 col-xs-12">
+                <button class="continue-button" id="continueBtn" data-ng-click="ctrl.submitInfoForm([ctrl.BASE_CONSTS.NAME_COMPLETED]);" ng-disabled="!ctrl.form.first_name || !ctrl.form.last_name" ng-class="{'continue-button-active':ctrl.form.first_name && ctrl.form.last_name}"><div class="loader" ng-show="ctrl.$rootScope.loading" >Loading...</div>Continue</button>
+            </div>
+            <input type="hidden" id="leadid_token" name="form.leadid_token" data-ng-model="ctrl.form.leadid_token" />
+        </form>
+    </div>
+</div><!-- 5 form end-->
+</div>
+@views.html.angular.forms.back_reset()
+</div>
+</div>

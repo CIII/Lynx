@@ -1,0 +1,22 @@
+<div class="modal-header"><h4>{{item.name}}</h4></div>
+<div class="modal-body">
+ 	 <form class="row get-quotes" style="padding: 0 15px;">                        
+        <div class="form-group" ng-show="item.type == 'email'">
+            <input type="text" class="form-control input-type-2" placeholder="Email" id="email" ng-model="item.email" ng-focus="emailBlur=false;" ng-blur="checkValidEmail(item.email); emailBlur=true;" autocomplete="off">
+            <label class="error" ng-show="emailErr && item.email && emailBlur">Please enter valid email</label>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-group" ng-show="item.type == 'phone'">
+                    <input type="text" class="form-control input-type-2" placeholder="Phone number" id="phone" ng-model="item.phone_home" ui-mask="(999) 999-9999"  ui-mask-placeholder ui-mask-placeholder-char="_" model-view-value="true" ng-focus="phoneBlur=false; phoneVerify=false;" ng-blur="checkValidPhone(item.phone_home);phoneBlur=true;" autocomplete="off" />
+                    <label class="error" ng-show="phoneErr && item.phone_home && phoneBlur">Please enter valid phone number</label>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+<div class="modal-footer">
+    <button class="btn btn-default btn-custom-modal"  style="padding: 10px 32px;" ng-click="cancel()">Cancel</button>
+    <button ng-if="item.type == 'phone'" class="btn bttn-green btn-custom-modal btn-custom-modal"  style="padding: 10px 32px;" ng-click="ok()" ng-disabled="(!item.phone_home || phoneErr) && !phoneVerify">Update Phone</button>
+    <button ng-if="item.type == 'email'" class="btn bttn-green btn-custom-modal" style="padding: 10px 32px;" ng-click="ok()" ng-disabled="(!item.email || emailErr) && emailBlur">Update Email</button>
+</div>

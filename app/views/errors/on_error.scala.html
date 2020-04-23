@@ -1,0 +1,8 @@
+@(throwable: Throwable)(implicit configuration: play.api.Configuration)
+
+@views.html.headers.main("onError Happened") {
+
+    <h1>onError Happened</h1>
+    <p>@throwable.getMessage</p>
+
+}

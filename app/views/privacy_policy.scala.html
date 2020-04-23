@@ -1,0 +1,509 @@
+@(siteSettings: utils.templates.SiteSettings)(implicit request: play.api.mvc.Request[AnyContent], configuration: play.api.Configuration, environment: play.api.Environment)
+@import utils.utilities.construct_url
+<!DOCTYPE html>
+<html>
+<head>
+    <!--<base href="/">-->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta http-equiv="X-UA-Compatible" content="IE=10" />
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Privacy Policy</title>
+    <script type="text/javascript" src="http://www.googleadservices.com/pagead/conversion_async.js" charset="utf-8"></script>
+
+    <link rel="stylesheet" type="text/css" href="@(construct_url("bower_components/bootstrap/dist/css/bootstrap.min.css"))">
+
+    <!--<link rel="stylesheet" type="text/css" href="/assets/bower_components/ng-scrollbar/dist/ng-scrollbar.min.css">-->
+    <link rel="stylesheet" type="text/css" href="@(construct_url("bower_components/angular-ui-router-anim-in-out/css/anim-in-out.css"))">
+    <link rel="stylesheet" type="text/css" href="@(construct_url("bower_components/sweetalert/dist/sweetalert.css"))">
+    <link rel="stylesheet" href="@(construct_url("bower_components/angular-google-places-autocomplete/src/autocomplete.css"))">
+    <link rel="stylesheet" type="text/css" href="@(construct_url("bower_components/angucomplete-alt/angucomplete-alt.css"))">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="@(construct_url(utils.templates.TemplateSettings.get_css_path(siteSettings)))">
+    <link rel="stylesheet" type="text/css" href="@(construct_url("app/css/font/stylesheet.css"))">
+    <link rel="stylesheet" href="@(construct_url("stylesheets/privacy_policy_style.css"))" type="text/css" media="all">
+    <!-- favicon -->
+    <link rel="shortcut icon" href="@(construct_url("images/favicon.png"))" type="image/png"/>
+    <link type="image/ico" rel="icon" href="@(construct_url("images/favicon.png"))"/>
+
+    <!-- social link -->
+    @{views.html.metadata.social_links("Compare solar quotes from top local and national installers | " + utils.templates.TemplateSettings.get_capital_site_name(siteSettings),"Get competitive quotes in minutes. Installers compete for your business, you get the best deal & save fast. Talk to an advisor or shop online today.", construct_url("educational/easiersolar_test_template1/images/Share_Image_Solar.png"))}
+
+</head>
+<body data-ng-app="solar" ng-style="stateName != 'home' && {'overflow':'hidden'}">
+<div id="header">
+    @views.html.angular.header.header(siteSettings, utils.templates.HeaderSettings(true))
+</div>
+<div id="content" class="site-content container">
+    <div class="container-fluid top-marg" >
+        <div id="primary" class="content-area">
+        <main id="main" class="site-main" role="main">
+
+            <article id="post-110" class="post-110 page type-page status-publish hentry">
+                <header class="entry-header page-header">
+                    <h1 class="entry-title">Privacy Policy</h1>
+                </header>
+                <!-- .entry-header -->
+
+                <div class="entry-content">
+                    <p style="text-align: justify">At @(utils.templates.TemplateSettings.get_capital_site_name(siteSettings)).com, we value your privacy. This privacy policy describes (a)
+                        our collection of personal information from users of @(utils.templates.TemplateSettings.get_capital_site_name(siteSettings)).com, (b) our use and
+                        disclosure of that information, and (c) certain terms relating to your use of this website.
+                        <span style="text-decoration: underline">By using @(utils.templates.TemplateSettings.get_capital_site_name(siteSettings)).com, you consent to (i) the collection of your personal information, (ii) the use of your personal information, and (iii) certain terms relating to your use of @(utils.templates.TemplateSettings.get_capital_site_name(siteSettings)).com, all in accordance with this policy</span>.
+                    </p>
+
+                    <h3 style="text-align: justify"><strong>Summary</strong></h3>
+
+                    <p style="text-align: justify">This brief summary tells you the basics of our privacy commitment to
+                        you-how we collect and use your information, how we protect it, and who can see it. We encourage
+                        you to read the entire privacy policy below for full details.</p>
+                    <ul style="text-align: justify">
+                        <li><strong>We obtain personal information from you directly, when you submit a service request
+                            (such as a request for a solar consultation/quote) and from third parties.</strong></li>
+                        <li><strong>In order to fulfill your information and/or service requests (such as a request for
+                            solar consultations/quotes), we may sell your personal information to third parties such as,
+                            without limitation, solar energy providers and energy efficiency consultants who may then
+                            contact you about their products and services or use your information for their own
+                            commercial purposes.</strong></li>
+                        <li><strong>We may also dispose of and/or sell your personal information as part of any merger,
+                            acquisition, debt financing, sale of company assets, or similar transaction.</strong></li>
+                        <li><strong>We (and any third parties we provide your information to) may also use your personal
+                            information to contact you via direct mail, email and/or telemarketing regarding offers,
+                            contests, events, news, programs, and other retail opportunities from us and/or selected
+                            third parties that we believe may be of interest to you.</strong></li>
+                        <li><strong>You may opt out of having your information sold/transferred to third parties and may
+                            opt out of receiving communications from SMA as well.</strong></li>
+                        <li><strong>Your use of SMA, including any recommendations provided through SMA, is at your own
+                            risk.</strong></li>
+                    </ul>
+                    <h3 style="text-align: justify"><strong>What is “Personal Information”?</strong></h3>
+
+                    <p style="text-align: justify">“Personal information,” as used in this policy, is information that
+                        specifically identifies an individual, such as an individual’s name, address, telephone number,
+                        or e-mail address. Personal information may also include information about an individual’s
+                        activities, such as, without limitation, information about his or her activity on
+                        @(utils.templates.TemplateSettings.get_capital_site_name(siteSettings)).com, home ownership, home statistics, home energy usage or utility provider.
+                        It may also include demographic information, such as date of birth, geographic area, and
+                        preferences, when any of this information is linked to personal information that identifies that
+                        individual.</p>
+
+                    <p style="text-align: justify">Personal information does not include “aggregate” or other
+                        non-personally identifiable information. Aggregate information is information that we collect
+                        about a group or category of products, services or customers that is not personally identifiable
+                        or from which individual identities are removed. We may use and disclose aggregate information,
+                        and other non-personally identifiable information, for various purposes.</p>
+
+                    <h3 style="text-align: justify;"><strong>What Information Do We Collect?</strong></h3>
+
+                    <p style="text-align: justify;"><em>Passive Information We Collect About You</em></p>
+
+                    <p style="text-align: justify;">When you visit @(utils.templates.TemplateSettings.get_capital_site_name(siteSettings)).com, some information is
+                        automatically collected, such as your IP address, browser type, system type, the content and
+                        pages that you access on @(utils.templates.TemplateSettings.get_capital_site_name(siteSettings)).com, &ldquo;referring URL&rdquo; (i.e., the page
+                        from which you navigated to the @(utils.templates.TemplateSettings.get_capital_site_name(siteSettings)).com), the pages you navigate to on
+                        @(utils.templates.TemplateSettings.get_capital_site_name(siteSettings)).com, and from which you leave @(utils.templates.TemplateSettings.get_capital_site_name(siteSettings)).com, as well as the time
+                        you spend on @(utils.templates.TemplateSettings.get_capital_site_name(siteSettings)).com. Certain information such as your city and country we
+                        derive from collecting you IP Address. Other information such as what kind of device you are
+                        visiting our site on (ie. mobile phone versus desktop computer), we derive from your browser
+                        type.</p>
+
+                    <p style="text-align: justify;">We collect this information passively using technologies such as
+                        standard server logs, cookies, and clear GIFs (also known as &ldquo;Web beacons&rdquo;). We use
+                        passively-collected information to administer, operate, and improve @(utils.templates.TemplateSettings.get_capital_site_name(siteSettings)).com and
+                        our other services and systems, and to provide services and content that are tailored to you. If
+                        we link or associate any information gathered through passive means with personal information,
+                        we treat the combined information as personal information under this policy. Otherwise, we use
+                        information collected by passive means in non-personally identifiable form only.</p>
+
+                    <p style="text-align: justify;">Also, please be aware that third parties may set cookies on your
+                        hard drive or use other means of passively collecting information about your use of their
+                        services or content. We do not have access to, or control over, these third-party means of
+                        passive data collection.</p>
+
+                    <p style="text-align: justify;"><em>Personal Information We Collect From You</em></p>
+
+                    <p style="text-align: justify;">We may also collect personal information from you, specifically
+                        information that you provide to us in a variety of ways on @(utils.templates.TemplateSettings.get_capital_site_name(siteSettings)).com. For
+                        instance, when you request a solar consultation/quote, post a request for information about
+                        products or services, request support, or otherwise communicate with us, we collect the personal
+                        information that is provided to us. We may collect personal information such as name, e-mail
+                        address, city, state, country, other demographic information, and interests and preferences in
+                        these manners. We may also save and store an html version of the page in which you submitted a
+                        request for information for compliance purposes.</p>
+
+                    <p style="text-align: justify;"><strong>For example, when a user submits their information
+                        requesting a quote/consultation about solar energy, we collect the user&rsquo;s name, email
+                        address, phone number, address and other geographic information as well as information about
+                        your home and home energy usage.</strong></p>
+
+                    <p style="text-align: justify;"><em>Google Analytics for Display Advertising</em></p>
+
+                    <p style="text-align: justify;"><strong>General.</strong> We have implemented certain Google
+                        Analytics for Display Advertising features as follows:</p>
+                    <ul>
+                        <li>Remarketing</li>
+                        <li>Google Display Network Impression Reporting</li>
+                        <li>DoubleClick Campaign Manager Integration, and</li>
+                        <li>Google Analytics Demographics and Interest Reporting.</li>
+                    </ul>
+                    <p style="text-align: justify;">In using the foregoing Google Analytics for Display Advertising,
+                        please note that we do not merge personally-identifiable information that we collect pursuant to
+                        this privacy policy with non-personally identifiable information collected using Google
+                        Analytics for Display Advertising. We use the non-personally identifiable information using
+                        Google Analytics for Display Advertising to learn about what our users are interested in (on
+                        non-personally identifiable level) and for remarketing purposes. We do not send this
+                        non-personally identifiable information to third parties and we do not modify the Google cookie.
+                        We may have third party vendors who place their own cookies on your browser but do not provide
+                        any information from the Google Analytics for Display Advertising cookie to them.</p>
+
+                    <p style="text-align: justify;"><strong>Remarketing.</strong> We use Remarketing with Google
+                        Analytics to advertise our services online to consumers with specific interests. As a result,
+                        third-party vendors, including Google, may show our ads on sites across the Internet. We and
+                        some of our third-party vendors, including Google, use first-party cookies (such as the Google
+                        Analytics cookie) and third-party cookies (such as the DoubleClick cookie) together to inform,
+                        optimize, and serve ads to you based on your past visits to this site.</p>
+
+                    <p style="text-align: justify;"><strong>Google Display Network Impression Reporting and the
+                        DoubleClick Campaign Manager.</strong> We and some of our third-party vendors, including Google,
+                        use first-party cookies (such as the Google Analytics cookies) and third-party cookies (such as
+                        the DoubleClick cookie) together to report how your ad impressions, other uses of ad services,
+                        and interactions with these ad impressions and ad services are related to your visits to this
+                        site.</p>
+
+                    <p style="text-align: justify;"><strong>Google Analytics Demographics and Interest
+                        Reporting.</strong> We use the non-personally identifiable information using Google Analytics
+                        Demographics and Interest Reporting to learn about what our users are interested in (on
+                        non-personally identifiable level) and to more effectively remarket to consumers.</p>
+
+                    <p style="text-align: justify;"><strong>Google Adsense.</strong> Many third party vendors, including
+                        Google, use cookies to serve ads based on your prior visits to this site. Google&#8217;s use of
+                        the DoubleClick cookie enables it and its partners to serve ads to users of this site based on
+                        their visit to this sites and/or other sites on the Internet. Users may opt out of the use of
+                        the DoubleClick cookie for interest-based advertising by visiting Google Ads Settings.</p>
+
+                    <p style="text-align: justify;"><strong>Opting Out.</strong> You can opt-out of Google Analytics for
+                        Display Advertising and customize your receipt of Google Display Network ads by visiting Google
+                        Ad Settings installing and using the tool here: <a
+                                href="https://tools.google.com/dlpage/gaoptout/" target="_blank">https://tools.google.com/dlpage/gaoptout/</a>
+                    </p>
+
+                    <p style="text-align: justify;"><em>Information We Collect from Other Sources</em></p>
+
+                    <p style="text-align: justify;">We may receive information about you, including personal
+                        information, from third party sources and data providers. And as a result, we may combine this
+                        information with other personal information we maintain, receive or collect about you. If we do
+                        so, this policy governs any combined information that is personally identifiable.</p>
+
+                    <p style="text-align: justify;"><em>DNT Signals</em></p>
+
+                    <p style="text-align: justify;">Please note that we do not react to &ldquo;do not track&rdquo; or
+                        DNT signals from your browser.</p>
+
+                    <h3 style="text-align: justify"><strong>Consent to Call &amp; the
+                        <em>“Do-Not-Call” </em>List</strong></h3>
+
+                    <p style="text-align: justify">You may have your telephone or wireless/mobile phone number listed on
+                        a state or federal do not call registry. By submitting your personal information when requesting
+                        a solar consultation/quote via @(utils.templates.TemplateSettings.get_capital_site_name(siteSettings)).com, you agree that such act constitutes
+                        express written consent to be contacted by us or any third parties that we may share your
+                        personal information with. Notwithstanding that your telephone or wireless/mobile phone number
+                        that you provided to us may be listed on the Federal Trade Commission&#8217;s &#8220;Do-Not-Call&#8221;
+                        List or any state &#8220;Do-Not-Call&#8221; list, you have authorized us (and any third parties
+                        that we may share your personal information) to contact you at such telephone or wireless/mobile
+                        phone number in accordance with the Amended Telemarketing Sales Rule, 16 CFR §310 et seq., any
+                        applicable Federal Communications Commission’s rules and regulations and any applicable state
+                        telemarketing rules and regulations.</p>
+
+                    <p style="text-align: justify">Please note that if we contact you and you request that we no longer
+                        contact you via telephone, we record your name on a separate “Do Not Call” list maintained by
+                        the operators of SMA. We honor your “Do Not Call” request within a reasonable time from the date
+                        of your request, in any event, not to exceed thirty days from the date you make such request.
+                        Once we place your name on our internal “Do Not Call” list, we will no longer contact you via
+                        telephone (unless you submit another inquiry or request another consultation/quote from us
+                        subsequent to your initial request). However, we may still contact you via the email or direct
+                        mailing address that you provided to us in your submission (or collected from third party
+                        sources), pursuant to the terms of this policy.</p>
+
+                    <p style="text-align: justify"><span style="text-decoration: underline">We allow you to opt-out from receiving other communications from SMA as described in the “opt out” section below</span>.
+                    </p>
+
+                    <p style="text-align: justify">Please note that our process to honor your “Do Not Call” request
+                        impacts only calls may by us or by those entities on our behalf. You may still receive telephone
+                        calls from third parties to whom we have shared your personal information (if at all) regarding
+                        their products and services in which case you will need to request that those parties not call
+                        you, on a case-by-case basis.</p>
+
+                    <h3 style="text-align: justify"><strong>How Do We Use Your Personal Information?</strong></h3>
+
+                    <p style="text-align: justify"><em>Selling Personal Information</em></p>
+
+                    <p style="text-align: justify">We are a lead generation company and are in the business of selling
+                        personal information about our users and visitors to third parties, such as, without limitation,
+                        solar energy providers and energy efficiency consultants/auditors. When you request a solar
+                        consultation/quote or otherwise request that clean energy service providers contact you, we may
+                        sell, disclose or otherwise dispose of your personal information to solar energy providers,
+                        clean energy service providers or other third party service providers not affiliated with us in
+                        order to fulfill your request.</p>
+
+                    <p style="text-align: justify">Accordingly, these third parties that purchase or receive your
+                        personal information from us may then (i) use your personal information for their own purposes
+                        (including for commercial purposes), (ii) contact you regarding their products and services,
+                        and/or (iii) disclose or dispose of your personal information to other third parties for their
+                        own commercial purposes.</p>
+
+                    <p style="text-align: justify"><span style="text-decoration: underline">If for any reason you want to opt out of this disclosure, please see the “opt out” section below to learn how</span>.
+                    </p>
+
+                    <p style="text-align: justify">Please note any third parties to whom we may disclose personal
+                        information may have their own privacy policies which describe how they use and disclose
+                        personal information. Those policies will govern use, handling and disclosure of your personal
+                        information once we have shared it with those third parties as described in this Privacy Policy.
+                        If you want to learn more about their privacy practices, we encourage you to visit the websites
+                        of those third parties.</p>
+
+                    <p style="text-align: justify"><em>Using Your Information to Contact You About Other Products,
+                        Services, Offers, etc.</em></p>
+
+                    <p style="text-align: justify">We may also use your personal information to contact you via direct
+                        mail, email and/or telemarketing regarding offers, contests, events, news, programs, and other
+                        retail opportunities from us and/or selected third parties that we believe may be of interest to
+                        you.</p>
+
+                    <p style="text-align: justify"><span style="text-decoration: underline">We allow you to opt-out from receiving marketing communications from SMA as described in the “opt out” section below</span>.
+                    </p>
+
+                    <p style="text-align: justify">In addition, we may also share your personal information with our
+                        marketing partners or other third parties in order to bring selected retail opportunities,
+                        offers, contests, programs, events or news to you via direct mail, email and/or telemarketing.
+                        You may have no relationship with these other companies. In addition, we not responsible for the
+                        content of any third party communications sent to you and you will be required to opt out of
+                        those communications separately, if desired.</p>
+
+                    <p style="text-align: justify"><em>Disclosing Your Information as a Part of a Merger, Sale or Other
+                        Financing</em></p>
+
+                    <p style="text-align: justify">Also, information about our users, including personal information,
+                        may be disclosed and/or sold as part of any merger, acquisition, debt financing, sale of company
+                        assets, or similar transaction by us, as well as in the event of an insolvency, bankruptcy or
+                        receivership in which personal information could be transferred and/or sold to third parties as
+                        one of our business assets.</p>
+
+                    <p style="text-align: justify"><em>Using Your Information to Improve @(utils.templates.TemplateSettings.get_capital_site_name(siteSettings)).com</em>
+                    </p>
+
+                    <p style="text-align: justify">In addition, we may use personal information to provide services and
+                        information that you request; to enhance, improve, operate, and maintain
+                        @(utils.templates.TemplateSettings.get_capital_site_name(siteSettings)).com, our programs, services, website, and other systems; to prevent
+                        fraudulent use of @(utils.templates.TemplateSettings.get_capital_site_name(siteSettings)).com and services; to tailor your user experience; to
+                        maintain a record of our dealings with you, and for other administrative purposes.</p>
+
+                    <p style="text-align: justify"><em>Disclosing Your Information to Help Operate
+                        @(utils.templates.TemplateSettings.get_capital_site_name(siteSettings)).com</em></p>
+
+                    <p style="text-align: justify">We may disclose personal information to third-party service providers
+                        (e.g., payment processing and data storage and processing facilities) that assist us in our
+                        work. We limit the personal information provided to these service providers to that which is
+                        reasonably necessary for them to perform their functions.</p>
+
+                    <p style="text-align: justify"><em>Disclosing Your Information if Legally Required</em></p>
+
+                    <p style="text-align: justify">We may also disclose personal information if we believe that doing so
+                        is legally required or is in our interest to protect our property or other legal rights
+                        (including, but not limited to, enforcement of our agreements), or the rights or property of
+                        others.</p>
+
+                    <p style="text-align: justify"><em>Using Your Information with Affiliate Companies or
+                        Subsidiaries</em></p>
+
+                    <p style="text-align: justify">Although we do not presently have a parent company or any
+                        subsidiaries, joint venture partners, or other companies that we control or are under common
+                        control with (collectively, “affiliates”), we may in the future. We may share some of all of
+                        your personal information with our affiliates, in which case we will seek to require those
+                        affiliates to honor this privacy policy.</p>
+
+                    <p style="text-align: justify"><em>Using Your Information to Aggregate Statistics</em></p>
+
+                    <p style="text-align: justify">We may disclose aggregate statistics regarding user behavior as a
+                        measure of interest in, and use of, our website and e-mails to third parties in the form of
+                        aggregate data, such as overall patterns or demographic reports that do not describe or identify
+                        any individual user.</p>
+
+                    <h3 style="text-align: justify"><strong>How Can I Opt Out or Not Be Contacted By
+                        @(utils.templates.TemplateSettings.get_capital_site_name(siteSettings)).com?</strong></h3>
+
+                    <p style="text-align: justify"><em>Unsubscribing from Company Communications</em></p>
+
+                    <p style="text-align: justify">Since we are in the business of selling personal information about
+                        our users to third parties, we must (a) give consumers the right to exercise a cost-free opt-out
+                        from having their information shared with or sold to third parties; or (b) upon a consumer’s
+                        request, (1) provide the consumer with a list of all the companies to whom we have provided that
+                        consumer’s personal information for marketing or commercial purposes and (2) provide the
+                        consumer the categories of information shared with the third parties.</p>
+
+                    <p style="text-align: justify">You may opt-out from having your information shared with or sold to
+                        third parties and you may request the list referenced in subsection (b) in the paragraph above
+                        by sending us an email given at the end of this policy. In addition, please note that the list
+                        referenced in subjection (b) in the paragraph above is free to the consumer; however, we are
+                        only required to respond to one request per year.</p>
+
+                    <p style="text-align: justify">If you receive commercial email from us, you may unsubscribe at any
+                        time by following the instructions contained within the email. You may also opt-out from
+                        receiving commercial email from us by sending us an email or by writing to us at the address
+                        given at the end of this policy.</p>
+
+                    <p style="text-align: justify">Additionally, if you do not wish to be notified by postal mail
+                        regarding products, services, events, programs, and offers that we believe you may find of
+                        interest, you may opt-out from such communications by sending us an email or by writing to us at
+                        the address given at the end of this policy.</p>
+
+                    <p style="text-align: justify"><em>Unsubscribing from Third Party Communications</em></p>
+
+                    <p style="text-align: justify">Any third parties to whom we may disclose personal information may
+                        have their own privacy policies which describe how they use and disclose personal information.
+                        Those policies will govern use, handling and disclosure of your personal information once we
+                        have shared it with those third parties as described in this privacy policy. If you want to
+                        learn more about their privacy practices, we encourage you to visit the websites of those third
+                        parties.</p>
+
+                    <p style="text-align: justify">Please note that our unsubscribe process impacts only the future
+                        delivery of electronic mailings disseminated by us on our own behalf. You may still receive
+                        electronic mailings sent on behalf of third parties and your personal information may still be
+                        shared by us with third parties for use in offline marketing and data appends, including email
+                        appends unless you unsubscribe as provided above.</p>
+
+                    <p style="text-align: justify">You should also note that unsubscribing from our electronic mailings
+                        will not automatically unsubscribe your information from any third party business associates and
+                        licensees of the data. Since third party associates and licensee partners maintain separate
+                        databases from us, and you will need to unsubscribe from each source individually, if desired.
+                        This allows you the freedom to pick and choose which subscriptions to maintain and which to
+                        discontinue.</p>
+
+                    <h3 style="text-align: justify"><strong>Users Under Age 13</strong></h3>
+
+                    <p style="text-align: justify">It is our policy that visitors to our Site who are under the age of
+                        13 should not post or provide information on our Site without the consent of their parents. The
+                        Child Online Privacy and Protection Act (COPPA) regulates online collection of information from
+                        persons under the age of 13. It is our policy to refrain from knowingly collecting or
+                        maintaining personal information relating to any person under the age of 18. If you are under
+                        the age of 18, please do not supply any personal information through the site. If you are under
+                        the age of 18 and have already provided personal information through the site, please have your
+                        parent or guardian contact us immediately, so that we can remove such information from our
+                        files. Your parent or guardian may contact us at the address below.</p>
+
+                    <h3 style="text-align: justify"><strong>What Happens if I Click on a Link to Another
+                        Website?</strong></h3>
+
+                    <p style="text-align: justify">For your convenience, @(utils.templates.TemplateSettings.get_capital_site_name(siteSettings)).com may contain links to
+                        other Web sites, products, or services that we do not own or operate. If you choose to visit or
+                        use any third-party products or services, please be aware that this policy will not apply to
+                        your activities or any information you disclose while interacting with third parties.</p>
+
+                    <h3 style="text-align: justify"><strong>International Visitors</strong></h3>
+
+                    <p style="text-align: justify">@(utils.templates.TemplateSettings.get_capital_site_name(siteSettings)).com is hosted in the United States and is
+                        generally intended for United States visitors. If you visit from the European Union or other
+                        regions with laws governing data collection and use that may differ from U.S. law, please be
+                        aware that you are transferring personal information to the United States. The United States
+                        does not have the same data protection laws as the EU and some other regions. By providing
+                        personal information to us, you consent to the transfer of it to the United States and the use
+                        of it in accordance with this policy.</p>
+
+                    <h3 style="text-align: justify"><strong>Security</strong></h3>
+
+                    <p style="text-align: justify">We use reasonable security measures that are designed to protect
+                        personal information from loss, misuse, and unauthorized access, disclosure, alteration, or
+                        destruction. Please note, however, that no data security measures can be guaranteed to be
+                        completely effective. Consequently, we cannot ensure or warrant the security of any personal
+                        information or other information. You transmit personal information to us at your own risk.</p>
+
+                    <h3 style="text-align: justify"><strong>Terms of Use</strong></h3>
+
+                    <p style="text-align: justify">A copy of SMA&#8217;s Terms of Use can be found here: <strong><a
+                            href="/terms-of-use" target="_blank">http://www.@(utils.templates.TemplateSettings.get_capital_site_name(siteSettings)).com/terms-of-use</a></strong>
+                        (the &#8220;TOU&#8221;). Such TOU may include additional provisions relating to your use of SMA,
+                        site restrictions, third party content, informational disclaimers, warranty disclaimers and
+                        limitations of liability. Please note that the TOU is expressly incorporated into this privacy
+                        policy. <strong>BY AGREEING TO THE TERMS OF THIS PRIVACY POLICY, YOU ALSO AGREE TO THE TERMS AS
+                            SET FORTH IN THE TOU.</strong></p>
+
+                    <h3><strong>Updates to This Policy</strong></h3>
+
+                    <p style="text-align: justify">We may occasionally update this policy. When we do, we will also
+                        revise the “last updated” date at the end of the policy. Your continued use of
+                        @(utils.templates.TemplateSettings.get_capital_site_name(siteSettings)).com after such changes will be subject to the then-current policy. We
+                        encourage you to periodically review this policy to stay informed about how we collect, use, and
+                        disclose personal information.</p>
+
+                    <h3 style="text-align: justify"><strong>Contacting Us</strong></h3>
+
+                    <p style="text-align: justify">If you have any questions, comments, or concerns about this privacy
+                        policy, email us at <a class="__cf_email__" href="contact@@@utils.templates.TemplateSettings.get_host(siteSettings)"
+                                               data-cfemail="25464a4b5144465165764a49445708644840574c46440b4a5742">contact@@@utils.templates.TemplateSettings.get_host(siteSettings)</a>
+                        <script data-cfhash='f9e31' type="text/javascript">
+                            /* <![CDATA[ */!function(t,e,r,n,c,a,p){try{t=document.currentScript||function(){for(t=document.getElementsByTagName('script'),e=t.length;e--;)if(t[e].getAttribute('data-cfhash'))return t[e]}();if(t&&(c=t.previousSibling)){p=t.parentNode;if(a=c.getAttribute('data-cfemail')){for(e='',r='0x'+a.substr(0,2)|0,n=2;a.length-n;n+=2)e+='%'+('0'+('0x'+a.substr(n,2)^r).toString(16)).slice(-2);p.replaceChild(document.createTextNode(decodeURIComponent(e)),c)}p.removeChild(t)}}catch(u){}}()/* ]]> */
+                        </script>
+                        or mail us at:
+                    </p>
+                    <p style="text-align: justify">@utils.templates.TemplateSettings.get_host(siteSettings)
+                        31 St James Ave 6th Floor<br>
+                        Boston, MA 02116</p>
+
+                    <p style="text-align: justify">This policy was last updated June 3, 2016.</p>
+                </div>
+                <!-- .entry-content -->
+            </article>
+            <!-- #post-## -->
+
+
+        </main>
+        <!-- #main -->
+    </div>
+    <!-- #primary -->
+
+
+</div>
+<!-- #content -->
+
+<div id="footer-area">
+    <div class="container footer-inner">
+    </div>
+
+
+    <div id="partners">
+        <div class="container">
+
+        </div>
+    </div>
+
+    <!-- #colophon -->
+</div>
+</div><!-- #page -->
+
+<div class="bottom-container">
+    <div id="bottomText">
+        <div class="container">
+            <small>All site content including any recommendations, financial estimates, custom savings plans or estimated
+                energy savings is for general informational purposes only and is not intended to be professional advice.
+                Furthermore, nothing on this site is intended to imply or infer a contract for services or otherwise between
+                us and you in any way, nor is it intended to replace advice from a qualified energy specialist or other
+                professional. Before implementing and/or using energy-related products in your home or business, you must
+                always seek the advice of a qualified professional. Any custom plans or energy savings are only
+                representative examples and your actual needs and results may vary depending on product specifications,
+                product use, product pricing, government rebates, local utility prices, local weather and individual
+                behavior.
+            </small>
+        </div>
+    </div>
+</div>
+<footer>
+    <div class="footer-container">
+        <a href="/"><img src="@(construct_url(utils.templates.TemplateSettings.get_footer_logo_path(siteSettings)))" alt=""></a>
+    </div>
+</footer>
+<div class="modal-bg">
+</div>
+</div>
+</body>
+</html>

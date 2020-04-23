@@ -1,0 +1,69 @@
+@()(implicit request: play.api.mvc.Request[AnyContent])
+@import org.uaparser.scala.Parser
+
+<script type="text/javascript">
+    var data = {};
+    var zip = '';
+    var newHash = '';
+    var user_agent = "@(request.headers.get("User-Agent").getOrElse(""))";
+    var ip_address;
+    var robot_id;
+    var os = "@(Parser.get.parse(request.headers.get("User-Agent").getOrElse("")).os.family)";
+    var referer = "@(request.headers.get("referer").getOrElse(""))";
+    var arpxs_a_ref = "@(request.queryString.getOrElse("arpxs_a_ref", ""))";
+    var arpxs_b = "@(request.queryString.getOrElse("arpxs_b", ""))";
+    var arpxs_abv = "@(request.queryString.getOrElse("arpxs_abv", ""))";
+    var utm_source = "@(request.queryString.getOrElse("utm_source", ""))";
+    var utm_campaign = "@(request.queryString.getOrElse("utm_campaign", ""))";
+    var gclid = "@(request.queryString.getOrElse("gclid", ""))";
+    var request_url = "@(request.remoteAddress + request.uri)";
+
+    document.getElementById('local_hour').value = (new Date()).getHours();
+
+    const FORM_STEP1 = 'Form Step 1';
+    const FORM_STEP2 = 'Form Step 2';
+    const FORM_STEP2B = 'Form Step 2B';
+    const FORM_STEP3 = 'Form Step 3';
+    const FORM_COMPLETE = 'Form Complete';
+    const LP_CTC = 'LP CTC';
+    const MAXMIND_FAIL = "Maxmind failure on page load";
+    const PAGE_LOADED = "Page loaded";
+
+    function sendPing() {
+        //console.log('Serialized form ping', decodeURI($("#leadform").serialize()));
+        $.ajax({
+            url: "/ping",
+            type: 'POST',
+            contentType: 'application/x-www-form-urlencoded',
+            data: $("#leadform").serializeArray(),
+            async: true,
+            success: function() {}
+        });
+    }
+
+    function createEvent(event) {
+        $.ajax({
+            url: "/event/create",
+            type: 'POST',
+            contentType: 'application/x-www-form-urlencoded',
+            data: {
+                browser_id: browserId,
+                event: event,
+                user_agent: user_agent,
+                ip_address: ip_address,
+                os: os,
+                robot_id: (robot_id ? robot_id : undefined),
+                request_url: request_url,
+                referer: referer,
+                arpxs_a_ref: arpxs_a_ref,
+                arpxs_b: arpxs_b,
+                arpxs_abv: arpxs_abv,
+                utm_source: utm_source,
+                utm_campaign: utm_campaign,
+                gclid: gclid
+            },
+            async: false,
+            success: function() {}
+        });
+    }
+</script>

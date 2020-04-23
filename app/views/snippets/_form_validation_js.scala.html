@@ -1,0 +1,180 @@
+@(implicit configuration: play.api.Configuration)
+<script type="text/javascript">
+    function isPhoneValid(phone) {
+        var valid = false;
+        var username = "@(configuration.getString("twilio.account.sid "))";
+        var password = "@(configuration.getString("twilio.account.auth_token "))";
+        $.ajax({
+            url: "@(configuration.getString("twilio.phone_validation.uri "))".replace("[PHONE]", phone + "?Type=carrier&Type=caller-name"),
+            type: 'GET',
+            dataType: 'json',
+            async: false,
+            beforeSend: function(xhr) {
+                xhr.setRequestHeader("Authorization", "Basic " + btoa(username + ":" + password));
+            },
+            success: function(result) {
+                valid = true;
+            },
+            error: function(e) {
+                valid = false;
+            }
+        });
+        return valid;
+    }
+
+    var phoneValid = false;
+    var phoneValidationRunning = false;
+
+    function isPhoneValid() {
+        if (!phoneValidationRunning) {
+            phoneValidationRunning = true;
+            var phone = $("#phone_home").val().replace(/\D/g, "");
+            $("#phone_home").hide();
+            $('.phoneLoading').show();
+            $.ajax({
+                url: "/validate_phone/" + phone,
+                type: 'GET',
+                async: true,
+                cache: false,
+                success: function(r) {
+                    //console.log('phone validation result ->', r);
+                    phoneValid = true;
+                },
+                error: function(e) {
+                    //console.log('phone validation result ->', e);
+                    phoneValid = false;
+                },
+                complete: function() {
+                    setTimeout(function() {
+                        phoneValidationRunning = false;
+                        $("#phone_home").show();
+                        $('.phoneLoading').hide();
+                        if (!phoneValid) {
+                            $("#phone_home").closest('.form-group').addClass('error');
+                        } else {
+                            $("#phone_home").closest('.form-group').removeClass('error');
+                        }
+                    }, 1000);
+                }
+            });
+        }
+    }
+
+    function is_street_and_zip_valid(errors) {
+        var street = $("input[name='form.street']").val();
+        var zip = $("input[name='form.zip']").val();
+        if (street == '') {
+            errors.push("Please enter your street address");
+            $("#street").closest('.form-group').addClass('error');
+        } else if (!__helpers__.isValidAddress(street)) {
+            errors.push("Please enter a valid street address");
+            $("#street").closest('.form-group').addClass('error');
+        } else {
+            $("#street").closest('.form-group').removeClass('error');
+            if (zip == '') {
+                errors.push("Please enter your zip");
+                $("#zip").closest('.form-group').addClass('error');
+            } else if (!__helpers__.isValidZipcode(zip)) {
+                errors.push("Please enter a valid zip");
+                $("#zip").closest('.form-group').addClass('error');
+            } else {
+                $("#zip").closest('.form-group').removeClass('error');
+            }
+        }
+    }
+
+    function is_electric_bill_valid(errors) {
+        var elec_bill = $("#electric_bill").val();
+        if (!elec_bill) {
+            errors.push("Please enter your monthly electric bill");
+            $("#electric_bill").closest('.form-group').addClass('error');
+        } else {
+            $("#electric_bill").closest('.form-group').removeClass('error');
+        }
+    }
+
+    function is_power_supplier_valid(errors) {
+        var current_suppliers = $('#powerSuppliers').autocomplete("option", "source")
+        var powerSupplier = $("input[name='form.electric_company']").val();
+        if (powerSupplier == '') {
+            errors.push("Please select a power supplier");
+            $("#powerSuppliers").closest('.form-group').addClass('error');
+        } else if (!current_suppliers.includes(powerSupplier)) {
+            errors.push("Please select a power supplier from the list");
+            $("#powerSuppliers").closest('.form-group').addClass('error');
+        } else {
+            $("#powerSuppliers").closest('.form-group').removeClass('error');
+        }
+    }
+
+    function is_first_last_name_valid(errors) {
+        var first_name = $("input[name='form.first_name']").val();
+        if (first_name == '') {
+            errors.push("Please enter your first name");
+            $("#first_name").closest('.form-group').addClass('error');
+        } else if (!__helpers__.isValidName(first_name) || first_name.length < 3) {
+            errors.push("Please enter a valid first name");
+            $("#first_name").closest('.form-group').addClass('error');
+        } else {
+            $("#first_name").closest('.form-group').removeClass('error');
+        }
+
+        var last_name = $("input[name='form.last_name']").val();
+        if (last_name == '') {
+            errors.push("Please enter your last name");
+            $("#last_name").closest('.form-group').addClass('error');
+        } else if (!__helpers__.isValidName(last_name) || last_name.length < 3) {
+            errors.push("Please enter a valid last name");
+            $("#last_name").closest('.form-group').addClass('error');
+        } else {
+            $("#last_name").closest('.form-group').removeClass('error');
+        }
+    }
+
+    function is_email_valid(errors) {
+        var email = $("input[name='form.email']").val();
+        if (email == '') {
+            errors.push("Please enter your email");
+            $("#email").closest('.form-group').addClass('error');
+        } else if (!__helpers__.isValidEmail(email)) {
+            errors.push("Please enter a valid email");
+            $("#email").closest('.form-group').addClass('error');
+        } else {
+            $("#email").closest('.form-group').removeClass('error');
+        }
+    }
+
+    function is_phone_valid(errors) {
+        var phone_home = $("input[name='form.phone_home']").val().replace(/\D/g, "");
+        if (phone_home == '') {
+            errors.push("Please enter your phone number");
+            $("#phone_home").closest('.form-group').addClass('error');
+        } else if (!phoneValid) {
+            errors.push("Please enter a valid phone number");
+            $("#phone_home").closest('.form-group').addClass('error');
+        } else {
+            $("#phone_home").closest('.form-group').removeClass('error');
+        }
+    }
+
+    //Evaluate the city and state from the user provided address and store values in hidden city/state component
+    function evaluate_city_state_from_address_routine() {
+        //var address = $("input[name='form.street']").val().replace(" ", "+")+","+$("input[name='form.zip']").val();
+        //todo: move the google api key into config
+        $.ajax({
+            url: "https://maps.googleapis.com/maps/api/geocode/json?address=" + $("input[name='form.zip']").val() + "&key=AIzaSyDJPoJBBnxlePYGmFz5MEmiHtWcKm0jSNY",
+            type: 'GET',
+            async: false,
+            success: function(res) {
+                var city = res.results[0]["address_components"].filter(function(component) {
+                    return component.types.indexOf('locality') > -1;
+                })[0].long_name;
+                var state = res.results[0]["address_components"].filter(function(component) {
+                    return component.types.indexOf('administrative_area_level_1') > -1;
+                })[0].short_name;
+                $("#state").val(state.toUpperCase());
+                $("#city").val(city);
+            }
+        });
+    }
+</script>

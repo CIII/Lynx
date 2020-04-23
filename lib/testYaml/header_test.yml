@@ -1,0 +1,40 @@
+namespace:
+  # some backends (e.g. Planout4jConfigFileNackend) automatically pick up the name, but it can be provided explicitly
+  name: header_test
+  # optional namespace-level salt, otherwise the name is used
+  # the primary unit for this namespace
+  unit: session_id
+  # how many segments to split the traffic into
+  segments: 100
+
+
+# define all experiments here once
+
+experiment_definitions:
+
+  - definition: Default_Header  # must be unique within namespace
+    # PLanOut DSL, see http://facebook.github.io/planout/docs/planout-language-reference.html
+    assign: !planout |
+      header = "header";
+  - definition: Header_Test_1
+    assign: !planout |
+      #Checks to see if its thank you
+      if(page_type){
+        if(page_type == 'thank_you'){
+          header = uniformChoice(choices=["header1", "header2"], unit=session_id);
+        }
+      }
+
+# default experiment is required, refer to an existing definition from above
+default_experiment: Default_Header
+
+
+# instantiate experiments here with "add" action, possibly multiple times
+# each instance gets its own allotment of traffic
+# use "remove" action to remove a previously added experiment
+
+experiment_sequence:
+  - action: add                       # required, one of add, remove
+    definition: Header_Test_1   # required for add, refers to an experiment defined in "experiment_definitions"
+    name: 20170224_Header_Test  # must be unique within experiment_sequence
+    segments: 100

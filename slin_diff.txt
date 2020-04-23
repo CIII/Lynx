@@ -1,0 +1,88 @@
+diff --git a/app/Global.scala b/app/Global.scala
+index 64d468f..16c3c9a 100644
+--- a/app/Global.scala
++++ b/app/Global.scala
+@@ -14,11 +14,11 @@ object Global extends GlobalSettings {
+   }*/
+ 
+   // 500 - internal server error
+-  override def onError(request: RequestHeader, throwable: Throwable) = {
++  /*override def onError(request: RequestHeader, throwable: Throwable) = {
+     //InternalServerError(views.html.errors.on_error(throwable))
+     Logger.error("500 Internal Server Error: %s".format(throwable.getMessage))
+     Future.successful(Redirect(routes.PageController.index()))
+-  }
++  }*/
+ 
+   // 404 - page not found error
+   override def onHandlerNotFound(request: RequestHeader) = {
+@@ -31,4 +31,4 @@ object Global extends GlobalSettings {
+     Future.successful(Redirect(routes.PageController.index()))
+   }
+ 
+-}
+\ No newline at end of file
++}
+diff --git a/app/api/solar/calculator/cache/SolarCalculatorCacheService.scala b/app/api/solar/calculator/cache/SolarCalculatorCacheService.scala
+index 3856c6f..2e0131b 100644
+--- a/app/api/solar/calculator/cache/SolarCalculatorCacheService.scala
++++ b/app/api/solar/calculator/cache/SolarCalculatorCacheService.scala
+@@ -114,6 +114,8 @@ class SolarCalculatorCacheService @Inject()(
+           case Some(zip) =>
+             set_key(cache_cost_key, zip.cost, EXPIRATION)
+             zip.cost
++          case _ =>
++            throw new Exception(s"Did not find zip code ${zip_code}")
+         }
+     }
+   }
+@@ -170,6 +172,8 @@ class SolarCalculatorCacheService @Inject()(
+           case Some(srec) =>
+             set_key(state,srec.srec,EXPIRATION)
+             srec.srec
++          case _ =>
++            throw new Exception(s"Could not find SREC key ${state}")
+         }
+     }
+   }
+diff --git a/app/controllers/LeadPathController.scala b/app/controllers/LeadPathController.scala
+index 16f003b..50b56c6 100644
+--- a/app/controllers/LeadPathController.scala
++++ b/app/controllers/LeadPathController.scala
+@@ -84,6 +84,7 @@ class LeadPathController @Inject()(
+     val power_bill = {
+       val power_bill_range = URLEncoder.encode(rawForm.getOrElse("form.electric_bill", List("")).head, "UTF-8").replaceAll("%24", "")
+       val power_bill_pattern = """(\d+)-(\d+)""".r
++      Logger.debug(power_bill_range)
+       val power_bill_pattern(min, max) = power_bill_range
+       (min.toDouble + max.toDouble) / 2.0
+     }
+diff --git a/bin/activator b/bin/activator
+old mode 100644
+new mode 100755
+diff --git a/conf/dev.conf b/conf/dev.conf
+index 477e5b3..6bd2f2a 100644
+--- a/conf/dev.conf
++++ b/conf/dev.conf
+@@ -20,7 +20,7 @@ include "application.conf"
+ redis.host = "lynx.pgp8ei.ng.0001.usw2.cache.amazonaws.com"
+ redis.port = "6379"
+ 
+-solarcalculator.redis.host = "localhost"
++solarcalculator.redis.host = "lynx.pgp8ei.ng.0001.usw2.cache.amazonaws.com"
+ solarcalculator.redis.port = "6379"
+ 
+ cloudfront.cdn.url = "/assets/"
+diff --git a/conf/logback.xml b/conf/logback.xml
+index 86ec12c..ffabd9e 100644
+--- a/conf/logback.xml
++++ b/conf/logback.xml
+@@ -6,7 +6,7 @@
+   <appender name="FILE" class="ch.qos.logback.core.FileAppender">
+     <file>${application.home:-.}/logs/application.log</file>
+     <encoder>
+-      <pattern>%date [%level] from %logger in %thread - %message%n%xException</pattern>
++      <pattern>%date [%level] from %logger in %thread (%line) - %message%n%xException</pattern>
+     </encoder>
+   </appender>
+ 

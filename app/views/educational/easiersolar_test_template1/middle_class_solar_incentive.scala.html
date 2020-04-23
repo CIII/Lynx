@@ -1,0 +1,265 @@
+@()(implicit request: play.api.mvc.Request[AnyContent], configuration: play.api.Configuration)
+
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Solar, Solar Energy">
+    <meta name="author" content="">
+    <link rel="shortcut icon" href="@(configuration.getString("cloudfront.cdn.url"))images/new-favicon-32x32.ico" type="image/ico">
+
+    <!-- Bootstrap core CSS -->
+    <link href="@(configuration.getString("cloudfront.cdn.url"))educational/easiersolar_test_template1/stylesheets/bootstrap.min.css" rel="stylesheet">
+    <script async="" src="//connect.facebook.net/en_US/fbds.js"></script><script async="" src="//www.google-analytics.com/analytics.js"></script><script id="facebook-jssdk" src="//connect.facebook.net/en_US/sdk.js#xfbml=1&amp;version=v2.0"></script><script src="../../assets/js/ie-emulation-modes-warning.js"></script>
+    <script src="//js.maxmind.com/js/apis/geoip2/v2.1/geoip2.js" type="text/javascript"></script>
+    <script type="text/javascript" src="/browser_id.js"></script>
+    <script src="@(configuration.getString("cloudfront.cdn.url"))javascripts/track.js?t=1460151968"></script>
+    <script src="http://code.jquery.com/jquery-1.10.2.min.js" type="text/javascript"></script>
+    <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+
+    <!-- Custom styles for this template -->
+    <link href="@(configuration.getString("cloudfront.cdn.url"))educational/easiersolar_test_template1/stylesheets/carousel.css" rel="stylesheet">
+    @{views.html.metadata.social_links("Compare solar quotes from top local and national installers | EasierSolar","Get competitive quotes in minutes. Installers compete for your business, you get the best deal & save fast. Talk to an advisor or shop online today.", configuration.getString("cloudfront.cdn.url") + "educational/easiersolar_test_template1/images/Share_Image_Solar.png")}
+    
+</head>
+<!-- NAVBAR
+================================================== -->
+<body>
+<p style="font-size:16px;margin: 0 0 0 0;text-align: left;">Advertorial</p>
+@views.html.snippets._application_js()
+<script>
+    var template = 'blog_middle_class_solar_incentive'
+</script>
+<script type="text/javascript" src="/browser_id.js"></script>
+<script>
+(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.8";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+<nav class="navbar navbar-inverse navbar-static-top">
+    <div class="logo_wrap">
+        <a target="_blank" onclick="return educationRedirect();" href="/compare/160801/">   <img src="@(configuration.getString("cloudfront.cdn.url"))educational/easiersolar_test_template1/images/Easier Solar-logo-white Respace Optimized.png" style="
+            height: 40px;
+            "></a> <form action="/get-quotes/" style="
+    float: right;
+    margin-top: 10px;    margin-right: 56px;
+">
+    </form><h style="color:white;float:right;margin-right: 57px;margin-top: 10px;"><a style="color:#FFFFFF;border-left: solid 1px grey;padding-left:5px;" onclick="return educationRedirect();" href="/compare/160801/">Insurance </a></h><h style="color:white;float:right;margin-right: 5px;margin-top: 10px;"><a class="navbar_tab" style="color:#FFFFFF;border-left: solid 1px grey;padding-left:5px;" onclick="return educationRedirect();" href="/compare/160801/">Finance</a></h><h style="color:white;float:right;margin-right: 5px;margin-top: 10px;"><a class="navbar_tab" style="color:#FFFFFF;border-left: solid 1px grey;padding-left:5px;" onclick="return educationRedirect();" href="/compare/160801/">Electricity</a></h><h style="color:white;float:right;margin-right: 5px;margin-top: 10px;"><a class="navbar_tab" style="color:#FFFFFF;" onclick="return educationRedirect();" href="/compare/160801/">Solar</a></h>
+
+    </div>
+</nav>
+
+<div class="container-fluid text_bg2">
+    <div class="mid_text_wrap ">
+
+
+
+
+    </div>
+</div>
+
+<hr class="featurette-divider">
+<div class="container marketing">
+    <div id="top-banner" class="top-banner" name="top-banner" style="width:975px;"><a onclick="return educationRedirect();" href="/compare/160801/"><img src="@(configuration.getString("cloudfront.cdn.url"))educational/easiersolar_test_template1/images/middle_class_header_3.png" alt="solarad" style="margin-top:20px;margin-left: 130px;margin-right: 120px;"></a></div>
+    <p style="
+float:right;
+    background-color: rgb(48, 122, 183);
+background-color=blue;
+    color: white;
+    font-weight: bold;
+    text-shadow: 1px 1px rgb(20, 25, 31);
+    border-bottom-right-radius: 3px;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+    border-bottom-left-radius: 3px;
+    width: 114px;
+      font-size: 18px;
+    text-align: center;
+ float: right;
+  margin-top: 32px;
+  margin-left: 12px;
+"> <a onclick="return educationRedirect();" href="/compare/160801/" style="color: white;">More Info</a></p>
+    <!--<img src="images/solarad.jpg" alt="solarad" style="float: right;
+      margin-right: -285px;
+      margin-top: 144px;">-->
+
+    <!-- Three columns of text below the carousel -->
+    <!-- /.row -->
+
+
+    <!-- START THE FEATURETTES -->
+
+
+    <br>
+
+
+
+
+    <div class="row featurette">
+        <br>
+        <div class="col-md-9">
+            <p class="lead2" style="
+    width: 100%;
+">
+
+
+                <h class="federal_header" name="federal_header">Federal Legislators Pass New Bill to Help Increase Middle Class Access to Solar, Adding New $0 Financing</h><br>
+            </p>
+            <div class="fb-like fb_iframe_widget" data-href="https://www.facebook.com/easiersolar/" data-layout="button" data-action="like" data-show-faces="true" data-share="true" fb-xfbml-state="rendered"><span style="vertical-align: bottom; width: 94px; height: 20px;"><iframe src="https://www.facebook.com/plugins/like.php?href=https%3A%2F%2Fwww.facebook.com%2Feasiersolar%2F&width=450&layout=standard&action=like&size=small&show_faces=true&share=true&height=80&appId" width="450" height="80" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true"></iframe></span></div><br>
+            <h style="color:gray;font-size:12px;">Updated: 1 hour ago</h> <br><a onclick="return educationRedirect();" href="/compare/160801/"><img src="@(configuration.getString("cloudfront.cdn.url"))educational/easiersolar_test_template1/images/Solar House 2 Opp.jpg" alt="solar" style="
+            margin-right: 29px;margin-left:29px;
+            float:right;"></a><h style="font-size:16px;" name="intro_text">U.S. residents are finding 2016 to be the perfect time to make the switch to solar power. There have been huge advancements in the technology and the Federal Government is making sure you can take advantage of these benefits through The Federal Residential Renewable Energy Tax Credit Program.  People are shocked at how affordable solar has now become. Fellow Americans have slashed their utility bills by about $1540 annually.<br>
+        </h><br><br>
+            <h style="font-size:16px;">Take advantage of the opportunity while it lasts.</h>
+            <script>
+
+  var onSuccess_update_state = function(location){
+
+    result_state = location.subdivisions[0].names.en
+    if(result_state){ 
+      $('h[name=federal_header]').html(result_state + ' Legislators Pass New Bill to Help Increase Middle Class Access to Solar, Adding New $0 Financing')
+      $('h[name=intro_text]').html('(' + result_state.toUpperCase() + ') - ' + result_state + ' residents are finding 2016 to be the perfect time to make the switch to solar power. There have been huge advancements in the technology and the Federal Government is making sure you can take advantage of these benefits through The Federal Residential Renewable Energy Tax Credit Program.  People are shocked at how affordable solar has now become. Fellow Americans have slashed their utility bills by about $1540 annually.')
+    }
+  }
+
+  var onError_update_state = function(error){
+    console.log("Maxmind Error", JSON.stringify(error, undefined, 4));
+  };
+
+  geoip2.city(onSuccess_update_state, onError_update_state);
+
+</script>
+            <br><br>
+            <p style="
+  
+    background-color: rgb(48, 122, 183);
+background-color=blue;
+    color: white;
+    font-weight: bold;
+    text-shadow: 1px 1px rgb(20, 25, 31);
+    border-bottom-right-radius: 3px;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+    border-bottom-left-radius: 3px;
+    width: 50%;
+      font-size: 18px;
+    text-align: center;
+"> <button onclick="return educationRedirect();" style="color: white; background-color: Transparent; border: none !important; outline: none; width: 100%">See if you qualify</button></p>
+            <a href="/compare/160801/">
+                <img src="@(configuration.getString("cloudfront.cdn.url"))educational/easiersolar_test_template1/images/middle_class_solar_side_2.png" alt="solar" style="margin-right: 29px;margin-left:29px;float:right;margin-bottom:10px;">
+            </a>
+            <div style="font-size: 16px;
+  font-weight: normal;
+  line-height: 1.6;
+"><h style="font-size:18px;color:rgb(48, 122, 183);">The Middle Class Gets a Huge Boost</h>
+                <br>There aren’t many people that know about this, but The Federal Residential Renewable Energy Tax Credit Program is the ideal stimulus package for the middle class. Take a look at your average electricity bill. Chances are you are paying over $100 each month and probably even a lot more depending on the season. If so, you are probably a very good candidate for this solar program. This really is a no-brainer. You get to save money. You do your part to preserve the environment by reducing your carbon footprint. And you create new jobs for fellow Americans by supporting this burgeoning industry. There are 3 primary ways to take advantage of this program:<br>
+                <ol style="font-size:16px;">
+                    <li>Get a home solar loan and have panels installed on your roof with NO UPFRONT cost</li>
+                    <li>Immediately lower your monthly utility bills with zero dollar down PPA/lease products</li>
+                    <li>Save the most long-term by paying cash and incurring no interest on your panels</li>
+                </ol>
+                The utility companies do not want you to know about these benefits because they currently have monopolistic control over the price of your energy. They squeeze more and more money out of you by increasing rates as they please. You need to take control. There is a much better way to pay for power in 2016 and in fact, you can even make money by selling your excess solar power back to the grid. <h style="color:red">The time to act is now</h>.
+                <br></div>
+
+            <div class="top-banner"><h style="font-size:18px;color:rgb(48, 122, 183);"><b>How Do I see If I Qualify?</b><br>Step 1: Click On Your State Below To Check Your Zip Code For Free<br><a onclick="return educationRedirect();" href="/compare/160801/"><img class="center-image" src="@(configuration.getString("cloudfront.cdn.url"))educational/easiersolar_test_template1/images/State Map recolor.png" alt="solar"></a></h></div>
+
+            <br><br><h style="font-size:18px;color:rgb(48, 122, 183);">Do Not Wait For Solar To Get Cheaper</h>
+            <br><h style="font-size:16px;">No one would have thought that the price of solar would have dropped as much as it has to date, but waiting any longer to apply makes no sense. Solar technology was very expensive in the early years, but the technology and manufacturing processes have matured to the point that it is incredibly affordable now for normal households.  Any meaningful reductions moving forward will likely take several years. Besides, if you wait, you will be missing out on all the utility bill savings you could be enjoying right now and you also risk the expiration of these federal and state based incentive programs. The fact is, solar is very affordable for the average homeowner. All you need is good access to the sun, which one of the solar technicians can assess for you for free. The crazy thing is that not only can you cut your energy bills, it’s even possible to actually make money by selling your excess solar power back to the grid!!!
+        </h><div class="top-banner"><a target="_blank" onclick="return educationRedirect();" href="/compare/160801/"><br><img class= "center-image" src="@(configuration.getString("cloudfront.cdn.url"))educational/easiersolar_test_template1/images/Cost Trend Graph.jpg" alt="Solar"></a></div>
+            <br><br><h style="font-size:16px;">In most states, the Government has mandated that utilities pay homeowners major incentives for solar power. In some situations, smart homeowners that have installed solar are actually getting money back on their monthly utility bills instead of the other way around. You can be sure that the utility companies don’t like this and they are trying to find ways to counteract it. This is precisely why you need to take advantage of these government programs now before they expire. There is absolutely no cost to see if you qualify.
+        </h><br><br><div class="top-banner"><a target="_blank" onclick="return educationRedirect();" href="/compare/160801/"><!--<img src="images/solar_graph.gif" alt="Solar">--></a></div>
+            <br><br><h style="font-size:18px;color:rgb(48, 122, 183);">Here Is How You Can Benefit Now</h><br>
+            <h style="font-size:16px;">You can get great information from free websites like EasierSolar.com. This site specializes in connecting homeowners with the best solar advisors in your state. When ready, they provide you with free, no obligation, quotes from screened local solar installers as well as larger national brands. This allows you to properly compare your options and make the best decision for your family. We highly recommend getting multiple quotes before making your final decision.
+                When you install solar now, you are ensuring some pretty amazing benefits:
+            </h>
+            <!--<br/><br/>One of the free online resources on renewable solar energy in America is <a href="/compare/160801/"><b>EasierSolar</b></a>. It includes a network of the leading solar companies in the United Sates. The website provides regularly updated information regarding solar programs and incentives to homeowners within the US. The best part is that you don't have to pay anything to get access to the information provided or, link up with a solar energy company in your area.
+            --><br><br><h style="font-size:18px;color:rgb(48, 122, 183);">When you install solar now, you are ensuring some pretty amazing benefits:</h>
+            <br><br>
+            <h style="font-size:16px;">
+                <ol>
+                    <li>You will slash your monthly utility bills and likely save over $100 each month on average.</li>
+                    <li>You protect yourself from the never-ending trend of annual utility rate hikes. </li>
+                </ol>
+            </h>
+            <h style="font-size:16px;">The reality is that the incentives this government program provides are simply too good to pass up. Having solar installed through his program is one of the best ways to save money and protect future income. And let’s not forget that it also allows you to protect the environment and create new jobs by supporting this rapidly growing industry.  Don’t overlook this free government program. There is absolutely NO COST to see if you qualify.
+            </h>
+        </div>
+    </div>
+    <div class="row featurette">
+        <hr>
+        <div class="col-md-9">
+            <p class="lead2_1"><button class="qualify_button1" onclick="return educationRedirect();">See if you qualify</button></p>
+            <p><div class="fb-like fb_iframe_widget" data-href="https://www.facebook.com/easiersolar/" data-layout="button" data-action="like" data-show-faces="true" data-share="true" fb-xfbml-state="rendered"><span style="vertical-align: bottom; width: 94px; height: 20px;"><iframe src="https://www.facebook.com/plugins/like.php?href=https%3A%2F%2Fwww.facebook.com%2Feasiersolar%2F&width=450&layout=standard&action=like&size=small&show_faces=true&share=true&height=80&appId" width="450" height="80" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true"></iframe></span></div></p>
+        </div>
+    </div>
+    <!-- /END THE FEATURETTES -->
+
+
+    <!-- FOOTER -->
+
+
+</div><!-- /.container -->
+<div class="container-fluid footer_bg">
+    <div class="container">
+        <footer>
+            <img class="footer_logo" src="@(configuration.getString("cloudfront.cdn.url"))educational/easiersolar_test_template1/images/Easier Solar-logo-white Respace Optimized.png" alt="solar" style="
+            height: 40px;
+            ">
+            <p class="pull-right"><a href="/index.php">Back Home</a></p>
+            <p class="footer_text">© 2016 EasierSolar · <a href="http://easiersolar.com/privacy_policy">Privacy Policy</a> · <a href="http://easiersolar.com/terms-of-use">Terms &amp; Conditions</a></p>
+        </footer>
+    </div>
+</div>
+
+Sources:<br>
+<sup>1</sup> According to <a class="extern-link" style="overflow-wrap: break-word; word-wrap: break-word;" target="_blank" href="http://www.seia.org/research-resources/model-leases-ppas">http://www.seia.org/research-resources/model-leases-ppas</a><br>
+<sup>2</sup> According to <a class="extern-link" style="overflow-wrap: break-word; word-wrap: break-word;" target="_blank" href="http://www.npr.org/sections/money/2015/04/10/398811199/episode-616-how-solar-got-cheap">http://www.npr.org/sections/money/2015/04/10/398811199/episode-616-how-solar-got-cheap</a><br>
+<sup>3</sup> According to <a class="extern-link" style="overflow-wrap: break-word; word-wrap: break-word;" target="_blank" href="http://programs.dsireusa.org/system/program/maps">http://programs.dsireusa.org/system/program/maps</a><br>
+<sup>4</sup> According to <a class="extern-link" style="overflow-wrap: break-word; word-wrap: break-word;" target="_blank" href="http://www.consumerreports.org/energy-saving/how-utilities-are-fighting-back-on-solar-power/">http://www.consumerreports.org/energy-saving/how-utilities-are-fighting-back-on-solar-power/</a><br>
+<sup>5</sup> According to <a class="extern-link" style="overflow-wrap: break-word; word-wrap: break-word;" target="_blank" href="http://energy.gov/eere/solarpoweringamerica/database-state-incentives-renewables-efficiency">http://energy.gov/eere/solarpoweringamerica/database-state-incentives-renewables-efficiency</a><br>
+<sup>6</sup> According to <a class="extern-link" style="overflow-wrap: break-word; word-wrap: break-word;" target="_blank" href="http://energy.gov/savings/residential-renewable-energy-tax-credit">http://energy.gov/savings/residential-renewable-energy-tax-credit</a>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-MPNBKF" height="0" width="0" style="display: none;
+        visibility: hidden"></iframe></noscript>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-61451285-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+<script>(function() {
+  var _fbq = window._fbq || (window._fbq = []);
+  if (!_fbq.loaded) {
+    var fbds = document.createElement('script');
+    fbds.async = true;
+    fbds.src = '//connect.facebook.net/en_US/fbds.js';
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(fbds, s);
+    _fbq.loaded = true;
+  }
+  _fbq.push(['addPixelId', '541501885990959']);
+})();
+window._fbq = window._fbq || [];
+window._fbq.push(['track', 'PixelInitialized', {}]);
+</script>
+</body>
+<style>
+    body {
+      background: url(@(configuration.getString("cloudfront.cdn.url"))educational/easiersolar_test_template1/images/pattern.png) scroll;
+    }
+</style>
+<script type="text/javascript">
+    var template = 'blog_middle_class_solar_incentive';
+    var form_page = false;
+</script>
+</html>

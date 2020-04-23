@@ -1,0 +1,42 @@
+@(siteSettings: utils.templates.SiteSettings)(implicit configuration: play.api.Configuration, environment: play.api.Environment)
+@import utils.utilities.construct_url
+@if(utils.templates.TemplateSettings.show_solar_cal(siteSettings)){
+<div class="col-xs-12 col-sm-12 col-md-8 col-lg-9 y-scroll">
+}else{
+<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 y-scroll">
+}
+<div name="form-5" ng-init="ctrl.formPageLoaded('Credit')">
+    <div class="form-right-col" onclick="void(0)">
+        <div class="inner address-block" ng-style="{
+                '-webkit-transition-duration': ctrl.speed + 'ms',
+                '-moz-transition-duration': ctrl.speed + 'ms',
+                '-ms-transition-duration': ctrl.speed + 'ms',
+                '-o-transition-duration': ctrl.speed + 'ms',
+                'transition-duration': ctrl.speed + 'ms'
+            }">
+            <h1>What is your credit score?
+                <a href="javascript:void(0)" data-toggle="tooltip" tooltip-placement="{{ctrl.tooltipPositionCredit}}" uib-tooltip="{{ctrl.creditTxt}}" tooltip-class="tooltipCustom">
+                    <img src="@construct_url("app/images/info-icon.png")" alt="">
+                </a>
+            </h1>
+
+            <form class="address-block row">
+                <div class="form-group col-sm-8 col-sm-offset-2 col-md-8 col-md-offset-2 ">
+                    <select ng-model="ctrl.form.credit_range" >
+                        <option value="">Select Range</option>
+                        <option ng-repeat="credit in ctrl.creditRangeData" value="{{credit.id}}">{{credit.label}}</option>
+                    </select>
+                </div>                                         
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    <button id="continueBtn" class="continue-button" ng-class="{'continue-button-active':ctrl.form.credit_range}" data-ng-click="ctrl.submitInfoForm([ctrl.BASE_CONSTS.CREDIT_SCORE_COMPLETED]);" ng-disabled="!ctrl.form.credit_range"><div class="loader" ng-show="ctrl.$rootScope.loading">Loading...</div>Continue</button>
+                    <button class="skip-bttn" ng-click="ctrl.skip(ctrl.nextStateName, ['credit_range']);" >Skip</button>
+                </div>
+                <input type="hidden" id="leadid_token" name="form.leadid_token" data-ng-model="ctrl.form.leadid_token" />
+            </form>
+        </div><!-- 9 fo rm end-->
+
+       
+    </div>
+@views.html.angular.forms.back_reset()
+</div>
+</div>

@@ -1,0 +1,94 @@
+<script type="text/javascript">
+    /* <![CDATA[ */
+    window.google_trackConversion({
+      google_conversion_id: 881899995,
+      google_conversion_label: 'Dr2gCMKhhWcQ2_PCpAM',
+      google_conversion_value: 20.00,
+      google_conversion_currency: 'USD',
+      google_remarketing_only: false
+    });
+    //]]>
+</script>
+<!-- Facebook Pixel Code -->
+<script>
+    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+    n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+    document,'script','https://connect.facebook.net/en_US/fbevents.js');
+
+    fbq('init', '1015377188570203');
+    fbq('track', 'Lead');
+    fbq('track', "PageView");
+</script>
+<noscript>
+    <img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1015377188570203&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Facebook Pixel Code -->
+<!-- Bing Pixel Code -->
+<script>
+window.uetq = window.uetq || [];
+window.uetq.push
+({ 'ec':'get quotes', 'ea':'submit', 'el':'form', 'ev':'20' });
+</script>
+<!-- End Bing Pixel Code -->
+<div class="col-xs-12 col-sm-12 col-md-8 col-lg-9 y-scroll">
+    <div class="form-right-col" style=" padding-top: 18px;">
+        <div class="inner thanks-slide anim-slide-left" ng-style="{
+        '-webkit-transition-duration': ctrl.speed + 'ms',
+        '-moz-transition-duration': ctrl.speed + 'ms',
+        '-ms-transition-duration': ctrl.speed + 'ms',
+        '-o-transition-duration': ctrl.speed + 'ms',
+        'transition-duration': ctrl.speed + 'ms'
+    }">
+
+    <div class="thanks-wrap" data-ng-init="ctrl.getListings()">
+        <div class="thanks-block thanks-green esti-show" data-ng-repeat="(userInfoKey, userInfoValue) in ctrl.userInfo | orderBy:'section_type'">
+            <div class="img-block">
+                <img data-ng-src="{{userInfoValue.image_url}}" onerror="this.src='/images/not_available_icon.jpg'">
+            </div>
+            <div class="content-block">
+                <h2 data-ng-bind="userInfoValue.title"></h2>
+                <p data-ng-bind-html="userInfoValue.desc">
+                </p>
+                <!-- <button class="btn bttn-green" ng-click="ctrl.showModal(userInfoValue.section_type | lowercase)" data-ng-bind="'Update '+userInfoValue.section_type"></button>  -->
+            </div>
+        </div>
+
+        <div class="thanks-block thanks-blue esti-show" data-ng-repeat="(listKey, listValue) in ctrl.list">
+            <div class="img-block">
+                <img data-ng-src="{{listValue.image_url}}" onerror="this.src='/images/not_available_icon.jpg'">
+                <div class="tag-no">
+                    <h3 data-ng-bind="$index + 1"></h3>
+                </div>
+            </div>
+            <div class="content-block">
+                <div class="our-score">
+                    <p>OUR SCORE</p>
+                    <h1 data-ng-bind="listValue.score | number:1"></h1>
+                </div>
+                <h2 data-ng-bind="listValue.title">
+                    <a data-ng-href="listValue.site_url">Visit Site</a>
+                </h2>
+                <ul>    
+                    <li data-ng-repeat="(descKey, descValue) in listValue.desc">{{ ctrl.$sce.trustAsHtml(descValue) }}</li>
+                </ul>
+                <div class="reviews-de" ng-if="listValue.review_count">
+                    <p data-ng-bind="listValue.review_count"></p>
+                    <span data-ng-bind="'REAL REVIEWS'"></span>
+                </div> 
+            </div>
+        </div>
+
+    </div>                                        
+</div>
+</div>
+<div class="row">
+    <div class="col-md-12 col-xs-12" ng-init="ctrl.prevStateName = ctrl.getPrevState()">
+        <div class="bttn-block">
+            <a class="back-bttn" ng-click="ctrl.prevState(ctrl.prevStateName)"><img src="/images/form-back.png" alt=""></a>
+            <a href="javascript:void(0)" data-ng-click="ctrl.resetForms();" class="reset-bttn"><img src="/images/reset-form.png" alt=""></a>
+        </div>
+    </div>
+</div>
+</div>

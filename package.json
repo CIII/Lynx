@@ -1,0 +1,42 @@
+{
+  "name": "angulardemo",
+  "version": "1.0.0",
+  "description": "Demo",
+  "main": "app.js",
+  "scripts": {
+    "start": "grunt",
+    "stage": "grunt stage",
+    "publish": "grunt publish",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Kundan",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^2.0.0",
+    "express": "^4.14.0",
+    "grunt": "^0.4.5",
+    "grunt-bower-task": "^0.3.4",
+    "grunt-cli": "~0.1.13",
+    "grunt-concurrent": "^2.3.1",
+    "grunt-contrib-clean": "^0.5.0",
+    "grunt-contrib-compress": "~0.9.1",
+    "grunt-contrib-concat": "^0.4.0",
+    "grunt-contrib-connect": "^0.8.0",
+    "grunt-contrib-copy": "^1.0.0",
+    "grunt-contrib-cssmin": "^2.2.0",
+    "grunt-contrib-jshint": "^0.10.0",
+    "grunt-contrib-uglify": "^0.5.1",
+    "grunt-contrib-watch": "^0.6.1",
+    "grunt-html2js": "^0.2.9",
+    "grunt-nodemon": "^0.4.2",
+    "grunt-notify": "^0.4.5",
+    "html-minifier": "^0.6.3",
+    "imagemin": "^3.1.0",
+    "load-grunt-tasks": "^3.5.2",
+    "path": "^0.12.7"
+  },
+  "false": {},
+  "devDependencies": {
+    "load-grunt-tasks": "^3.5.2"
+  }
+}

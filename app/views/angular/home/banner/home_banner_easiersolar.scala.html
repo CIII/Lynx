@@ -1,0 +1,57 @@
+@(landingSettings: utils.templates.LandingSettings)(implicit configuration: play.api.Configuration)
+@import utils.utilities.construct_url
+    <div class="landing-intro" ng-show="ctrl.BASE_CONSTS.home_queried" ng-style="{'background-image':'url(' + ctrl.hero_image_path() + ')'}">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2 wrap-h">
+                    <div class="v-mid">
+                        <h2 class="text-center home_title es_home_title">@utils.templates.TemplateSettings.get_default_header(landingSettings)</h2>
+                        <div class="error-Msg" ng-show="!ctrl.form.hasValidAddress && ctrl.form.address && ctrl.flags.isPlaceChange"><i class="fa fa-info-circle" aria-hidden="true"></i>Address must contain house number, street and state</div>
+                        @if(utils.templates.TemplateSettings.show_address_bar(landingSettings)){
+                        <form>
+                            <div class="input-group input-group-lg d_none">
+                                <input id="addressField" type="text" class="form-control add-placeholder box-sh-none" placeholder="Enter your home address" aria-describedby="sizing-addon1"
+                                       g-places-autocomplete options="ctrl.autocompleteOptions" ng-model="ctrl.form.address" force-selection="true"/>
+
+                                <span class="input-group-btn" id="sizing-addon1" ng-init="ctrl.nextStateName = ctrl.getNextState()">
+                                        <!-- <button class="btn search-bttn bttn-green" type="button" data-ng-click="ctrl.submitAddressForm(ctrl.nextStateName,ctrl.isValidAddress);" ng-disabled="!ctrl.flags.isPlaceChange">Search</button>     -->
+                                        <input class="btn search-bttn bttn-green" type="submit" data-ng-click="ctrl.submitAddressForm(ctrl.nextStateName, ctrl.form.hasValidAddress, 'headline', 'Search');" value="Search" />
+                                    </span>
+                            </div>
+                        </form>
+                        <div class="col-md-12 mobile_d">
+                            <i class="fa fa-search search-icon" aria-hidden="true"></i>
+                            <input type="text" class="form-control add-placeholder box-sh-none" placeholder="Enter your home address" aria-describedby="sizing-addon1"
+                                   g-places-autocomplete options="ctrl.autocompleteOptions" ng-keyup="ctrl.onKeyupAddress(ctrl.form.address)"
+                                   ng-model="ctrl.form.address" />
+
+                            <span id="sizing-addon1" ng-init="ctrl.nextStateName = ctrl.getNextState()">
+                                    <button class="btn search-bttn bttn-green b_radius" type="button" data-ng-click="ctrl.submitAddressForm(ctrl.nextStateName,ctrl.isValidAddress, 'headline', 'Get Quotes');" ng-disabled="!ctrl.flags.isPlaceChange">Get Quotes</button>
+                                </span>
+                        </div>
+                        }else{
+                        <span id="sizing-addon1" ng-init="ctrl.nextStateName = ctrl.getNextState()">
+                            <button name="landing-submit" type="button" class="btn bttn-green continue-bttn center-block main-cta" data-ng-click="ctrl.submitLandingPage(ctrl.nextStateName)">@utils.templates.TemplateSettings.get_cta_text(landingSettings)</button>
+                        </span>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="com-intro">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 col-xs-12">
+                    <div class="v-mid companies_name">
+                        <h1>Sunrun</h1>
+                        <h1>Tesla</h1>
+                        <h1>SolarCity</h1>
+                        <h1>Vivint</h1>
+                        <h1>Local Pros</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /.container -->
+    </div>

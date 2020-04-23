@@ -1,0 +1,13 @@
+:aws:
+  :access_key_id: AKIAJ4M3Y4LM3RAAAOKA
+  :secret_access_key: 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
+:acf:
+  :distribution_id: E29D6X209ZV080
+:deploy:
+  :from_folder: './public'
+  :s3_bucket:
+    :prod: 'easiersolar'
+    :staging: 'easiersolar-staging'
+  :cloudfront:
+    :prod: 'E29D6X209ZV080'
+    :staging: 'E2RPJACJIFYRJ'

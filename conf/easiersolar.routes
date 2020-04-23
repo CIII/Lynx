@@ -1,0 +1,191 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+############################## FRONT-END
+
+GET     /                                       controllers.PageController.index_new(domain = "easiersolar")
+#GET     /index-new                                   controllers.PageController.index_new(domain = "easiersolar")
+GET     /index                                       controllers.PageController.index_new(domain = "easiersolar")
+GET     /index/                                       controllers.PageController.index_new(domain = "easiersolar")
+GET     /index.html                                       controllers.PageController.index_new(domain = "easiersolar")
+GET     /index.htm                                       controllers.PageController.index_new(domain = "easiersolar")
+GET     /index.php                                       controllers.PageController.index_new(domain = "easiersolar")
+
+GET   /city/:city                              controllers.PageController.index_city(domain = "easiersolar", city: String)
+GET   /solar-city-deals                         controllers.PageController.solar_city_deals(domain = "easiersolar")
+GET   /solar-rebates/:state_srec_credits            controllers.PageController.solar_rebates(domain="easiersolar", state_srec_credits: String)
+GET   /financing/:state_solar_loans           controllers.PageController.financing(domain="easiersolar", state_solar_loans: String)
+GET   /preview                                controllers.PageController.preview(domain="easiersolar")
+
+GET     /get-quotes                            controllers.PageController.getQuotes(domain = "easiersolar")
+GET     /get-quotes/                            controllers.PageController.getQuotes(domain = "easiersolar")
+GET     /get-quotes.html                            controllers.PageController.getQuotes(domain = "easiersolar")
+GET     /get-quotes.htm                            controllers.PageController.getQuotes(domain = "easiersolar")
+GET     /get-quotes.php                            controllers.PageController.getQuotes(domain = "easiersolar")
+GET     /get-quotes/index.html                            controllers.PageController.getQuotes(domain = "easiersolar")
+GET     /get-quotes/index.htm                            controllers.PageController.getQuotes(domain = "easiersolar")
+GET     /get-quotes/index.php                            controllers.PageController.getQuotes(domain = "easiersolar")
+
+GET     /compare/$id<[0-9]+>                         controllers.PageController.compare(id: Int)
+GET     /compare/$id<[0-9]+>/                         controllers.PageController.compare(id: Int)
+
+POST     /ping                                  controllers.LeadPathController.ping_form(domain = "easiersolar")
+POST	/post									controllers.LeadPathController.post_form_api(domain = "easiersolar")
+
+POST     /get-quotes/thanks                     controllers.LeadPathController.post_form(domain = "easiersolar")
+
+GET     /get-quotes/thanks                     controllers.PageController.thank_you
+GET     /get-quotes/thanks/                     controllers.PageController.thank_you
+GET     /get-quotes/thanks/index.html                     controllers.PageController.thank_you
+GET     /get-quotes/thanks/index.htm                     controllers.PageController.thank_you
+GET     /get-quotes/thanks/index.php                     controllers.PageController.thank_you
+GET     /get-quotes/thanks.html                     controllers.PageController.thank_you
+GET     /get-quotes/thanks.htm                     controllers.PageController.thank_you
+GET     /get-quotes/thanks.php                     controllers.PageController.thank_you
+
+GET     /privacy-policy                             controllers.PageController.privacy_policy(domain = "easiersolar")
+GET     /privacy-policy/                             controllers.PageController.privacy_policy(domain = "easiersolar")
+GET     /privacy-policy/index.html                             controllers.PageController.privacy_policy(domain = "easiersolar")
+GET     /privacy-policy/index.htm                             controllers.PageController.privacy_policy(domain = "easiersolar")
+GET     /privacy-policy/index.php                             controllers.PageController.privacy_policy(domain = "easiersolar")
+GET     /privacy-policy.html                             controllers.PageController.privacy_policy(domain = "easiersolar")
+GET     /privacy-policy.htm                             controllers.PageController.privacy_policy(domain = "easiersolar")
+GET     /privacy-policy.php                             controllers.PageController.privacy_policy(domain = "easiersolar")
+
+GET     /installers                                controllers.PageController.installers
+GET     /installers/                                controllers.PageController.installers
+GET     /installers/index.html                                controllers.PageController.installers
+GET     /installers/index.htm                               controllers.PageController.installers
+GET     /installers/index.php                                controllers.PageController.installers
+GET     /installers.html                                controllers.PageController.installers
+GET     /installers.htm                                controllers.PageController.installers
+GET     /installers.php                                controllers.PageController.installers
+
+GET     /terms-of-use                           controllers.PageController.terms_of_use(domain = "easiersolar")
+GET     /terms-of-use/                           controllers.PageController.terms_of_use(domain = "easiersolar")
+GET     /terms-of-use/index.html                           controllers.PageController.terms_of_use(domain = "easiersolar")
+GET     /terms-of-use/index.htm                           controllers.PageController.terms_of_use(domain = "easiersolar")
+GET     /terms-of-use/index.php                           controllers.PageController.terms_of_use(domain = "easiersolar")
+GET     /terms-of-use.html                           controllers.PageController.terms_of_use(domain = "easiersolar")
+GET     /terms-of-use.htm                           controllers.PageController.terms_of_use(domain = "easiersolar")
+GET     /terms-of-use.php                           controllers.PageController.terms_of_use(domain = "easiersolar")
+
+GET     /noho                                  controllers.PageController.noho
+GET     /noho/                                  controllers.PageController.noho
+GET     /noho/index.html                                  controllers.PageController.noho
+GET     /noho/index.htm                                  controllers.PageController.noho
+GET     /noho/index.php                                  controllers.PageController.noho
+GET     /noho.html                                  controllers.PageController.noho
+GET     /noho.htm                                  controllers.PageController.noho
+GET     /noho.php                                  controllers.PageController.noho
+
+GET     /editorial                                  controllers.PageController.editorial
+GET     /editorial/                                  controllers.PageController.editorial
+GET     /editorial/index.html                                  controllers.PageController.editorial
+GET     /editorial/index.htm                                  controllers.PageController.editorial
+GET     /editorial/index.php                                  controllers.PageController.editorial
+GET     /editorial.html                                  controllers.PageController.editorial
+GET     /editorial.htm                                  controllers.PageController.editorial
+GET     /editorial.php                                  controllers.PageController.editorial
+
+POST	/subscribe_email								controllers.LeadPathController.subscribeEmail
+
+POST     /event/create                                 controllers.EventController.create
+
+GET     /browser_id.js                                 controllers.ApplicationController.browser_id
+GET     /page_loading                               controllers.EventController.page_loading
+
+GET     /validate_phone/:phone                                controllers.ApplicationController.validate_phone(phone: String)
+
+GET     /blog/middle-class-solar-incentive                                    controllers.PageController.middle_class_solar_incentive
+
+GET     /query/power_suppliers/:state			controllers.RedisController.get_power_suppliers(state: String)
+GET     /query/best_guess_supplier/:zip			controllers.RedisController.best_guess_supplier(zip: String)
+
+GET		/nexus/listings/:lead_id			controllers.LeadInfoController.get_listings(lead_id: String)
+GET   /lead-disposition/:lead_id    controllers.LeadInfoController.lead_disposition(lead_id: String)
+
+GET   /nexus/lead-info/:user_id       controllers.LeadInfoController.get_lead_info(user_id: String)
+
+############################## Generated Static Content
+
+GET     /easiersolar/static/:directory/views/header/header.html    controllers.PartialViewsController.header(domain = "easiersolar", directory: String)
+GET     /assets/easiersolar/static/:directory/views/header/header.html   controllers.PartialViewsController.header(domain = "easiersolar", directory: String)
+GET     /easiersolar/static/:directory/views/home/home.html    controllers.PartialViewsController.home(domain = "easiersolar", directory: String)
+GET     /assets/easiersolar/static/:directory/views/home/home.html   controllers.PartialViewsController.home(domain = "easiersolar", directory: String)
+GET     /easiersolar/static/views/forms/:form    controllers.PartialViewsController.form(domain = "easiersolar", form: String)
+GET     /assets/easiersolar/static/views/forms/:form   controllers.PartialViewsController.form(domain = "easiersolar", form: String)
+GET     /easiersolar/static/:directory/app.js   controllers.PartialViewsController.ng_app(domain = "easiersolar", directory: String)
+GET     /assets/easiersolar/static/:directory/app.js   controllers.PartialViewsController.ng_app(domain = "easiersolar", directory: String)
+GET     /easiersolar/static/:directory/controllers/home_controller.js   controllers.PartialViewsController.ng_home_controller(domain = "easiersolar", directory: String)
+GET     /assets/easiersolar/static/:directory/controllers/home_controller.js  controllers.PartialViewsController.ng_home_controller(domain = "easiersolar", directory: String)
+
+############################## API
+
+POST    /api/ping                               controllers.ApiController.ping
+
+POST     /post_disposition                       controllers.LeadPathController.post_disposition
+
+GET    /api/revenue                              controllers.ApiController.getRevenueData
+
+############################## TOOLS
+
+GET      /new_session                                   controllers.ApplicationController.new_session
+GET      /assign_session                                controllers.PageController.assign_session
+
+############################### Page Settings
+
+GET     /pages/flush                       controllers.PageController.flush
+GET     /pages/admin                       controllers.config_ui.ConfigurationUIController.index
+GET     /pages/current_config.json         controllers.config_ui.ConfigurationUIController.current_domain_config
+GET     /pages/current_ab_tests.json       controllers.config_ui.ConfigurationUIController.current_ab_tests
+GET     /pages/available_images            controllers.config_ui.ConfigurationUIController.list_available_images
+POST    /pages/upload_config               controllers.config_ui.ConfigurationUIController.upload_domain_config
+POST    /pages/upload_ab_tests             controllers.config_ui.ConfigurationUIController.upload_ab_tests
+GET     /pages/invalidate                  controllers.config_ui.ConfigurationUIController.create_invalidation
+GET     /pages/invalidate-status           controllers.config_ui.ConfigurationUIController.check_invalidations
+GET     /pages/login                       controllers.config_ui.ConfigurationUIController.login
+GET     /pages/login-error                 controllers.config_ui.ConfigurationUIController.login_error
+POST    /pages/authenticate                controllers.config_ui.ConfigurationUIController.authenticate
+GET     /conf_ui/static/:view            controllers.config_ui.ConfigurationUIController.view(view: String)
+GET     /assets/conf_ui/static/:view            controllers.config_ui.ConfigurationUIController.view(view: String)
+
+############################### ABTests
+
+GET     /ab/flush                       controllers.ABTestController.flush_tests
+GET     /ab/get_params                  controllers.ABTestController.get_params
+
+############################### Solar Calculator
+
+POST     /solar/calc/estimate         controllers.SolarCalculatorController.solarCalcEstimate
+
+############################### Pixel Tracking
+
+GET     /external/track.js            controllers.ExternalController.track
+GET     /external/lynx_reporting.js   controllers.ExternalController.lynx_reporting(domain="easiersolar")
+GET     /easiersolar/static/external/lynx_reporting.js   controllers.ExternalController.lynx_reporting(domain="easiersolar")
+GET     /assets/easiersolar/static/external/lynx_reporting.js   controllers.ExternalController.lynx_reporting(domain="easiersolar")
+GET     /external/wp/page_render.js            controllers.ExternalController.wordpress_page_render
+
+# Map static resources from the /public folder to the /assets URL path
+
+GET     /assets/easiersolar/static/*file  controllers.Assets.versioned(path="/public/app", file: Asset)
+GET     /easiersolar/static/*file controllers.Assets.versioned(path="/public/app", file: Asset)
+
+GET     /assets/controller/*file               controllers.Assets.versioned(path="/public/app/controllers", file: Asset)
+GET     /assets/directives/*file               controllers.Assets.versioned(path="/public/app/directives", file: Asset)
+GET     /assets/services/*file               controllers.Assets.versioned(path="/public/app/services", file: Asset)
+GET     /assets/views/*file               controllers.Assets.versioned(path="/public/app/views", file: Asset)
+GET     /assets/css/*file               controllers.Assets.versioned(path="/public/app/css", file: Asset)
+GET     /assets/build/*file              controllers.Assets.versioned(path="/public/app/build", file: Asset)
+
+GET     /assets/*file               controllers.Assets.versioned(path="/public", file: Asset)
+
+GET     /controller/*file               controllers.Assets.versioned(path="/public/app/controllers", file: Asset)
+GET     /directives/*file               controllers.Assets.versioned(path="/public/app/directives", file: Asset)
+GET     /services/*file               controllers.Assets.versioned(path="/public/app/services", file: Asset)
+GET     /views/*file               controllers.Assets.versioned(path="/public/app/views", file: Asset)
+GET     /css/*file               controllers.Assets.versioned(path="/public/app/css", file: Asset)
+GET     /images/*file               controllers.Assets.versioned(path="/public/app/images", file: Asset)
+GET     /build/*file              controllers.Assets.versioned(path="/public/app/build", file: Asset)

@@ -1,0 +1,303 @@
+.save-button {
+    display: block;
+    float: right;
+    background-color: #F26D2A;
+    margin-top: 1em;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.save-button:hover {
+    text-decoration: none;
+}
+
+.save-button h1 {
+    color: #FFF;
+    font-size: 1em;
+    padding: .6em;
+    margin: 0;
+}
+
+.phone-container {
+    float: right;
+}
+
+.phone-container a {
+    margin-top: -.35em;
+    display: block;
+}
+
+.renters-nav, .business-nav, .incentives-nav {
+	display: block;
+	position: relative;
+	float: right;
+	cursor: pointer;
+	margin: 1.4em 2em 0 2em;
+}
+	.renters-nav-modal {
+		display: none;
+		position: absolute;
+			top: 4em;
+			left: -29em;
+		height: auto;
+		width: 33em;
+		background-color: #FFF;
+		border-radius: .33em;
+		cursor: default;
+	}
+	.business-nav-modal {
+		display: none;
+		    position: absolute;
+		    top: 4em;
+		    left: -13em;
+	    height: auto;
+	    width: 33em;
+	    background-color: #FFF;
+	    border-radius: .33em;
+	    cursor: default;
+	}
+		.business-nav-modal .nav-modal-content span {
+			left: 50%;
+		}
+	.incentives-nav-modal {
+		display: none;
+		position: absolute;
+			top: 4em;
+			left: 0em;
+		height: auto;
+		width: 33em;
+		background-color: #FFF;
+		border-radius: .33em;
+		cursor: default;
+	}
+		.nav-modal-content {
+			height: 100%;
+			width: 100%;
+			position: relative;
+		}
+			.nav-modal-content h2 {
+				color: #000;
+				margin: 2em 2em 1em 2em;
+				font-weight: 600;
+				font-size: 1.5em;
+				pointer-events: none;
+			}
+			.nav-modal-content p {
+				margin: 2em 3em;
+				color: #000;
+			}
+				.nav-modal-content p a {
+					display: inline;
+				}
+			.nav-modal-content span {
+				display: block;
+			    height: 1em;
+			    width: 1em;
+			    transform: rotate(135deg);
+			    background-color: #FFF;
+			    position: absolute;
+				    top: -3.4em;
+				    left: .35em;
+			}
+				.renters-nav-modal .nav-modal-content span {
+					left: auto;
+					right: .35em;
+				}
+		.modal-cta {
+			display: block;
+			width: 100%;
+			height: auto;
+			text-align: center;
+			font-weight: 500;
+			margin: 0 auto 2em 0;
+			cursor: pointer;
+		}
+			.modal-cta h4 {
+				display: inline-block;
+				padding: .5em 1em;
+				color: #FFF;
+				background-color: #1B70C5;
+				font-size: 1.3em;
+				border-radius: .33em;
+			}
+
+.renters-nav {
+	margin: 1.4em 4em 0 2em;
+}
+.renters-nav:hover, .business-nav:hover, .incentives-nav:hover {
+	text-decoration: none;
+}
+
+.renters-nav h1, .business-nav h1, .incentives-nav h1 {
+	display: block;
+	height: 100%;
+	width: 100%;
+	font-size: 1.25em;
+	color: #A8A8A8;
+	transition: all .25s ease-out;
+}
+	.renters-nav:hover h1, .business-nav:hover h1, .incentives-nav:hover h1 {
+		color: #1A71BE;
+	}
+
+/* MODAL STYLING */
+
+.modal-bg {
+	position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+	background: rgba(0, 0, 0, .8);
+	display: none;
+}
+
+.container>.navbar-header, .container-fluid>.navbar-header, .container>.navbar-collapse, .container-fluid>.navbar-collapse {
+  margin: 0;
+  width: 100%;
+}
+.navbar > .container .navbar-brand {
+  color: #f88600;
+  font-size: 42px;
+  margin: 5px 0 0 0;
+  padding: 0;
+}
+#logo img {
+  float: left;
+  margin: 3px 10px 0 0;
+  padding: 0;
+  display: inline-block;
+  height: 3.5em;
+}
+.logoText {
+  margin-top: 10px;
+  display: inline-block;
+}
+#logo {
+  color: #f88600;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+#logo small {
+  font-weight: 700;
+  letter-spacing: 4.25px;
+  color: #2a4987;
+  text-transform: uppercase;
+  font-size: 16px;
+  margin: 0;
+  padding: 0;
+}
+.navbar {
+  position: relative;
+  min-height: 70px;
+  margin-bottom: 20px;
+  border: 1px solid transparent;
+}
+
+.navbar.navbar-default {
+  background-color: #fff;
+  font-weight: 200;
+  margin-bottom: 0;
+  margin-top: 0;
+  border-bottom: 1px solid #eee;
+}
+
+
+.nav.navbar-nav {
+  float: right;
+  margin-top: 0;
+}
+
+.nav.navbar-nav {
+  color: #82bf45;
+}
+
+.navbar-default .navbar-nav > li > a {
+  color: #2a4987;
+  line-height: 30px;
+  border-top: 5px solid #fff;
+  text-transform: uppercase;
+  font-size: 13px;
+  font-weight: 500;
+}
+.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus, .navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus, .navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:focus {
+  color: #2a4987;
+  border-top: 5px solid #2a4987;
+  background: none;
+  -webkit-transition: border .5s ease;
+    -moz-transition: border .5s ease;
+    -ms-transition: border .5s ease;
+    -o-transition: border .5s ease;
+    transition: border .5s ease;
+}
+
+/***** Responsive Styling ******/
+html {font-size: 15px;width: 100%;}
+
+@media (min-width: 300px){ html, body #header{font-size: 9px; } }
+@media (min-width: 350px){ html, body #header{font-size: 10px; } }
+@media (min-width: 400px){ html, body #header{font-size: 11px; } }
+@media (min-width: 450px){ html, body #header{ font-size: 11px; } }
+@media (min-width: 525px){ html, body #header{ font-size: 11px; } }
+@media (min-width: 600px){ html, body #header{ font-size: 11px; } }
+@media (min-width: 675px){ html, body #header{ font-size: 11px; } }
+/* Now Desktop */
+@media (min-width: 750px){ html, body #header{font-size: 11px;} }
+@media (min-width: 825px){ html, body #header{font-size: 13px;} }
+@media (min-width: 950px){ html, body #header{font-size: 14px;} }
+@media (min-width: 1075px){ html, body #header{font-size: 14px;} }
+@media (min-width: 1200px){ html, body #header{font-size: 14px;} }
+/* Below the ratio changes */
+@media (min-width: 1320px){ html, body #header{font-size: 16px;} }
+@media (min-width: 1440px){ html, body #header{font-size: 16px;} }
+@media (min-width: 1560px){ html, body #header{font-size: 17px;} }
+@media (min-width: 1680px){ html, body #header{font-size: 17px;} }
+@media (min-width: 1800px){ html, body #header{font-size: 18px;} }
+@media (min-width: 1920px){ html, body #header{font-size: 19px;} }
+@media (min-width: 2040px){ html, body #header{font-size: 20px;} }
+
+#header .container{max-width:73em}
+#header{background:white;position:fixed;top:0;width:100%;z-index:9999;background-color:#FFF;}
+
+* {
+	box-sizing: border-box;
+}
+
+#header h1 {
+    margin: 0
+}
+
+@keyframes pulsate {
+	0%, 100% {
+		-webkit-box-shadow: 0px 0px 10px 2px rgba(255,255,255,.1);
+		   -moz-box-shadow: 0px 0px 10px 2px rgba(255,255,255,.1);
+				box-shadow: 0px 0px 10px 2px rgba(255,255,255,.1);
+	}
+	50% {
+		-webkit-box-shadow: 0px 0px 25px 5px rgba(255,255,255,1);
+		   -moz-box-shadow: 0px 0px 25px 5px rgba(255,255,255,1);
+		        box-shadow: 0px 0px 25px 5px rgba(255,255,255,1);
+	}
+}
+
+#form.attention {
+	-webkit-animation: pulsate 2s infinite; /* Safari 4+ */
+	   -moz-animation: pulsate 2s infinite; /* Fx 5+ */
+	     -o-animation: pulsate 2s infinite; /* Opera 12+ */
+	        animation: pulsate 2s infinite;
+}
+
+@media (max-width: 782px){
+    #header .container .row div .renters-nav{
+        display: none;
+    }
+    #header .container .row div .business-nav{
+        display: none;
+    }
+    #header .container .row div .incentives-nav{
+        display: none;
+    }
+    #header .container .row div .save-button{
+        display: none;
+    }
+}

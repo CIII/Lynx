@@ -1,0 +1,10 @@
+@()(implicit configuration: play.api.Configuration, environment: play.api.Environment)
+@import utils.utilities.construct_url
+<div class="row">
+    <div class="col-md-12 col-xs-12">
+        <div class="bttn-block">
+            <a class="back-bttn" ng-click="ctrl.prevState(ctrl.prevStateName)"><img src="@(construct_url("app/images/form-back.png"))" alt=""></a>
+            <a href="javascript:void(0)" data-ng-click="ctrl.resetForms();" class="reset-bttn"><img src="@(construct_url("app/images/reset-form.png"))" alt=""></a>
+        </div>
+    </div>
+</div>

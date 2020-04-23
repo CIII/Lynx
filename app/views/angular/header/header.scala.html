@@ -1,0 +1,92 @@
+@(siteSettings: utils.templates.SiteSettings, headerSettings: utils.templates.HeaderSettings)(implicit configuration: play.api.Configuration, environment: play.api.Environment)
+@import utils.utilities.construct_url
+
+<nav class="navbar navbar-default navbar-fixed-top topnav" ng-init="ctrl.printname('header')">
+	<div class="container-fluid">
+		<!-- Brand and toggle get grouped for better mobile display -->
+        @if(utils.templates.TemplateSettings.get_site_name(siteSettings) == "mutualofomahamedicareplans") {
+        <header id="PageHead">
+            <div class="pageWrap">
+                <div class="pagehead-cta hasNav">
+                    <nav class="nav-site">
+                        <div class="nav-site-hitbox"></div>
+                        <ul class="nav-site-list">
+                            <li><a href="/WhatIs">What is Medicare Supplement Insurance?</a></li>
+                            <li><a href="/PlanOptions">Plan Options</a></li>
+                            <li><a href="/Faqs">FAQs</a></li>
+                        </ul>
+                    </nav>
+                    <a href="tel:844-804-8640" class="pagehead-tfn invocaTelLink" tabindex="-1" data-invoca-campaign-id="8002239185"><span data-invoca-campaign-id="8002239185" class="invocaNumber">1-844-804-8640</span></a>
+                </div>
+                <div id="StateInfo_Logo" class="pageLogoWrap">
+                    <a href="/" class="pagehead-logo" title="Mutual of Omaha">
+                        <div class="icon-logo "></div>
+                        <span class="pagehead-logoSubtext"> <strong></strong></span>
+                    </a>
+                </div>
+            </div>
+        </header>
+        } else {
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"
+				aria-expanded="false">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<a class="navbar-brand" href="#"><img src="@(construct_url(utils.templates.TemplateSettings.get_logo_path(siteSettings)))" alt=""></a>
+		</div>
+		<!-- Collect the nav links, forms, and other content for toggling -->
+		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+			<ul class="nav navbar-nav navbar-right navbar-link" ng-show="stateName == 'home'" ng-init="ctrl.nextStateName = ctrl.getNextState()">
+				@{
+					if(utils.templates.TemplateSettings.get_site_name(siteSettings)=="easiersolar"){
+						if(utils.templates.TemplateSettings.is_external_page(headerSettings)){
+							<!-- <a href="/" class="get-started-btn scrollBtn" ng-class="{solarBtn:boolChangeClass}">Solar Calculator</a> -->
+							<!-- <li><a href="/" class="" target="_blank">Solar FAQ</a></li> -->
+							<!-- <li><a href="/" class="" target="_blank">Installer Reviews</a></li> -->
+							<li><a href="/" class="" target="_blank">Solar Calculator</a></li>
+						}else{
+							<!-- <a data-ng-click="ctrl.submitLandingPage(ctrl.nextStateName, 'header', 'Solar Calculator')" class="get-started-btn scrollBtn" ng-class="{solarBtn:boolChangeClass}">Solar Calculator</a> -->
+							<!-- <li><a href="/insights/frequently-asked-questions-solar/" title="" target="_blank">Solar FAQ</a></li> -->
+							<!-- <li><a href="/insights/2017-solar-leaderboard/" title="" target="_blank">Installer Reviews</a></li> -->
+							<li><a href="#" data-ng-click="ctrl.submitLandingPage(ctrl.nextStateName)">Savings Calculator</a></li>
+						}
+					}else if(utils.templates.TemplateSettings.get_site_name(siteSettings)=="homesolar"){
+						if(utils.templates.TemplateSettings.is_external_page(headerSettings)){
+							<li><a href="/" class="link-getQuotes scrollBtn" ng-class="{solarBtn:boolChangeClass}">Get Quotes</a></li>
+						}else{
+							<li><a data-ng-click="ctrl.submitLandingPage(ctrl.nextStateName, 'header', 'Get Quotes')" class="link-getQuotes scrollBtn" ng-class="{solarBtn:boolChangeClass}">Get Quotes</a></li>
+						}
+		            }
+				}
+			</ul>
+			@if(!utils.templates.TemplateSettings.is_external_page(headerSettings)){
+			<ul class="nav navbar-nav navbar-right nav-social" ng-show="stateName != 'home'">
+			 	<li>
+                    <a href="javascript:void(0)" class="social-nav" data-ng-click="ctrl.$rootScope.social_share('facebook')"><img src="@(construct_url("app/images/facebook_icon.png"))" alt=""></a>
+                    <a href="javascript:void(0)" class="social-nav" data-ng-click="ctrl.$rootScope.social_share('twitter')"><img src="@(construct_url("app/images/twitter_icon.png"))" alt=""></a>
+                    <!-- <a href="javascript:void(0)" class="social-nav" data-ng-click="sendEmail()"><img src="/images/msg-icon.png" alt=""></a> -->
+                </li>
+			</ul>
+			}
+		</div>
+        <!-- /.navbar-collapse -->
+        }
+	</div>
+	@{
+	if(!utils.templates.TemplateSettings.is_external_page(headerSettings)){
+		if(utils.templates.TemplateSettings.get_site_name(siteSettings)=="easiersolar"){
+	<div class="proBar-nav pro-bar-wrap" ng-show="stateName != 'home'">
+		<div class="pro-bar" ng-style="{'width':progressBarWidth + '%'}"></div>
+    </div>
+		}else if(utils.templates.TemplateSettings.get_site_name(siteSettings)=="homesolar"){
+	<div class="proBar-nav pro-bar-wrap" ng-show="stateName != 'home'">
+		<div class="pro-bar" ng-style="{'width':progressBarWidth + '%'}" style="width: 16.6667%;"></div>
+	</div>
+		}
+	}
+	}
+<!-- /.container-fluid -->
+</nav>

@@ -1,0 +1,259 @@
+@import utils.templates.NavBarSettings
+@(nb_settings: Option[NavBarSettings] = None)(implicit request: play.api.mvc.Request[AnyContent], configuration: play.api.Configuration)
+
+@views.html.headers.c160802_main("Get Easier Solar Quotes") {
+    <!-- Google Tag Manager -->
+<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-MPNBKF"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+        '//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-MPNBKF');</script>
+    <!-- End Google Tag Manager -->
+@views.html.navbar_header()
+
+<div class="editorial-masthead-container">
+    <div class="editorial-masthead">
+        <h4 class="editorial-date">August 25th, 2016</h4>
+        <h1 class="editorial-title">How Smart Homeowners Get Solar Panels for $0 Down and Save Thousands</h1>
+        <div class="editorial-author cf">
+            <img src=''>
+            <h2>By: <span id="authorName">Greg Salwitz</span></h2>
+        </div>
+        <img src="@(configuration.getString("cloudfront.cdn.url"))images/solar-home.png" height="auto" width="auto" alt="Flat Design Solar House" />
+    </div>
+</div>
+
+<div class="editorial-content-container">
+    <div class="editorial-content cf">
+        <!-- LEFT COLUMN -->
+        <div class="editorial-left">
+            <h2>Most homeowners that visit EasierSolar are surprised by how much money they can save by installing solar panels for their home.</h2>
+            <p>
+                In the past, installing solar panels cost thousands of dollars up front and took homeowners up to 10 years to recoup their initial investment. Luckily things are different now, with the new 2016 Solar Programs, homeowners in certain zip codes can now use government incentives to install solar panels with zero upfront costs, which allows them to start saving money on day 1.
+            </p>
+            <div class="editorial-comment">
+                <p>
+                    Millions of smart homeowners are using new 2016 incentives to install solar panels with no upfront costs and are saving loads of money everyday. This program will expire in 2016 so act now
+                    <a href="/">See if you qualify</a>
+                </p>
+            </div>
+
+            <h2>How Solar Panels Save Homeowners Money</h2>
+            <p>Solar panels allow homeowners to gain control of their energy costs by producing their own clean energy at a substantially cheaper rate than they would otherwise pay their power company - typical homeowners have seen their power bill shrink by up to 70%! 2016 solar initiatives are revolutionizing the way homeowners pay for power and have power companies across America on the edge.</p>
+            <p>Your power company does not want you to know about this program because:<br />- This program makes it easy for just about any homeowner to get solar panels with zero upfront costs<br />- You are no longer solely reliant on power companies with rising rates</p>
+            <p>Not a great deal for power companies because they would rather keep you paying high rates, but great for the typical homeowner and the environment. Here is what we love about this program:</p>
+            <p> 
+                - Typical homeowner can reduce their power bill up to 70% <br />
+                - Homeowners can now produce clean energy on their own roof and avoid the annual energy rate hikes by power companies <br />
+                - No out of pocket cost to get solar panels installed, meaning instant savings <br />
+                - Great for the environment, significantly decrasing global warming <br />
+            </p>
+            <img src="@(configuration.getString("cloudfront.cdn.url"))images/old-bill-new-bill.png" height="auto" width="auto" alt="Electricity Bill" />
+
+            <h2>How Can I See How Much I Can Save With Solar?</h2>
+            <p>
+                Reputable solar companies can now accurately estimate solar savings based
+                on historical usage and the electronic appliances in your home. To help
+                homeowners get qualified for solar programs in their area, EasierSolar’s free
+                service easily connects homeowners with solar companies matched to their
+                specific needs. In just a few minutes, any homeowner can get side-by-side rate
+                comparisons from top-tier solar companies and info on available incentives.
+            </p>
+            <p>
+                When you consider that EasierSolar's service is free, there are no obligations,
+                and it only takes minutes to complete, the decision seems pretty simple.
+                Using EaseirSolar is the best way to see if you are solar ready and and can
+                reduce your energy bill quickly.
+            </p>
+            <p>Find and compare reputable solar companies in your area</p>
+            <p>
+                EasierSolar is dedicated to helping American homeowners switch to using clean,
+                low-cost solar energy. They are currently connecting smart homeowners like you 
+                with reputable solar companies that can help them reduce their power bill.
+            </p>
+            <p>
+                With EasierSolar, there's no obligation and service is fast and easy. It takes less
+                than two minutes, and finding a reputable solar company is 100% free.
+            </p>
+            <p>You have nothing to lose!</p>
+            <div class="cta-container">
+                <div class="cta-btn">
+                    <a href="/"><p>See Your Savings</p></a>
+                </div>
+            </div>
+        </div>
+        <!-- RIGHT COLUMN -->
+        <div class="editorial-right">
+            <div id="form">
+                <form role="form" id="leadform" action='@routes.PageController.index_new()' method="get" class="c160802">
+                    <input type="hidden" name="browser.browser_id" id="browser_id" value=""/>
+                    <div class="step current">
+                        <div class="form-group">
+                            <h2 class="mobile">Get Prices</h2>
+                            <h3 class="mobile">How much is your average power bill?</h3>
+                            <img class="mobile" src="@(configuration.getString("cloudfront.cdn.url"))images/mobile-energy.png" height="auto" width="auto" alt="Energy Icon" />
+                            <label for="electric_bill">How much is your average electric bill?</label>
+                            <select class="form-control" name="form.electric_bill" id="electric_bill">
+                                <option value="$0-50">$0-50</option>
+                                <option value="$51-100">$51-100</option>
+                                <option value="$101-150">$101-150</option>
+                                <option value="$151-200" selected>$151-200</option>
+                                <option value="$201-300">$201-300</option>
+                                <option value="$301-400">$301-400</option>
+                                <option value="$401-500">$401-500</option>
+                                <option value="$501-600">$501-600</option>
+                                <option value="$601-700">$601-700</option>
+                                <option value="$701-800">$701-800</option>
+                                <option value="$801+">$801+/yr</option>
+                            </select>
+                        </div>
+                        <p>Estimated Savings: <span id="estimatedSavings">$362-480/yr</span></p>
+                        <div class="form-group">
+                            <input type="submit" value="Continue" class="btn btn-block btn-default btn-continue btn-orange"/>
+                        </div>
+                    </div>
+                </form>
+            </div>
+           <!--  <a href="./compare/160802/"><img src="@(configuration.getString("cloudfront.cdn.url"))images/solar-ad.png" height="auto" width="auto" alt="Flat Design Solar House" /></a> -->
+        </div>
+    </div>
+</div>
+
+<footer>
+    <div class="footer-container">
+        <img src="@(configuration.getString("cloudfront.cdn.url"))images/easier-solar-logo-bw.png" height="60" width="200" alt="Easier Solar BW" />
+    </div>
+</footer>
+
+
+<div class="email-capture-modal-container">
+    <div class="email-capture-modal">
+        <h2>Do you pay more than $100 per month for power?</h2>
+        <div class="button-container">
+            <div class="button-yes" id="capture-btn-yes">
+                <p>Yes</p>
+            </div>
+            <div class="button-no" id="capture-btn-no">
+                <p>No</p>
+            </div>
+        </div>
+    </div>
+    <div class="email-capture-section" id="email-capture-input-section">
+        <!--<h2>From "" to "".</h2>-->
+        <h2>Learn everything we discovered on our journey to a $0 power bill.</h2>
+        <form role="form" id="email-capture-form">
+	        <input name="form.email" id="modalEmail" placeholder="Email">
+	        <input type="hidden" id="domtok" name="form.domtok" value="sunnyS0lar"/>
+	        <input type="hidden" id="ref" name="form.ref" value="www.easiersolar.com"/>
+	        <input type="hidden" id="listid" name="form.listid" value="email_subscription_only"/>
+	    </form>
+        <p id="email-capture-text">100% privacy. No spam.</p>
+        <div class="email-capture-cta-container">
+            <div class="email-capture-cta" id="capture-btn-get-started">
+                <p>Get Started</p>
+            </div>
+        </div>
+    </div>
+    <div class="email-capture-result">
+        <h2>Email submitted.  Thanks!</h2>
+        <div class="email-capture-cta-container">
+            <div class="email-capture-cta" id="capture-btn-ok">
+                <p>Ok</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal-bg">
+</div>
+
+
+
+<script src="http://code.jquery.com/jquery-1.10.2.min.js" type="text/javascript"></script>
+<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+<script src="http://plugins.jquery.com/cookie/" type="text/javascript"></script>
+<script>
+    function getDate() {
+        var dateRaw = new Date();
+        var date = (dateRaw.getMonth() + 1) + '/' + dateRaw.getDate() + '/' +  dateRaw.getFullYear();
+        $('.editorial-date').text(date);
+    }
+
+    getDate();
+
+    setTimeout( function() {
+        $('.modal-bg, .email-capture-modal-container').fadeIn();
+    }, 3000);
+
+    $('body').on('click', '#capture-btn-yes', function(e) {
+        $('.email-capture-modal').hide();
+        $('.email-capture-section').show();
+        e.preventDefault();
+    });
+
+    $('body').on('click', '#capture-btn-no', function(e) {
+        $('.modal-bg, .email-capture-modal-container').fadeOut();
+        e.preventDefault();
+    });
+    
+    $('body').on('click', '#capture-btn-get-started', function(e) {
+    	var email = $('#modalEmail').val();
+    	if(__helpers__.isValidEmail(email)){
+            $('.email-capture-section').hide();
+            $('.email-capture-result').show();
+            postEmailToSubscriptionService(email);
+            e.preventDefault();
+    	} else {
+    		$('#email-capture-text').text('Please enter a valid email')
+    		document.getElementById("email-capture-text").style.color = "#ff7777";
+    	}
+    	
+    });
+
+    $('body').on('click', '#capture-btn-ok', function() {
+        $('.modal-bg, .email-capture-modal-container').fadeOut();
+    });
+    
+    $('#email-capture-form').keypress(
+    	function(event){
+    		if(event.which == '13'){
+    			$('#capture-btn-get-started').click()
+    			event.preventDefault();
+    		}
+    	}
+	);
+        
+    var template = 'editorial';
+    var form_page = false;
+    function stickyForm() {
+        var scrolledPage = $(document).scrollTop();
+        var fixTriggerHeight = $('.editorial-masthead-container').height();
+        var editorialContentHeight = $('.editorial-content-container').height();
+        var footerHeight = $('footer').height();
+        var fixTriggerHeight2 = editorialContentHeight - footerHeight;
+
+        if ( scrolledPage > fixTriggerHeight ) {
+            $('.editorial-right #form').addClass('sticky');
+            $('.editorial-right #form').removeClass('form-bottom');
+        } else {
+            $('.editorial-right #form').removeClass('sticky');
+        }
+
+        if ( scrolledPage > fixTriggerHeight2 ) {
+            $('.editorial-right #form').removeClass('sticky');
+            $('.editorial-right #form').addClass('form-bottom');
+        }
+    }
+
+    $(window).bind('scroll' ,function() {
+        stickyForm();
+    });
+</script>
+@views.html.snippets._application_js()
+@views.html.snippets._navbar_js(nb_settings)
+@views.html.snippets._editorial_js()
+<script src="@(configuration.getString("cloudfront.cdn.url"))javascripts/track.js?t=1460151968"></script>
+
+}

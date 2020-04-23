@@ -1,0 +1,192 @@
+/* Navbar */
+
+#action-navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index:1;
+  width: 100%;
+  background: #2f6295;
+  height: 10vh;
+}
+
+@media screen and (max-width:1024px) {
+  #action-navbar {
+    height: 5vh;
+  }
+}
+
+#action-navbar > button {
+  margin-right: 10px;
+}
+
+.action-navbar-center {
+  position: relative;
+  margin: 3vh 0 3vh 0;
+}
+
+.loading-spinner {
+  top: -2.5vh;
+  border
+}
+
+.loading-text {
+ text-align:center;
+ }
+
+@media screen and (max-width:1024px) {
+  .action-navbar-center {
+    margin: 0.5vh 0 0.5vh 0;
+  }
+  .loading-spinner {
+    display: none !important;
+  }
+}
+
+#action-header > button{
+  position: relative;
+  font-size: 1.1vw;
+}
+
+/* Url/ Ab test selection section */
+#url-section, #experiment-section, #ab-test-section{
+    border: #2f6295 medium solid;
+}
+
+#url-section select, #experiment-section select, #ab-test-section select{
+  border: 0px;
+}
+
+/* URL/Ab test section */
+#current-url, #current-experiment, #current-ab-test {
+  width: 100%;
+}
+
+#url-config-placeholder{
+  height: 100vh;
+}
+
+#current-url > select, #current-experiment > select, #current-ab-test > select{
+  width: 100%;
+}
+
+/* Home Section */
+#navigation-view {
+  margin-top: 15vh;
+}
+
+/* AB Section */
+
+#ab-view {
+  margin-top: 15vh;
+}
+
+.ab-form-section{
+  border: #2f6295 medium solid;
+  padding: 1vh;
+}
+
+.ab-form-section-header{
+  color: #FFF;
+}
+
+.filler{
+  height:100%;
+  background: #2f6295;
+}
+
+#test-yaml{
+  width:100%;
+  height: 50vh;
+  overflow: scroll;
+}
+
+.nopadding.nopadding{
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+/* Current editing configuration section */
+.current-config-section{
+  border-right: #2f6295 medium solid;
+  padding: 0.25vh;
+}
+
+.homepage-example{
+  word-break: break-all;
+}
+
+#configuration-section {
+  margin-top: 5vh;
+}
+
+.config-input {
+  width: 100%;
+}
+
+#configuration-view {
+  margin-top: 5vh;
+}
+
+.configuration-list{
+  border: #2f6295 medium solid
+}
+
+.configuration-list img {
+  max-width: 100%;
+  display: block;
+  margin: auto;
+}
+
+.configuration-list .preview-toggle-button {
+  width: 100%;
+  display: block;
+  margin: auto;
+}
+
+/* Array of values config */
+.array-input{
+    background: #FCFCFC;
+}
+
+.addfields{
+    margin: 10px 0;
+}
+
+.remove-input{
+    background: #C76868;
+    color: #FFF;
+    font-weight: bold;
+    font-size: 21px;
+    border: 0;
+    cursor: pointer;
+    display: inline-block;
+    padding: 4px 9px;
+    vertical-align: top;
+    line-height: 100%;
+}
+
+.add-input{
+    background: #45b039;
+    color: #FFF;
+    font-weight: bold;
+    font-size: 15px;
+    border: 0;
+    cursor: pointer;
+    display: inline-block;
+    padding: 4px 9px;
+    vertical-align: top;
+    line-height: 100%;
+}
+
+/* String config */
+input[type="text"],
+select{
+    padding:5px;
+}
+
+/*General*/
+.v-center {
+  position: relative;
+  transform: translateY(25%);
+}

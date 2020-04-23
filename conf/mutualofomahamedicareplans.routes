@@ -1,0 +1,47 @@
+GET     /                                       controllers.PageController.index_new(domain = "mutualofomahamedicareplans")
+
+POST    /get-quotes/thanks                      controllers.LeadPathController.post_form(domain = "mutualofomahamedicareplans")
+GET     /get-quotes/thanks                      controllers.PageController.thank_you
+GET     /get-quotes/thanks/                     controllers.PageController.thank_you
+GET     /get-quotes/thanks/index.html           controllers.PageController.thank_you
+GET     /get-quotes/thanks/index.htm            controllers.PageController.thank_you
+GET     /get-quotes/thanks/index.php            controllers.PageController.thank_you
+GET     /get-quotes/thanks.html                 controllers.PageController.thank_you
+GET     /get-quotes/thanks.htm                  controllers.PageController.thank_you
+GET     /get-quotes/thanks.php                  controllers.PageController.thank_you
+
+GET     /assets/controller/*file               controllers.Assets.versioned(path="/public/app/controllers", file: Asset)
+GET     /assets/directives/*file               controllers.Assets.versioned(path="/public/app/directives", file: Asset)
+GET     /assets/services/*file               controllers.Assets.versioned(path="/public/app/services", file: Asset)
+GET     /assets/views/*file               controllers.Assets.versioned(path="/public/app/views", file: Asset)
+GET     /assets/css/*file               controllers.Assets.versioned(path="/public/app/css", file: Asset)
+GET     /assets/build/*file              controllers.Assets.versioned(path="/public/app/build", file: Asset)
+
+POST     /event/create                                 controllers.EventController.create
+
+GET     /browser_id.js                                 controllers.ApplicationController.browser_id
+GET     /page_loading                               controllers.EventController.page_loading
+
+POST     /ping                                  controllers.LeadPathController.ping_form(domain = "mutualofomahamedicareplans")
+POST    /post                                   controllers.LeadPathController.post_form_api(domain = "mutualofomahamedicareplans")
+GET     /validate_phone/:phone                                controllers.ApplicationController.validate_phone(phone: String)
+GET     /assets/mutualofomahamedicareplans/static/external/lynx_reporting.js    controllers.ExternalController.lynx_reporting(domain="mutualofomahamedicareplans")
+GET     /mutualofomahamedicareplans/static/external/lynx_reporting.js           controllers.ExternalController.lynx_reporting(domain="mutualofomahamedicareplans")
+GET     /external/lynx_reporting.js                                             controllers.ExternalController.lynx_reporting(domain="mutualofomahamedicareplans")
+GET     /external/wp/page_render.js            controllers.ExternalController.wordpress_page_render
+
+############################## Generated Static Content
+
+GET     /mutualofomahamedicareplans/static/:directory/views/header/header.html    controllers.PartialViewsController.header(domain = "mutualofomahamedicareplans", directory: String)
+GET     /assets/mutualofomahamedicareplans/static/:directory/views/header/header.html   controllers.PartialViewsController.header(domain = "mutualofomahamedicareplans", directory: String)
+GET     /mutualofomahamedicareplans/static/:directory/views/home/home.html    controllers.PartialViewsController.home(domain = "mutualofomahamedicareplans", directory: String)
+GET     /assets/mutualofomahamedicareplans/static/:directory/views/home/home.html   controllers.PartialViewsController.home(domain = "mutualofomahamedicareplans", directory: String)
+GET     /mutualofomahamedicareplans/static/views/forms/:form    controllers.PartialViewsController.form(domain = "mutualofomahamedicareplans", form: String)
+GET     /assets/mutualofomahamedicareplans/static/views/forms/:form   controllers.PartialViewsController.form(domain = "mutualofomahamedicareplans", form: String)
+GET     /mutualofomahamedicareplans/static/:directory/app.js   controllers.PartialViewsController.ng_app(domain = "mutualofomahamedicareplans", directory: String)
+GET     /assets/mutualofomahamedicareplans/static/:directory/app.js   controllers.PartialViewsController.ng_app(domain = "mutualofomahamedicareplans", directory: String)
+GET     /mutualofomahamedicareplans/static/:directory/controllers/home_controller.js   controllers.PartialViewsController.ng_home_controller(domain = "mutualofomahamedicareplans", directory: String)
+GET     /assets/mutualofomahamedicareplans/static/:directory/controllers/home_controller.js  controllers.PartialViewsController.ng_home_controller(domain = "mutualofomahamedicareplans", directory: String)
+
+
+GET     /assets/*file               controllers.Assets.versioned(path="/public", file: Asset)

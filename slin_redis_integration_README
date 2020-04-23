@@ -1,0 +1,12 @@
+Use case:
+
+1. redis as cache
+2. we would ping redis for information
+3. if redis does not have the desired information, we ping mysql
+4. if mysql returns result we push result to redis and set expiration date
+
+Necessary components: 
+
+1. redis on Amazon ElasticCache
+2. routes through easiersolar for tunnel to elasticcache, because there is no public access to elasticcache
+3. mysql hosted on amazon aurora

@@ -1,0 +1,175 @@
+# easiersolar schema update
+
+# --- !Ups
+
+CREATE TABLE ab_test_variations (
+    id BIGINT(20) NOT NULL AUTO_INCREMENT,
+    ab_test_id  BIGINT(20) NOT NULL,
+    name VARCHAR(50),
+    status INT(11),
+    redirect_url VARCHAR(45),
+    weight INT(11),
+    created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP ON UPDATE CURRENT_TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    PRIMARY KEY (id)
+);
+
+CREATE TABLE events_test_variations_ab (
+    id BIGINT(20) NOT NULL AUTO_INCREMENT,
+    event_id  BIGINT(20) NOT NULL,
+    ab_test_variation_id  BIGINT(20) NOT NULL,
+    created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP ON UPDATE CURRENT_TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    PRIMARY KEY (id)
+);
+
+ALTER TABLE ab_tests ADD domain_id BIGINT(20) NULL AFTER link;
+ALTER TABLE ab_tests ADD status INT(11) NULL AFTER domain_id;
+
+CREATE TABLE ab_test_members (
+    id BIGINT(20) NOT NULL AUTO_INCREMENT,
+    ab_test_id  BIGINT(20) NOT NULL,
+    traffic_source_id  BIGINT(20) NOT NULL,
+    status  INT(11),
+    created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP ON UPDATE CURRENT_TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    PRIMARY KEY (id)
+);
+
+
+ALTER TABLE forms ADD session_id BIGINT(20) NOT NULL AFTER id;
+ALTER TABLE forms DROP COLUMN arrival_id;
+
+CREATE TABLE form_dispositions (
+    id BIGINT(20) NOT NULL AUTO_INCREMENT,
+    form_id  BIGINT(20) NOT NULL,
+    conf  INT(11) NOT NULL,
+    revenue  DECIMAL(6, 2),
+    created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP ON UPDATE CURRENT_TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    PRIMARY KEY (id)
+);
+
+
+CREATE TABLE IF NOT EXISTS traffic_sources (
+    id BIGINT(20) NOT NULL AUTO_INCREMENT,
+    name  VARCHAR(50) NOT NULL,
+    conf  INT(11) NOT NULL,
+    created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP ON UPDATE CURRENT_TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    PRIMARY KEY (id)
+);
+
+ALTER TABLE domains ADD default_template_id BIGINT(20) NOT NULL AFTER domain;
+
+ALTER TABLE events ADD session_id BIGINT(20) NOT NULL AFTER event_type_id;
+ALTER TABLE events ADD parent_event_id BIGINT(20) NOT NULL AFTER session_id;
+ALTER TABLE events DROP COLUMN arrival_id;
+
+
+CREATE TABLE event_attributes (
+    id BIGINT(20) NOT NULL AUTO_INCREMENT,
+    event_id  BIGINT(20) NOT NULL,
+    attribute_id  BIGINT(20) NOT NULL,
+    value  VARCHAR(255) NOT NULL,
+    created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP ON UPDATE CURRENT_TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    PRIMARY KEY (id)
+);
+
+DROP TABLE IF EXISTS browsers;
+
+CREATE TABLE browsers (
+    id BIGINT(20) NOT NULL AUTO_INCREMENT,
+    browser_id  VARCHAR(255) NULL,
+    created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP ON UPDATE CURRENT_TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    PRIMARY KEY (id)
+);
+
+INSERT INTO browsers (id, browser_id, created_at, updated_at) (SELECT id, arrival_id, created_at, updated_at FROM arrivals);
+
+DROP TABLE arrivals;
+
+CREATE TABLE sessions (
+    id BIGINT(20) NOT NULL AUTO_INCREMENT,
+    browser_id  BIGINT(20),
+    domain_id  BIGINT(20) NOT NULL,
+    ip  VARCHAR(255) NOT NULL,
+    user_agent  VARCHAR(255) NOT NULL,
+    traffic_source_id  BIGINT(20),
+    is_robot  TINYINT(1),
+    created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP ON UPDATE CURRENT_TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    PRIMARY KEY (id)
+);
+
+CREATE TABLE session_attributes (
+    id BIGINT(20) NOT NULL AUTO_INCREMENT,
+    session_id  BIGINT(20) NOT NULL,
+    attribute_id  BIGINT(20) NOT NULL,
+    value  VARCHAR(255) NOT NULL,
+    created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP ON UPDATE CURRENT_TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    PRIMARY KEY (id)
+);
+
+CREATE TABLE attributes (
+    id BIGINT(20) NOT NULL AUTO_INCREMENT,
+    name  VARCHAR(45) NOT NULL,
+    created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP ON UPDATE CURRENT_TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    PRIMARY KEY (id)
+);
+
+# --- !Downs
+
+DROP TABLE IF EXISTS ab_test_variations;
+DROP TABLE IF EXISTS events_test_variations_ab;
+
+ALTER TABLE ab_tests DROP COLUMN domain_id;
+ALTER TABLE ab_tests DROP COLUMN status;
+
+DROP TABLE IF EXISTS ab_test_members;
+
+ALTER TABLE forms DROP COLUMN session_id;
+ALTER TABLE forms ADD arrival_id VARCHAR(255) NOT NULL;
+
+DROP TABLE IF EXISTS form_dispositions;
+DROP TABLE IF EXISTS traffic_sources;
+
+ALTER TABLE domains DROP COLUMN default_template_id;
+
+ALTER TABLE events DROP COLUMN session_id;
+ALTER TABLE events DROP COLUMN parent_event_id;
+ALTER TABLE events ADD arrival_id VARCHAR(255) NOT NULL;
+
+DROP TABLE IF EXISTS event_attributes;
+
+RENAME TABLE browsers TO arrivals;
+
+CREATE TABLE browsers (
+    id BIGINT(20) NOT NULL AUTO_INCREMENT,
+    user_agent VARCHAR(255) NULL,
+    ip VARCHAR(255) NULL,
+    os VARCHAR(50) NULL,
+    robot_id VARCHAR(50) NULL,
+    created_at  TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP ON UPDATE CURRENT_TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    PRIMARY KEY (id)
+);
+
+ALTER TABLE arrivals ADD traffic_source_id BIGINT(20) NULL;
+ALTER TABLE arrivals ADD arpxs_a_ref VARCHAR(255) NULL;
+ALTER TABLE arrivals ADD arpxs_b VARCHAR(255) NULL;
+ALTER TABLE arrivals ADD arpxs_abv VARCHAR(255) NULL;
+ALTER TABLE arrivals ADD utm_source VARCHAR(255) NULL;
+ALTER TABLE arrivals ADD utm_campaign VARCHAR(255);
+ALTER TABLE arrivals ADD gclid VARCHAR(255);
+ALTER TABLE arrivals ADD browser_id BIGINT(20) NULL;
+ALTER TABLE arrivals ADD domain_id BIGINT(20) NULL;
+ALTER TABLE arrivals ADD referer VARCHAR(255) NULL;
+
+DROP TABLE IF EXISTS sessions;
+DROP TABLE IF EXISTS session_attributes;
+DROP TABLE IF EXISTS attributes;
