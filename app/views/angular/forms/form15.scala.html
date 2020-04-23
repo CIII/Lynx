@@ -1,0 +1,72 @@
+@(siteSettings: utils.templates.SiteSettings)(implicit configuration: play.api.Configuration, environment: play.api.Environment)
+@import utils.utilities.construct_url
+
+@if(utils.templates.TemplateSettings.show_solar_cal(siteSettings)){
+<div class="col-xs-12 col-sm-12 col-md-8 col-lg-9 y-scroll">
+}else{
+<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 y-scroll">
+}
+
+<div name="form-1" ng-init="ctrl.formPageLoaded('Address')">
+    <div class="form-right-col">
+        <div class="inner address-block" ng-style="{
+        '-webkit-transition-duration': ctrl.speed + 'ms',
+        '-moz-transition-duration': ctrl.speed + 'ms',
+        '-ms-transition-duration': ctrl.speed + 'ms',
+        '-o-transition-duration': ctrl.speed + 'ms',
+        'transition-duration': ctrl.speed + 'ms'
+    }">
+    <form>
+        <h1>What is your address?</h1>
+        <div class="sf321_current-question sf321_question-container ng-scope" id="section-address">
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="form-group">
+                        <label for="addressField">My Address</label>
+                        <div class="error-Msg" ng-show="ctrl.flags.attemptedToContinue && !ctrl.form.hasValidAddressFormat && ctrl.form.address"><i class="fa fa-info-circle" aria-hidden="true"></i>Address must contain street name and unit number</div>
+                        <input type="text" placeholder="Start typing..." id="addressField" name="address" g-places-autocomplete ng-change="ctrl.validateCurrentAddress()" ng-model="ctrl.form.street" class="form-control sf321_form-control input-lg sf321_input-lg smart-text ng-pristine ng-valid ng-isolate-scope ng-not-empty ng-valid-required ui-autocomplete-input ng-touched" required="" auto-focus="" autocomplete="off" config="addressAutoComplete" style="background-image: url(&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABHklEQVQ4EaVTO26DQBD1ohQWaS2lg9JybZ+AK7hNwx2oIoVf4UPQ0Lj1FdKktevIpel8AKNUkDcWMxpgSaIEaTVv3sx7uztiTdu2s/98DywOw3Dued4Who/M2aIx5lZV1aEsy0+qiwHELyi+Ytl0PQ69SxAxkWIA4RMRTdNsKE59juMcuZd6xIAFeZ6fGCdJ8kY4y7KAuTRNGd7jyEBXsdOPE3a0QGPsniOnnYMO67LgSQN9T41F2QGrQRRFCwyzoIF2qyBuKKbcOgPXdVeY9rMWgNsjf9ccYesJhk3f5dYT1HX9gR0LLQR30TnjkUEcx2uIuS4RnI+aj6sJR0AM8AaumPaM/rRehyWhXqbFAA9kh3/8/NvHxAYGAsZ/il8IalkCLBfNVAAAAABJRU5ErkJggg==&quot;); background-repeat: no-repeat; background-attachment: scroll; background-size: 16px 18px; background-position: 98% 50%;">
+                    </div>
+                </div>
+            </div>
+            <div class="row sf321_row-spacing">
+                <div class="col-xs-12 col-md-6">
+                    <div class="form-group">
+                        <label for="city">City</label>
+                        <input type="text" placeholder="City" id="city" name="city" ng-model="ctrl.form.city" class="form-control sf321_form-control input-lg sf321_input-lg smart-text ng-pristine ng-untouched ng-valid ng-not-empty ng-valid-required" required="" capitalize-first="">
+                    </div>
+                </div>
+                <div class="col-xs-6 col-md-3">
+                    <div class="form-group">
+                        <label for="stateInput">State</label>
+                        <!-- <ui-select id="stateInput" theme="selectize" ng-model="formData.state" required ng-disabled="disabled">
+                            <ui-select-match placeholder="State">{{$select.selected.code}}</ui-select-match>
+                            <ui-select-choices repeat="opt.code as opt in us_states | filter: $select.search">
+                                <span ng-bind-html="opt.code | highlight: $select.search"></span>
+                            </ui-select-choices>
+                        </ui-select> -->
+
+                        <select class="form-control input-lg sf321_form-control sf321_input-lg sf321_type-select ng-pristine ng-untouched ng-valid ng-not-empty ng-valid-required" id="stateInput" ng-model="ctrl.form.state" required="">
+                            <option ng-repeat="x in ctrl.BASE_CONSTS.US_STATES" value="{{x}}">{{x}}</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-xs-6 col-md-3">
+                    <div class="form-group">
+                        <label for="zipInput">Zip</label>
+                        <input pattern="[0-9\-]+" type="tel" inputmode="numeric" id="zipInput" placeholder="Zip" maxlength="5" ng-model="ctrl.form.zip" ng-keyup="zipValidate($event)" class="form-control input-lg sf321_form-control sf321_input-lg smart-text ng-pristine ng-untouched ng-valid ng-not-empty ng-valid-required ng-valid-pattern ng-valid-maxlength" style="padding-right: 0px;" required="">
+                    </div>
+                </div>
+            </div>
+        </div>
+    <div class="col-md-12 col-sm-12 col-xs-12" ng-init="ctrl.nextStateName = ctrl.getNextState()">
+        <button id="continueBtn" class="continue-button continue-button-active" ng-if="ctrl.form.hasValidAddressFormat" data-ng-click="ctrl.submitAddressForm(ctrl.nextStateName,ctrl.isValidAddress);" ng-disabled="!ctrl.form.hasValidAddressFormat"><div class="loader" ng-show="ctrl.$rootScope.loading && ctrl.IsPlaceChange" >Loading...</div>Continue</button>
+        <button id="continueBtn" class="continue-button" ng-if="!ctrl.form.hasValidAddressFormat" data-ng-click="ctrl.flags.attemptedToContinue = true;" ng-disabled="ctrl.form.hasValidAddressFormat"><div class="loader" ng-show="ctrl.$rootScope.loading && ctrl.IsPlaceChange" >Loading...</div>Continue</button>
+    </div>
+    </form>
+</div><!-- 1 form end-->
+<div class="row">
+</div>
+</div>
+@views.html.angular.forms.back_reset()
+</div>
+</div>

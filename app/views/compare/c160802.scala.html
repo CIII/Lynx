@@ -1,0 +1,428 @@
+@import utils.templates.NavBarSettings
+@(form: play.api.data.Form[utils.utilities.EasierSolarForm], nb_settings: Option[NavBarSettings] = None)(implicit request: play.api.mvc.Request[AnyContent], configuration: play.api.Configuration)
+
+@views.html.headers.c160802_main("Get Easier Solar Quotes") {
+<script type="text/javascript">
+        (function() {
+                    var field = 'xxTrustedFormCertUrl';
+                    var provideReferrer = false;
+                    var tf = document.createElement('script');
+                    tf.type = 'text/javascript';
+                    tf.async = true;
+                    tf.src = 'http' + ('https:' == document.location.protocol ? 's' : '') +
+                            '://api.trustedform.com/trustedform.js?provide_referrer=' + escape(provideReferrer) + '&field=' + escape(field) + '&l='+new Date().getTime()+Math.random();
+                    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(tf, s); }
+        )();
+</script>
+<noscript>
+    <img src="http://api.trustedform.com/ns.gif" />
+</noscript>
+<script id="LeadiDscript" type="text/javascript">
+        // <!--
+        (function() {
+            var s = document.createElement('script');
+            s.id = 'LeadiDscript_campaign';
+            s.type = 'text/javascript';
+            s.async = true;
+            s.src = '//create.lidstatic.com/campaign/d8c15ca0-b49d-f229-3503-4bdf3d9acdfe.js?snippet_version=2';
+            var LeadiDscript = document.getElementById('LeadiDscript');
+            LeadiDscript.parentNode.insertBefore(s, LeadiDscript);
+        })();
+        // -->
+</script>
+<noscript><img src='//create.leadid.com/noscript.gif?lac=c55ee29c-0c1a-ee34-c4ab-b934e5b7976c&lck=d8c15ca0-b49d-f229-3503-4bdf3d9acdfe&snippet_version=2' /></noscript>
+    <!-- Google Tag Manager -->
+<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-MPNBKF"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+        '//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-MPNBKF');</script>
+    <!-- End Google Tag Manager -->
+<div id="header">
+    <div class="container">
+        <div class='row'>
+            <div>
+                <div id="logo" style="display:inline-block;">
+                    <a class="navbar-brand" href="/" title="Easier Solar" rel="home">
+                        <img src="@(configuration.getString("cloudfront.cdn.url"))images/EasierSolar-Logo-recolor.png" alt="Easier Solar" />
+                    </a>
+                </div><!-- end of #logo -->
+                 <a class="save-button">
+                    <h1>Start Saving Now</h1>
+                </a>
+                <div class="renters-nav">
+                    <h1>Renters</h1>
+                    <div class="renters-nav-modal">
+                        <div class="nav-modal-content">
+                            <span></span>
+                            <h2>Renters</h2>
+                            <p>
+                                As a general rule, you need to own your home in
+                                order to qualify for rooftop solar deals. You could 
+                                buy the panels outright, but that isn’t something 
+                                we recommend without a particularly long
+                                lease. If you have questions, <a href="mailto:ask@@easier-solar.com">email us</a>.
+                                <br />
+                                <br />
+                                We have brand new tools and content designed to better serve renters in the lab. In the next few weeks, we'd be delighted to share them with you. Sign up below and you're in.
+                            </p>
+                            <div class="modal-cta"><h4>Keep in Touch</h4></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="business-nav">
+                    <h1>Business & Government</h1>
+                    <div class="business-nav-modal">
+                        <div class="nav-modal-content">
+                            <span></span>
+                            <h2>Business & Government</h2>
+                            <p>
+                                We do not currently offer an online marketplace
+                                for largescale projects. If you’d like help selecting
+                                a partner for a commercial or government
+                                projects, simply email us and we will provide as
+                                much help as we can. We focus mostly on homes,
+                                but we’re committed to advancing solar energy
+                                for every rooftop.
+                            </p>
+                            <div class="modal-cta"><h4>Power Your Home</h4></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="incentives-nav">
+                    <h1>Federal Incentives</h1>
+                    <div class="incentives-nav-modal">
+                        <div class="nav-modal-content">
+                        <span></span>
+                            <h2>Federal Incentives</h2>
+                            <p>
+                                Because there is such a large social benefit to installing solar, the federal government currently pays 30% of every system sold through the <b>Solar Investment Tax Credit</b> (ITC)
+                            </p>
+                            <p>
+                                Quick Facts <br />
+                                - The ITC currently deducts a 30 percent tax credit for solar systems on residential and commercial properties (Sec 48) <br />
+                                - A tax credit is a dollar-for-dollar reduction in income taxes that a person would otherwise pay.
+                            </p>
+                            <div class="modal-cta"><h4>Talk to an Advisor</h4></div>
+                        </div>
+                    </div>
+                </div>
+               <!--  <div class="phone-container">
+                    <a href="tel:1-888-654-5110" id="callNow">
+                        <span id="phone_right"><br> <span class="phone_number" id="phone_number">888-654-5110</span>
+                        </span>
+                    </a>
+                </div> -->
+            </div>
+        </div>
+    </div>
+</div>
+<div class="background-image">
+    <div class="container">
+        <div class="row">
+            <div>
+                <h1 id="background_header" class="desktop">Save Thousands on Power With Solar</h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-6 hidden-xs">
+                <div id="dark_background" style=''>
+                    <h3>See if you are solar ready, and find great deals today</h3>
+                    <div>
+                        <span class="step-connector"></span>
+                        <span class="numbered" aria-hidden="true">1</span>
+                        <span class="bullets">
+                            <div class="bullets-text">
+                                <h2>Enter Some Basic Info</h2>
+                                <!-- <p>We use this to estimate savings.<p> -->
+                            </div>
+                        </span>
+                    </div>
+                    <div>
+                        <span class="step-connector"></span>
+                        <span class="numbered" aria-hidden="true">2</span>
+                        <span class="bullets">
+                            <div class="bullets-text">
+                                <h2>Get the Best Deals</h2>
+                                <!-- <p>We find rebates and credits for you.<p> -->
+                            </div>
+                        </span>
+                    </div>
+                    <div>
+                        <span class="numbered" aria-hidden="true">3</span>
+                        <span class="bullets">
+                            <div class="bullets-text">
+                                <h2>Compare Top Companies</h2>
+                                <!-- <p>Get the best deals and prices.<p> -->
+                            </div>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6">
+
+                <div id="form">
+                    <form role="form" action='@routes.PageController.thank_you()' method="post" id="leadform" class="c160802">
+                        <div class="step current" id="step1">
+                            <div class="form-group">
+                                <h2 class="mobile">The Fastest Way to Save on Power</h2>
+                                <h3 class="mobile">Homeowners spend 20% less with Solar</h3>
+                                <img class="mobile" src="@(configuration.getString("cloudfront.cdn.url"))images/mobile-energy.png" height="auto" width="auto" alt="Energy Icon" />
+                                <label for="electric_bill">What's your average electric bill?</label>
+                                <select class="form-control" name="form.electric_bill" id="electric_bill">
+                                    <option value="$0-50">$0-50</option>
+                                    <option value="$51-100">$51-100</option>
+                                    <option value="$101-150">$101-150</option>
+                                    <option value="$151-200" selected>$151-200</option>
+                                    <option value="$201-300">$201-300</option>
+                                    <option value="$301-400">$301-400</option>
+                                    <option value="$401-500">$401-500</option>
+                                    <option value="$501-600">$501-600</option>
+                                    <option value="$601-700">$601-700</option>
+                                    <option value="$701-800">$701-800</option>
+                                    <option value="$801+">$801+/yr</option>
+                                </select>
+                            </div>
+                            <p>Estimated Savings: <span id="estimatedSavings">$362-480/yr</span></p>
+                            <div class="form-group">
+                                <a href="javascript:void(0)" class="btn btn-block btn-default btn-continue btn-orange" id="continue-1">Get Quotes</a>
+                            </div>
+                        </div>
+                        <div class="step" id="step2">
+                            <div class="form-group">
+                                <label for="adding_solar">What is your address?</label>
+                                <p>(to check utility prices & solar yield)</p>
+                                <input type="text" class="form-control" id="street" name="form.street" placeholder="Street Address" />
+                                <input type="tel" class="form-control" id="zip" name="form.zip" placeholder="Your Zip Code" maxlength="5" />
+                                <input type="hidden" id="city" name="form.city" value="" />
+                                <input type="hidden" id="state" name="form.state" value="" />
+                            </div>
+                            <div class="form-group cf">
+                                <div class="radio">
+                                    <label><input type="checkbox" checked="checked" value="OWN" name="form.property_ownership" id="property_ownership-OWN"/>I own my home.</label>
+                                </div>
+                            </div>
+                            <p id="zipWarning">* Please enter a valid zip</p>
+                            <div class="form-group">
+                                <a href="#" class="btn btn-block btn-default btn-continue btn-orange" id="continue-2">Continue</a>
+                            </div>
+                        </div>
+                        <div class="step" id="step3">
+                             <div class="form-group">
+                                <label for="electric_company">What power company do you use?</label>
+                                <input id="powerSuppliers" class="form-control" type="text" name="form.electric_company" placeholder="Select">
+                                <p id="powerSupplierWarning">* Please select a listed energy supplier</p>
+                            </div>
+                            <div class="form-group cf">
+                                <a href="#" class="btn btn-block btn-default btn-continue btn-orange" id="continue-3">Continue</a>
+                                <a href="#" id="other-btn">I don't see my provider</a>
+                            </div>
+                        </div>
+                        <div class="step" id="step4">
+
+                            <p>Last step to calculate savings</p>
+
+                            <div class="form-group">
+                                <input name="form.first_name" id="first_name" type="text" class="form-control" placeholder="First Name">
+                            </div>
+                            <div class="form-group">
+                                <input name="form.last_name" id="last_name" type="text" class="form-control" placeholder="Last Name">
+                            </div>
+                            <div class="form-group">
+                                <input name="form.phone_home" id="phone_home" type="tel" onblur="isPhoneValid()" class="form-control" placeholder="Phone" maxlength="13">
+                                <img class="phoneLoading" src="@(configuration.getString("cloudfront.cdn.url"))images/loading.svg"/>
+                            </div>
+                            <div class="form-group">
+                                <input name="form.email" id="email" type="text" class="form-control" placeholder="Email">
+                            </div>
+                            <div class="form-group submit">
+                                <button class="btn btn-block btn-default btn-continue btn-orange" id="submit">Get Quotes</button>
+                            </div>
+                        </div>
+                        <input type="hidden" name="browser.browser_id" id="browser_id" value=""/>
+                        <input type="hidden" name="ip" id="ip" value=""/>
+                        <input type="hidden" name="campid" id="campid" value="190123"/>
+                        <input type="hidden" id="ret_url" name="ret_url" value="/thanks/"/>
+                        <input type="hidden" id="solar_electric" name="solar_electric" value="true"/>
+                        <input type="hidden" id="electric_utility" name="form.electric_utility" value=""/>
+                        <input type="hidden" id="leadid_token" name="form.leadid_token" value=""/>
+                        <input type="hidden" id="listid" name="listid" value="solar_full_form"/>
+                        <input type="hidden" id="domtok" name="form.domtok" value="sunnyS0lar"/>
+                        <input type="hidden" id="ref" name="form.ref" value="www.easiersolar.com"/>
+                        <input type="hidden" id="arpxs_a_ref" name="form.arpxs_a_ref" value="@{request.queryString.getOrElse("arpxs_a_ref", "")}" />
+                        <input type="hidden" id="arpxs_b" name="arrival.arpxs_b" value="@{request.queryString.getOrElse("arpxs_b", "")}" />
+                        <input type="hidden" id="gclid" name="arrival.gclid" value="@{request.queryString.getOrElse("gclid", "")}" />
+                        <input type="hidden" id="local_hour" name="local_hour" value="") />
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div>
+    <div id="footer">
+        <div class="container">
+            <div class="row">
+                <div>
+                    <p>
+                        <label><input type="hidden" id="leadid_tcpa_disclosure" />By clicking the submit button, you agree to our <a target="_blank" href="/privacy-policy">privacy policy</a> and authorize Easier Solar and its network of <a target="_blank" href="/installers">service providers</a> to contact you at the phone number you entered using automated technology including auto-dialers, pre-recorded messages, and text messages, even if your phone is a mobile number or is currently listed on any state, federal, or corporate "Do Not Call" lists, and you are not required to give your consent as a condition of service.</label>
+                    </p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="social-proof">
+                        <img src="@(configuration.getString("cloudfront.cdn.url"))images/npr-logo.png" height="60" width="200" alt="News Public Radio" />
+                        <img src="@(configuration.getString("cloudfront.cdn.url"))images/lifehacker-logo.png" height="60" width="200" alt="Lifehacker" />
+                        <img src="@(configuration.getString("cloudfront.cdn.url"))images/the-economist-logo.png" height="60" width="200" alt="The Economist" />
+                        <img src="@(configuration.getString("cloudfront.cdn.url"))images/new-york-times-logo.png" height="60" width="200" alt="The New York Times" />
+                        <img src="@(configuration.getString("cloudfront.cdn.url"))images/mckinsey-logo.png" height="60" width="200" alt="McKinsey &amp; Company" />
+                        <img src="@(configuration.getString("cloudfront.cdn.url"))images/the-atlantic-logo.png" height="60" width="200" alt="The Atlantic" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="mobile-bullets-container">
+        <ul>
+            <li>Fast comparison shopping</li>
+            <li>Access trusted advisors</li>
+            <li>Estimate savings online</li>
+        </ul>
+    </div>
+    <div class="why-easier-container">
+        <div class="why-easier">
+        <h1 class="wow fadeIn">The Fastest Way to Save on Energy</h1>
+        <h2>Compare top solar companies near you in minutes</h2>
+            <div class="mac-section cf">
+                <div class="mac-features-section cf">
+                    <div class="feature wow fadeInLeft">
+                        <a href="#">The easiest way to go solar</a>
+                        <span>&#x25BA;</span>
+                    </div>
+                    <div class="feature wow fadeInLeft">
+                        <a href="#">Fast comparison shopping</a>
+                        <span>&#x25BA;</span>
+                    </div>
+                    <div class="feature wow fadeInLeft">
+                        <a href="#">Access trusted advisors (free)</a>
+                        <span>&#x25BA;</span>
+                    </div>
+                </div>
+                <div class="mac-display">
+                    <img src="@(configuration.getString("cloudfront.cdn.url"))images/mac-display.png" height="60" width="200" alt="Mac Display" />
+                    <img src="@(configuration.getString("cloudfront.cdn.url"))images/mac-screen1.png" height="60" width="200" alt="Mac Screen 1" />
+                </div>
+                <div class="mac-features-section cf">
+                    <div class="feature wow fadeInRight">
+                        <a href="#">Clear comparisons based on data</a>
+                        <span>&#x25C0;</span>
+                    </div>
+                    <div class="feature wow fadeInRight">
+                        <a href="#">Pre-screened solar partners</a>
+                        <span>&#x25C0;</span>
+                    </div>
+                    <div class="feature wow fadeInRight">
+                        <a href="#">Estimate Savings Online</a>
+                        <span>&#x25C0;</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="best-installer-container background-image">
+        <div class="best-installer desktop">
+            <h1>The Best Companies in One Place</h1>
+            <h2>You wouldn't go to every airline before booking a flight. EasierSolar gives you a better way to shop 100s of brands.</h2>
+            <h2>We use cutting edge technology to provide personalized recommendations for high tech low cost energy solutions</h2>
+            <h2>It's our way of making solar a no brainer. Because when you look at numbers, it really is.</h2>
+            <img src="@(configuration.getString("cloudfront.cdn.url"))images/mobile-display.png" />
+        </div>
+        <div class="best-installer mobile">
+            <h1>The Best Brands in One Place</h1>
+            <h2>Simple, effective comparison shopping</h2>
+            <img src="@(configuration.getString("cloudfront.cdn.url"))images/mobile-display.png" />
+        </div>
+    </div>
+    <div class="ready-home-container">
+        <div class="ready-home">
+            <h1 class="wow fadeIn">Personalized Quotes & Expert Advice</h1>
+            <div class="tile-row cf">
+                <div class="tile">
+                    <div class="tile-text">
+                        <p>Enter your project location</p>
+                    </div>
+                </div>
+                <div class="tile">
+                    <div class="tile-text">
+                        <p>See info about incentives and local power costs</p>
+                    </div>
+                </div>
+                <div class="tile">
+                    <div class="tile-text">
+                        <p>An advisor will guide you through everything</p>
+                    </div>
+                </div>
+            </div>
+            <p>
+                If you’re ready to learn more, start by requesting personalized quotes. This will show you the estimated savings for your project, and the products and providers that are a good fit for you and your home.
+            </p>
+            <div class="project-address-container">    
+                <div class="cta-container save-cta">
+                    <div class="cta-btn">
+                        <p>Get Started</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div class="cta-container save-cta mobile">
+        <h2>Personalized Quotes & Expert Advice</h2>
+        <p>If you're ready to learn more, start by requesting personalized quotes.</p>
+        <div class="cta-btn">
+            <p>Get Started</p>
+        </div>
+    </div>
+    <footer>
+        <div class="footer-container">
+            <h1>If you prefer to speak with a sales representative, call (844) 204-3556</h1>
+            <img src="@(configuration.getString("cloudfront.cdn.url"))images/easier-solar-logo-bw.png" height="60" width="200" alt="Easier Solar BW" />
+        </div>
+    </footer>
+
+    <div class="modal-bg">
+    </div>
+
+
+    <script src="http://code.jquery.com/jquery-1.10.2.min.js" type="text/javascript"></script>
+    <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+    <script>
+        var inputState = null;
+        var template = '160802';
+        var form_page = true;
+        $(document).ready(function() {
+            powerArray = [];
+            var addressArray = [];
+
+            $('#form').on('keyup keypress', function(e) {
+                var keyCode = e.keyCode || e.which;
+                if (keyCode === 13) {
+                    e.preventDefault();
+                    return false;
+                }
+            });
+        });
+    </script>
+    <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.0/jquery.mask.min.js"></script>
+    @views.html.snippets._application_js()
+    @views.html.snippets._c160802_js()
+    @views.html.snippets._navbar_js(nb_settings)
+    <script src="@(configuration.getString("cloudfront.cdn.url"))javascripts/track.js?t=1460151968"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.js"></script><script>new WOW().init();</script>
+</div>
+}

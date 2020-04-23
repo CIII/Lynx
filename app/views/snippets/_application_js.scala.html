@@ -1,0 +1,196 @@
+@()(implicit request: play.api.mvc.Request[AnyContent], configuration: play.api.Configuration)
+@import org.uaparser.scala.Parser
+@import play.api.libs.json._
+
+@views.html.snippets._pixelfire_js()
+@views.html.snippets._reporting_js()
+@views.html.snippets._form_validation_js
+
+<script type="text/javascript">
+    function getParameterByName(name, url) {
+        if (!url) {
+          url = window.location.href;
+        }
+        name = name.replace(/[\[\]]/g, "\\$&");
+        var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+            results = regex.exec(url);
+        if (!results) return null;
+        if (!results[2]) return '';
+        return decodeURIComponent(results[2].replace(/\+/g, " "));
+    }
+
+    function escapeSelector(s){
+            return s.replace( /(:|\.|\[|\])/g, "\\$1" );
+    }
+
+    function callNow() {
+        createEvent(LP_CTC);
+    }
+
+    window.onload = function() {
+        if($("#browser_id").length) {
+            $("#browser_id").val(browserId);
+        }
+        
+        /*$.ajaxSetup({
+            async: true
+        });*/
+
+        $("#other-btn").on("click", function(e) {
+            e.preventDefault();
+            $("#powerSuppliers").val("Other");
+            $("#continue-3").click();
+        });
+
+        try {
+            $("#leadform").setAttribute( "autocomplete", "off" );
+            $("#powerSuppliers").setAttribute( "autocomplete", "off" );
+        } catch(e) {}
+        $('.phoneLoading').hide();
+
+        sendPing();
+
+        function check_robot_id() {
+            $.getJSON('@(configuration.getString("cloudfront.cdn.url"))javascripts/crawler-user-agents.json', function(crawler_data) {
+                crawler_data.forEach(function(obj) {
+                    if (user_agent.toLowerCase().indexOf(obj.pattern.toLowerCase()) != -1) {
+                        robot_id = obj.pattern;
+                    }
+                });
+            });
+        }
+
+        var onSuccess_maxmind = function(location){
+
+            ip_address = location.traits.ip_address;
+            if ($('#ip').length > 0) {
+                $("#ip").val(ip_address);
+                sessionStorage['ip_address'] = ip_address
+            }
+            zip = location.postal.code;
+            if ($('#zip').length > 0) {
+                $("#zip").val(zip);
+                sessionStorage['ip_based_zip'] = zip
+            }
+
+            check_robot_id();
+
+            if ($('#leadform').length > 0) {
+                $.ajax({
+                    url: "https://maps.googleapis.com/maps/api/geocode/json?address=" + zip + "&key=AIzaSyDJPoJBBnxlePYGmFz5MEmiHtWcKm0jSNY",
+                    type: 'GET',
+                    async: false,
+                    success: function(res) {
+                        var city = res.results[0]["address_components"].filter(function(component) {
+                            return component.types.indexOf('locality') > -1;
+                        })[0].long_name;
+                        var state = res.results[0]["address_components"].filter(function(component) {
+                            return component.types.indexOf('administrative_area_level_1') > -1;
+                        })[0].short_name;
+                        sessionStorage['ip_based_iso_code'] = location.subdivisions.iso_code
+                        $('.compare_header').html(location.subdivisions.iso_code + " Homeowners Save 20% with Solar.<br/>100% Free, No Obligation Quotes");
+                        if ($('#zip').length > 0) {
+                            $("#zip").val(location.postal.code);
+                        }
+                        if ($('#ip').length > 0) {
+                            $("#ip").val(ip_address);
+                        }
+
+                        $('#city').val(city);
+                        $('#state').val(state.toUpperCase());
+                    }
+                });
+            }
+        };
+
+        function onSuccess() {
+
+            $("#ip").val(sessionStorage['ip_address']);
+            $("#zip").val(sessionStorage['ip_based_zip']);
+            check_robot_id();
+            zip = sessionStorage['ip_based_zip']
+            if ($('#leadform').length > 0) {
+                $.ajax({
+                    url: "https://maps.googleapis.com/maps/api/geocode/json?address=" + zip + "&key=AIzaSyDJPoJBBnxlePYGmFz5MEmiHtWcKm0jSNY",
+                    type: 'GET',
+                    async: false,
+                    success: function(res) {
+                        var city = res.results[0]["address_components"].filter(function(component) {
+                            return component.types.indexOf('locality') > -1;
+                        })[0].long_name;
+                        var state = res.results[0]["address_components"].filter(function(component) {
+                            return component.types.indexOf('administrative_area_level_1') > -1;
+                        })[0].short_name;
+
+                        $('.compare_header').html(sessionStorage['ip_based_iso_code'] + " Homeowners Save 20% with Solar.<br/>100% Free, No Obligation Quotes");
+                        if ($('#zip').length > 0) {
+                            $("#zip").val(sessionStorage['ip_based_zip']);
+                        }
+                        if ($('#ip').length > 0) {
+                            $("#ip").val(sessionStorage['ip_address']);
+                        }
+
+                        $('#city').val(city);
+                        $('#state').val(state.toUpperCase());
+                    }
+                });
+            }
+        }
+
+        var onError = function(error) {
+            createEvent(MAXMIND_FAIL);
+        };
+
+        if(sessionStorage['ip_based_zip'] && sessionStorage['ip_address']) {
+                onSuccess();
+        } else {
+            if(getParameterByName('syscheck') != 1) {
+                geoip2.city(onSuccess_maxmind, onError);
+            }
+        }
+
+        createEvent(PAGE_LOADED);
+        if (template == 'index' || template == 'get_quotes' || template == '160801' || template == '160802') {
+            createEvent(FORM_STEP1);
+        }
+
+        String.prototype.toProperCase = function() {
+            return this.replace(/\w\S*/g, function(txt) {
+                return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
+            });
+        };
+
+        @if(request.getQueryString("form.electric_bill").isDefined) {
+            $(document).ready(function() {
+                var value = getParameterByName("form.electric_bill")
+                $('#leadform').append("<input type='hidden' name='form.electric_bill' value='" + value + "'/>");
+                $("#continue-1").click();
+            });
+        }
+    }
+    function validateLeadId() {
+    	// If the leadid_token does not exist, re-initialize the form.
+    	var form_value = $("#leadid_token");
+    	if(form_value.val() == null || form_value.val() == "") {
+    		LeadiD.formcapture.init();
+    	}
+    }    //Call back function to either take result from redis(if successful) or json
+    function populatePowerSuppliers(state,powerArray) {
+      if (request.readyState == 4)
+      {
+        if (request.status == 200) {
+          response = JSON.parse(request.responseText);
+          powerArray.push.apply(powerArray, response);
+        }
+        else {
+          populatePowerSuppliersFallback(state,powerArray);
+        } 
+      }
+      else {
+        if(powerArray.length == 0){
+          powerArray.push('Other');
+        }
+      }
+    }
+</script>
+<script src='@(configuration.getString("cloudfront.cdn.url"))javascripts/query_redis.js'></script>

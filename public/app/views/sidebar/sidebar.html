@@ -1,0 +1,72 @@
+<div id="sidebar" class="form-left-col d_none sidebar_none" onclick="void(0)">
+    <h2>Savings Forecast <img src="/images/saving-forcast.png" alt=""></h2>
+    <form>
+        <div class="form-group col-md-12 col-md-offset-0 col-sm-8 col-sm-offset-2 col-xs-12 form-field">
+            <label for="email" class="control-label col-md-5 col-sm-6 col-xs-12 text-center">Total 
+            <a href="javascript:void(0)" data-toggle="tooltip" tooltip-placement="{{ctrl.tooltipPosition}}" uib-tooltip="{{ctrl.savingTooltipTxt}}" tooltip-class="tooltipCustom">
+                <img src="/images/info-icon.png" alt=""></a><br>Savings
+            </label>
+            <div class="col-md-7 col-sm-6 col-xs-12 center-block">               
+
+                <!--<h2 class="forcast-val val-pad" style="padding: 20px 5px;" data-ng-if="ctrl.$localStorage.selectedAnalytic == 'CURRENCY'" >$ {{(ctrl.$localStorage.loanTotalSavings) ? ctrl.$localStorage.loanTotalSavings : 0 | number : 2}}</h2>
+
+                <h2 class="forcast-val val-pad" style="padding: 20px 5px;" data-ng-if="ctrl.$localStorage.selectedAnalytic == 'PERCENTAGE'"> {{(ctrl.$localStorage.loanSavingsPercentage) ? ctrl.$localStorage.loanSavingsPercentage : 0  | number}}%</h2>-->
+                <div data-ng-if="ctrl.$localStorage.prevLoanTotalSavings < ctrl.$localStorage.loanTotalSavings">
+                    <h2 class="forcast-val val-pad" style="padding: 20px 5px;" data-ng-if="ctrl.$localStorage.selectedAnalytic == 'CURRENCY'" count-up start-val="ctrl.$localStorage.prevLoanTotalSavings" end-val="ctrl.$localStorage.loanTotalSavings" options="{prefix : '$ ', decimal : '.'}" decimals="2" reanimate-on-click="false" ></h2>
+                </div>
+                <div data-ng-if="(ctrl.$localStorage.prevLoanTotalSavings == ctrl.$localStorage.loanTotalSavings) || (ctrl.$localStorage.prevLoanTotalSavings > ctrl.$localStorage.loanTotalSavings)">
+                    <h2 class="forcast-val val-pad" style="padding: 20px 5px;" data-ng-if="ctrl.$localStorage.selectedAnalytic == 'CURRENCY'" options="{prefix : '$ ', decimal : '.'}" decimals="2" reanimate-on-click="false" >${{ctrl.$localStorage.loanTotalSavings|number:2}}</h2>
+                </div>
+
+                <div data-ng-if="ctrl.$localStorage.prevLoanSavingsPercentage < ctrl.$localStorage.loanSavingsPercentage">
+                    <h2 class="forcast-val val-pad" style="padding: 20px 5px;" data-ng-if="ctrl.$localStorage.selectedAnalytic == 'PERCENTAGE'" count-up start-val="ctrl.$localStorage.prevLoanSavingsPercentage" end-val="ctrl.$localStorage.loanSavingsPercentage | number" options="{suffix : ' %'}" reanimate-on-click="false"></h2>
+                </div>
+                <div data-ng-if="(ctrl.$localStorage.prevLoanSavingsPercentage == ctrl.$localStorage.loanSavingsPercentage) || (ctrl.$localStorage.prevLoanSavingsPercentage > ctrl.$localStorage.loanSavingsPercentage)">
+                    <h2 class="forcast-val val-pad" style="padding: 20px 5px;" data-ng-if="ctrl.$localStorage.selectedAnalytic == 'PERCENTAGE'" options="{suffix : ' %'}" reanimate-on-click="false">{{ctrl.$localStorage.loanSavingsPercentage|number}}%</h2>
+                </div>
+
+                <h2 class="forcast-val val-pad" style="padding: 20px 5px;" data-ng-if="!ctrl.$localStorage.selectedAnalytic"> 0 %</h2>
+            </div>
+        </div>
+        <div class="form-group col-md-12 col-md-offset-0 col-sm-8 col-sm-offset-2 col-xs-12 form-field">
+            <label for="nub" class="control-label col-md-5 col-sm-6 col-xs-12 text-center">Year 1<br>Savings</label>
+            <div class="col-md-7 col-sm-6 col-xs-12  center-block">
+
+                <!--<h2 class="forcast-val val-pad"  data-ng-if="ctrl.$localStorage.selectedAnalytic == 'CURRENCY'">$ {{(ctrl.$localStorage.loanFirstYearSaving) ? ctrl.$localStorage.loanFirstYearSaving : 0 | number : 2}}</h2>
+
+                <h2 class="forcast-val val-pad" data-ng-if="ctrl.$localStorage.selectedAnalytic == 'PERCENTAGE'"> {{(ctrl.$localStorage.loanYear1SavingsPercentage) ? ctrl.$localStorage.loanYear1SavingsPercentage : 0 | number}}%</h2>-->
+                <div data-ng-if="ctrl.$localStorage.prevLoanFirstYearSaving < ctrl.$localStorage.loanFirstYearSaving">
+                    <h2 class="forcast-val val-pad" style="padding: 20px 5px;" data-ng-if="ctrl.$localStorage.selectedAnalytic == 'CURRENCY'" count-up start-val="ctrl.$localStorage.prevLoanFirstYearSaving" end-val="ctrl.$localStorage.loanFirstYearSaving" options="{prefix : '$ ', decimal : '.'}" decimals="2" reanimate-on-click="false" ></h2>
+                </div>
+                <div data-ng-if="(ctrl.$localStorage.prevLoanFirstYearSaving == ctrl.$localStorage.loanFirstYearSaving) || (ctrl.$localStorage.prevLoanFirstYearSaving > ctrl.$localStorage.loanFirstYearSaving)">
+                    <h2 class="forcast-val val-pad" style="padding: 20px 5px;" data-ng-if="ctrl.$localStorage.selectedAnalytic == 'CURRENCY'" options="{prefix : '$ ', decimal : '.'}" decimals="2" reanimate-on-click="false" >${{ctrl.$localStorage.loanFirstYearSaving|number:2}}</h2>
+                </div>
+
+                <div data-ng-if="ctrl.$localStorage.prevLoanYear1SavingsPercentage < ctrl.$localStorage.loanYear1SavingsPercentage">
+                    <h2 class="forcast-val val-pad" style="padding: 20px 5px;" data-ng-if="ctrl.$localStorage.selectedAnalytic == 'PERCENTAGE'" count-up start-val="ctrl.$localStorage.prevLoanYear1SavingsPercentage" end-val="ctrl.$localStorage.loanYear1SavingsPercentage | number" options="{suffix : ' %'}" reanimate-on-click="false"></h2>
+                </div>
+                <div data-ng-if="(ctrl.$localStorage.prevLoanYear1SavingsPercentage == ctrl.$localStorage.loanYear1SavingsPercentage) || (ctrl.$localStorage.prevLoanYear1SavingsPercentage > ctrl.$localStorage.loanYear1SavingsPercentage)">
+                    <h2 class="forcast-val val-pad" style="padding: 20px 5px;" data-ng-if="ctrl.$localStorage.selectedAnalytic == 'PERCENTAGE'" options="{suffix : ' %'}" reanimate-on-click="false">{{ctrl.$localStorage.loanYear1SavingsPercentage|number}}%</h2>
+                </div>
+
+                <h2 class="forcast-val val-pad" data-ng-if="!ctrl.$localStorage.selectedAnalytic"> 0 %</h2>
+            </div>
+        </div>
+        <div class="form-group col-md-12 col-md-offset-0 col-sm-8 col-sm-offset-2 col-xs-12 form-field">
+            <label for="nub" class="control-label col-md-5 col-sm-6 col-xs-12 text-center"><img src="/images/batt.png" alt=""></label>
+            <div class="col-md-7 col-sm-6 col-xs-12  center-block">
+                <h2 class="forcast-val val-pad-1">
+                    {{((ctrl.$localStorage.confidence) ? ctrl.$localStorage.confidence : 0 )| number:0}}%
+                    <span>Confidence</span>
+                </h2>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="btn-group form-group-bttn" role="group" aria-label="...">
+                <button type="button" class="btn" data-ng-click="ctrl.selectedAnalytics('PERCENTAGE')" ng-class="{'active':ctrl.$localStorage.selectedAnalytic == 'PERCENTAGE'}">%</button>
+                <button type="button" class="btn" data-ng-click="ctrl.selectedAnalytics('CURRENCY')" ng-class="{'active':ctrl.$localStorage.selectedAnalytic == 'CURRENCY'}">$</button>
+            </div>
+        </div>
+    </form>
+
+</div>

@@ -1,0 +1,39 @@
+@(siteSettings: utils.templates.SiteSettings)(implicit configuration: play.api.Configuration, environment: play.api.Environment)
+@import utils.utilities.construct_url
+@if(utils.templates.TemplateSettings.show_solar_cal(siteSettings)){
+<div class="col-xs-12 col-sm-12 col-md-8 col-lg-9 y-scroll">
+}else{
+<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 y-scroll">
+}
+<div name="form-13" ng-init="ctrl.formPageLoaded('Power Company');">
+    <div class="form-right-col">
+        <div class="inner address-block" ng-style="{
+        '-webkit-transition-duration': ctrl.speed + 'ms',
+        '-moz-transition-duration': ctrl.speed + 'ms',
+        '-ms-transition-duration': ctrl.speed + 'ms',
+        '-o-transition-duration': ctrl.speed + 'ms',
+        'transition-duration': ctrl.speed + 'ms'
+    }">
+    <h1>What electric company do you use?</h1>
+    <div class="powercompany-wrap">
+        <form class="powercompany-container">
+            <ul class>
+                <li class="powercompany-block" data-ng-repeat="supplier in ctrl.BASE_CONSTS.topSuppliers" data-ng-click="ctrl.form.electric_company = supplier" ng-class="{'homeowner-block-active': ctrl.form.electric_company == supplier}">
+                    <input type="radio" id="option-{{supplier}}" name="selector" ng-checked="ctrl.form.electric_company == supplier">
+                    <div class="check-cell"><div class="check"><div class="inside"></div></div></div>
+                    <label for="option-{{supplier}}">{{supplier}}</label>
+                </li>
+            </ul>
+            <input type="hidden" id="leadid_token" name="form.leadid_token" data-ng-model="ctrl.form.leadid_token" />
+            <div class="col-md-12 col-sm-12 col-xs-12">
+                <button class="continue-button" id="continueBtn" ng-class="{'continue-button-active': ctrl.form.electric_company}" ng-disabled="!ctrl.form.electric_company" data-ng-click="ctrl.submitInfoForm([ctrl.BASE_CONSTS.POWER_COMPANY_COMPLETED]);"><div class="loader" ng-show="ctrl.$rootScope.loading && ctrl.form.electric_company" >Loading...</div>Continue</button>
+            </div>
+        </form>
+    </div>
+</div><!-- 2 form end-->
+<div class="row">
+</div>
+</div>
+@views.html.angular.forms.back_reset()
+</div>
+</div>

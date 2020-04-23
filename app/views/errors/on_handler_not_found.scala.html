@@ -1,0 +1,8 @@
+@(request: RequestHeader)(implicit configuration: play.api.Configuration)
+
+@views.html.headers.main("Handler Not Found") {
+
+    <h1>Handler Not Found</h1>
+    <p>You requested: @request.path</p>
+
+}

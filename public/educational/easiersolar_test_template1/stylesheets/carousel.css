@@ -1,0 +1,601 @@
+/* GLOBAL STYLES
+-------------------------------------------------- */
+/* Padding below the footer and lighter body text */
+
+body {
+  padding-bottom: 40px;
+  color: #000;
+}
+
+.top-banner{
+
+	
+}
+
+
+/* CUSTOMIZE THE NAVBAR
+-------------------------------------------------- */
+
+/* Special class on .container surrounding .navbar, used for positioning it into place. */
+
+.lead2 {
+    font-size: 16px;
+    font-weight: normal;
+    line-height: 1.6;
+    margin-bottom: 20px;
+	margin-top: 0px;
+}
+.lead3 {
+    font-size: 14px;
+    font-weight: normal;
+    line-height: 1.6;
+    margin-bottom: 20px;
+	margin-top: 18px;
+}
+.carousel-caption h1
+{
+	background-color:#000;
+	float:left;
+	font-family:Impact, Haettenschweiler, "Franklin Gothic Bold", "Arial Black", sans-serif;
+	padding:10px 10px;
+	font-weight:100px;
+	}
+.banner_text
+{
+	background-color:#f2c90f;
+	float:left;
+	font-family:Impact, Haettenschweiler, "Franklin Gothic Bold", "Arial Black", sans-serif;
+	color:#000000;
+	padding:10px 10px;
+	text-shadow:none;
+	font-weight:100px;
+	}
+
+
+
+.form-wrap
+
+{
+	overflow:hidden;
+	position:absolute;
+	width:978px;
+	top:0;
+	left:50%;
+	margin-left:-458px;
+	z-index:1000;
+	padding-top:50px;
+	}
+.form-div{
+	float:right;
+	width:355px;
+	height:500px;
+	background:#1d1f20;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	padding:17px 17px 0;
+	margin-top:-50px;
+	
+}
+
+
+
+.form_tab
+{
+	margin-bottom:15px;
+
+	}
+.form_text
+{
+	color:#FFF;
+	font-size:12px;
+	
+	}
+	
+.dropdown1{
+	height:44px;
+	-webkit-border-radius: 18px;
+	-moz-border-radius: 18px;
+	border-radius: 18px;
+	background:#575757;
+	overflow:hidden;
+	line-height:44px;
+	font-size:13px;
+	color:#FFF;
+	padding:0 17px;
+	margin:0 0 9px;
+	
+	}
+.radio-div{
+	height:44px;
+	-webkit-border-radius: 18px;
+	-moz-border-radius: 18px;
+	border-radius: 18px;
+	background:#575757;
+	overflow:hidden;
+	line-height:44px;
+	font-size:13px;
+	color:#FFF;
+	padding:0 17px;
+	margin:0 0 9px;
+	cursor: pointer;
+}
+.radio-div input[type="radio"]{
+	margin:15px 10px 0 0;
+	float:left;
+}
+.form-field-1{
+	height:44px;
+	-webkit-border-radius: 18px;
+	-moz-border-radius: 18px;
+	border-radius: 18px;
+	background:#575757;
+	font-size:16px;
+	color:#ffffff;
+	border:0;
+	width:100%;
+	padding:0 12% 0;
+	margin:0 0 12px;
+}
+.form-field-2{
+	height:44px;
+	-webkit-border-radius: 18px;
+	-moz-border-radius: 18px;
+	border-radius: 16px;
+	background:#575757;
+	font-size:16px;
+	color:#ffffff;
+	border:0;
+	width:46%;
+	padding:0 3% 0;
+	margin:0 3px 10px;
+}
+
+.form-field-dropdown1{
+	height:44px;
+	-webkit-border-radius: 18px;
+	-moz-border-radius: 18px;
+	border-radius: 18px;
+	background:#575757;
+	font-size:16px;
+	color:#ffffff;
+	border:0;
+	width:100%;
+	padding:10px 7px;
+	margin:0 0 0px;
+	display:block;
+	margin-top:5px;
+	cursor:pointer
+}
+.form-submit{
+	width:96%;
+	height:34px;
+	display:block;
+	background:#ffcb01;
+	-webkit-border-radius:3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+	border:0;
+	cursor:pointer;
+	margin:0 2% 0;
+	text-align:center;
+	font-size:18px;
+	line-height:34px;
+	color:#000;
+	font-weight:bold;
+}
+.form_tab ul{
+	padding:0 0 0 ;
+	margin:0 0 0;
+	list-style:none;
+	overflow:hidden;
+	display:block;
+	background:url(../images/solar_bg.png) repeat-x 0 44px;
+}
+.form_tab ul li{
+	list-style:none;
+	padding:;
+	line-height:inherit;
+	font-size:14px;
+	color:#FFF;
+	text-align:center;
+	padding:0 0 0 ;
+	margin:0 0 0;
+	float:left;
+}
+.form_tab ul li span{
+	display:inline-block;
+	width:35px;
+	height:35px;
+	text-align:center;
+	line-height:33px;
+	background:#575757;
+	font-weight:bold;
+	font-size:17px;
+	color:#000;
+	-webkit-border-radius: 50px;
+-moz-border-radius: 50px;
+border-radius: 50px;
+border:1px solid #000;
+margin:10px 0 0;
+}
+.form_tab ul li span.active{
+
+	background:#e89b0f;
+
+}
+.pull-right
+{
+	line-height:58px;
+	}
+.form_tab ul li:last-child{
+	float:right;
+}
+.form_tab ul li:first-child{
+	margin-right:54px;
+	margin-left:10px;
+}
+.navbar-wrapper {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 20;
+}
+.footer_bg{
+	background-color:#111111;
+	float: left;
+    margin-top: 20px;
+    width: 100%;
+	}
+.listing ul
+{
+	margin:0;
+	padding:0;
+	}
+.listing ul li
+{
+	line-height:25px;
+	list-style-image:url(../images/listing.png);
+	
+	}
+.text_bg
+{background-color:#FFCB01;
+clear:both;}
+/* Flip around the padding for proper display in narrow viewports */
+.navbar-wrapper > .container {
+  padding-right: 0;
+  padding-left: 0;
+}
+.navbar-wrapper .navbar {
+  padding-right: 15px;
+  padding-left: 15px;
+}
+.navbar-wrapper .navbar .container {
+  width: 1110px;
+}
+.footer_text
+{
+  width:64%;
+  float:left;
+  line-height:55px;	
+}
+.footer_logo
+{
+	float:left;
+	}
+.logo_wrap
+{
+	width:1110px;
+	margin:0 auto;
+	
+	}
+.mid_text_wrap
+{
+	
+	text-align:center;
+	margin:0 auto;
+	}
+.banner_text_wrap
+{
+	width:1110px;
+	text-align:center;
+	margin:0 auto;
+	margin-left: -139px;
+	}
+
+/* CUSTOMIZE THE CAROUSEL
+-------------------------------------------------- */
+
+/* Carousel base class */
+.carousel {
+  height: 500px;
+  margin-bottom: 6px;
+}
+/* Since positioning the image, we need to help out the caption */
+.carousel-caption {
+  z-index: 10;
+}
+
+/* Declare heights because of positioning of img element */
+.carousel .item {
+  height: 500px;
+  background-color: #777;
+}
+.carousel-inner > .item > img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  min-width: 100%;
+  height: 500px;
+}
+
+
+/* MARKETING CONTENT
+-------------------------------------------------- */
+
+/* Center align the text within the three columns below the carousel */
+.marketing .col-lg-4 {
+  margin-bottom: 20px;
+  text-align: center;
+}
+.marketing h2 {
+  font-weight: normal;
+}
+.marketing .col-lg-4 p {
+  margin-right: 10px;
+  margin-left: 10px;
+}
+
+
+/* Featurettes
+------------------------- */
+
+.featurette-divider {
+  margin: 0px 0; /* Space out the Bootstrap <hr> more */
+}
+
+/* Thin out the marketing headings */
+.featurette-heading {
+  font-weight: 300;
+  line-height: 1;
+  letter-spacing: -1px;
+}
+
+
+.lead2_1{
+    margin: auto;
+    background-color: rgb(48, 122, 183);
+    background-color=blue;
+    color: white;
+    font-weight: bold;
+    text-shadow: 1px 1px rgb(20, 25, 31);
+    border-bottom-right-radius: 3px;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+    border-bottom-left-radius: 3px;
+    width: 50%;
+    font-size: 18px;
+    text-align: center;
+}
+
+.qualify_button1{
+    color: white;
+    background-color: Transparent;
+    border: none !important;
+    outline: none;
+    width: 100%
+}
+
+sup{
+    font-size:8px;
+    font-decoration:italic;
+}
+
+.center-image {
+  max-width:100%;
+  height: auto;
+}
+
+.federal_header{
+    font-size:26px;
+    color:rgb(48, 122, 183);
+    font-weight: bold;
+}
+
+.extern-link {
+  /* These are technically the same, but use both */
+    overflow-wrap: break-word; word-wrap: break-word;
+
+    -ms-word-break: break-all;
+    /* This is the dangerous one in WebKit, as it breaks things wherever */
+    word-break: break-all;
+    /* Instead use this non-standard one: */
+    word-break: break-word;
+
+    /* Adds a hyphen where the word breaks, if supported (No Blink) */
+    -ms-hyphens: auto;
+    -moz-hyphens: auto;
+    -webkit-hyphens: auto;
+    hyphens: auto;
+}
+
+.navbar_header{
+    color:white;
+    float:right;
+    margin-right: 57px;
+    margin-top: 10px;
+}
+
+.navbar_tab{
+    color:#FFFFFF;
+    border-left: solid 1px grey;
+    padding-left:5px;
+}
+
+/* RESPONSIVE CSS
+-------------------------------------------------- */
+@media (max-width: 768px) {
+    .container-fluid.footer_bg .container footer .footer_text a {
+      display: none;
+    }
+}
+
+@media (min-width: 768px) {
+  /* Navbar positioning foo */
+  
+  .mid_text_wrap 
+{
+	width:770px;!important
+	text-align:center;
+	margin:0 auto;
+	}
+	
+  .navbar-wrapper {
+    margin-top: 0px;
+  }
+  .navbar-wrapper .container {
+    padding-right: 25px;
+    padding-left: 25px;
+  }
+  .navbar-wrapper .navbar {
+    padding-right: 0;
+    padding-left: 0;
+  }
+
+  /* The navbar becomes detached from the top, so we round the corners */
+  .navbar-wrapper .navbar {
+    border-radius: 0px;
+  }
+
+  /* Bump up size of carousel content */
+  .carousel-caption p {
+    margin-bottom: 20px;
+    font-size: 21px;
+    line-height: 1.4;
+  }
+
+  .featurette-heading {
+    font-size: 20px;
+	color:#000;
+	text-align:center;
+  }
+  .contant-heading {
+    font-size: 32px;
+	font-family:Segoe, "Segoe UI", "DejaVu Sans", "Trebuchet MS", Verdana, sans-serif;
+	font-size:32px;
+	font-style:italic;
+	font-weight:bold;
+	color:#FFF;
+
+	background-color:#000;
+	display:inline-block;
+  }
+.h2-heading {
+	margin-bottom:18px;
+	text-align:center;
+	padding-top:18px;
+}
+.h2-heading h2{
+	 font-size: 32px;
+	font-family:Segoe, "Segoe UI", "DejaVu Sans", "Trebuchet MS", Verdana, sans-serif;
+	font-style:italic;
+	font-weight:bold !important;
+	color:#FFF;
+	background-color:#000;
+	display:inline-block;
+	margin-bottom:0;
+	margin-top:0;
+	padding:0 15px;
+	line-height:60px;
+}
+ .text_bg
+{background-color:#FFCB01;
+
+}
+}
+
+@media (min-width: 992px) {
+  
+  .featurette-heading {
+    margin-top: 10px;
+  }
+  .text_bg
+{background-color:#FFCB01;
+}
+}
+@media (mix-width: 360px) 
+{
+	
+	.form-wrap 
+
+{
+	
+	left:547px;
+	}
+	
+	
+	}
+
+@media all and (max-width: 1110px) {
+	
+.form-wrap
+
+{
+	overflow:hidden;
+	position:absolute;
+	width:100%;
+	top:0;
+	left:455px;
+	margin-left:0
+	z-index:1000;
+	padding-top:50px;
+	}
+.logo_wrap
+{
+	width:100%;
+	margin:0 auto;
+	
+	}
+	.mid_text_wrap
+{
+	
+	text-align:center;
+	margin:0 auto;
+	}
+.banner_text_wrap
+{
+	width:1110px;
+	text-align:center;
+	margin:0 auto;
+	margin-left:-139px;
+	}
+
+}
+
+@media (max-width: 500px) 
+{
+	
+	.top-banner
+
+{
+	display:none;
+	}
+
+.mappart
+
+{
+	display:block;
+	}
+
+
+	#top-button
+
+{
+	
+	margin-bottom:47px;
+	}
+
+	
+	}
+

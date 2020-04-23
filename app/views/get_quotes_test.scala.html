@@ -1,0 +1,340 @@
+@(form: play.api.data.Form[utils.utilities.EasierSolarForm], settings: utils.templates.TemplateSettings)(implicit request: play.api.mvc.Request[AnyContent], configuration: play.api.Configuration)
+
+@views.html.headers.get_quotes_main_test("Get Easier Solar Quotes") {
+<script type="text/javascript">
+        (function() {
+                    var field = 'xxTrustedFormCertUrl';
+                    var provideReferrer = false;
+                    var tf = document.createElement('script');
+                    tf.type = 'text/javascript';
+                    tf.async = true;
+                    tf.src = 'http' + ('https:' == document.location.protocol ? 's' : '') +
+                            '://api.trustedform.com/trustedform.js?provide_referrer=' + escape(provideReferrer) + '&field=' + escape(field) + '&l='+new Date().getTime()+Math.random();
+                    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(tf, s); }
+        )();
+</script>
+<noscript>
+    <img src="http://api.trustedform.com/ns.gif" />
+</noscript>
+<script id="LeadiDscript" type="text/javascript">
+        // <!--
+        (function() {
+            var s = document.createElement('script');
+            s.id = 'LeadiDscript_campaign';
+            s.type = 'text/javascript';
+            s.async = true;
+            s.src = '//create.lidstatic.com/campaign/d8c15ca0-b49d-f229-3503-4bdf3d9acdfe.js?snippet_version=2';
+            var LeadiDscript = document.getElementById('LeadiDscript');
+            LeadiDscript.parentNode.insertBefore(s, LeadiDscript);
+        })();
+        // -->
+</script>
+<noscript><img src='//create.leadid.com/noscript.gif?lac=c55ee29c-0c1a-ee34-c4ab-b934e5b7976c&lck=d8c15ca0-b49d-f229-3503-4bdf3d9acdfe&snippet_version=2' /></noscript>
+<!-- Google Tag Manager -->
+<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-MPNBKF"
+                  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+        '//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-MPNBKF');</script>
+<!-- End Google Tag Manager -->
+    @views.html.navbar_header()
+<br>
+    <div class="background-image" style="background: linear-gradient( rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3) ), url('@(configuration.getString("cloudfront.cdn.url"))@(utils.templates.TemplateSettings.get_hero_image_path(settings))');background-position: center top;">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <h1 id="background_header">
+                        @Html(utils.templates.TemplateSettings.get_header_insert(settings))
+                    </h1>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-6 hidden-xs">
+                    <div id="dark_background" style=''>
+                        <h3>Applying online for your <strong>FREE</strong> quotes for home solar savings offers several
+                            advantages.</h3>
+                        <p><span class="glyphicon glyphicon-ok-sign" aria-hidden="true"></span>
+                            <span class="bullets">It only takes 3 minutes - we screen providers for you</span>
+                        </p>
+
+                        <p><span class="glyphicon glyphicon-ok-sign" aria-hidden="true"></span>
+                            <span class="bullets">There is NO COST for this quotes service
+                            </span>
+                        </p>
+
+                        <p><span class="glyphicon glyphicon-ok-sign" aria-hidden="true"></span>
+                            <span class="bullets">There is NO Obligation to buy</span>
+                        </p>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+
+                    <img width="63" class="arrow hidden-xs" src="@(configuration.getString("cloudfront.cdn.url"))images/151214/arrow-3e803d50.png"/>
+
+                    <div id="form">
+                        <form role="form" action='@routes.PageController.thank_you()' method="post" id="leadform" class="get_quotes">
+                            <div class="step current" id="step1">
+                                <h1>Step 1 of 3</h1>
+                                <div class="form-group">
+                                    <label for="adding_solar">Where would you like to add solar?</label>
+                                    <input type="text" class="form-control" id="street" autocomplete="off" name="form.street" placeholder="Street Address" />
+                                    <input type="tel" class="form-control" id="zip" name="form.zip" placeholder="Your Zip Code" maxlength="5" />
+                                </div>
+                                <div class="form-group cf">
+                                    <div class="radio radio-active">
+                                        <label><input type="radio" value="OWN" name="form.property_ownership" id="property_ownership-OWN" checked="checked" />I own my home.</label>
+                                    </div>
+                                    <div class="radio">
+                                        <label><input type="radio" value="RENT" name="form.property_ownership" id="property_ownership-RENT" />I rent my home.</label>
+                                    </div>
+                                </div>
+                                <p id="zipWarning">* Please enter a valid zip</p>
+                                <div class="form-group">
+                                    <a href="#" class="btn btn-block btn-default btn-continue btn-orange" id="continue-1">Continue <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="step" id="step2">
+                                <h1>Step 2 of 3</h1>
+                                <div class="form-group">
+                                    <label for="electric_bill">What is your average electric bill?</label>
+                                    <select class="form-control" name="form.electric_bill" id="electric_bill">
+                                        <option value="$0-50">$0-50</option>
+                                        <option value="$51-100">$51-100</option>
+                                        <option value="$101-150">$101-150</option>
+                                        <option value="$151-200" selected>$151-200</option>
+                                        <option value="$201-300">$201-300</option>
+                                        <option value="$301-400">$301-400</option>
+                                        <option value="$401-500">$401-500</option>
+                                        <option value="$501-600">$501-600</option>
+                                        <option value="$601-700">$601-700</option>
+                                        <option value="$701-800">$701-800</option>
+                                        <option value="$801+">$801+</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="electric_company">What electric company do you use?</label>
+                                    <input id="powerSuppliers" class="form-control" type="text" name="form.electric_company" placeholder="Select">
+                                    <p id="powerSupplierWarning">* Please select a listed energy supplier</p>
+                                </div>
+                                <div class="form-group">
+                                    <a href="javascript:void(0)" class="btn btn-block btn-default btn-continue btn-orange"
+                                    id="continue-2">
+                                        Continue <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="step" id="step3">
+                                <h1>Last Step</h1>
+
+                                <p>Where can we send your quotes?</p>
+
+                                <div class="form-group">
+                                    <input name="form.first_name" id="first_name" type="text" class="form-control" placeholder="First Name">
+                                </div>
+                                <div class="form-group">
+                                    <input name="form.last_name" id="last_name" type="text" class="form-control" placeholder="Last Name">
+                                </div>
+                                <div class="form-group">
+                                    <input name="form.phone_home" id="phone_home" type="tel" onblur="isPhoneValid()" class="form-control" placeholder="Phone" maxlength="10">
+                                    <img class="phoneLoading" src="@(configuration.getString("cloudfront.cdn.url"))images/loading.svg"/>
+                                </div>
+                                <div class="form-group">
+                                    <input name="form.email" id="email" type="text" class="form-control" placeholder="Email">
+                                </div>
+                                <div class="form-group submit">
+                                    <button class="btn btn-block btn-default btn-continue btn-orange" id="submit">
+                                        Submit <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                                    </button>
+                                </div>
+                            </div>
+                            <input type="hidden" name="browser.browser_id" id="browser_id" value=""/>
+                            <input type="hidden" id="city" name="form.city" value="" />
+                            <input type="hidden" id="state" name="form.state" value="" />
+                            <input type="hidden" name="ip" id="ip" value=""/>
+                            <input type="hidden" name="campid" id="campid" value="190123"/>
+                            <input type="hidden" id="ret_url" name="ret_url" value="/thanks/"/>
+                            <input type="hidden" id="solar_electric" name="solar_electric" value="true"/>
+                            <input type="hidden" id="electric_utility" name="form.electric_utility" value=""/>
+                            <input type="hidden" id="leadid_token" name="form.leadid_token" value=""/>
+                            <input type="hidden" id="listid" name="listid" value="solar_full_form"/>
+                            <input type="hidden" id="domtok" name="form.domtok" value="sunnyS0lar"/>
+                            <input type="hidden" id="ref" name="form.ref" value="www.easiersolar.com"/>
+                            <input type="hidden" id="arpxs_a_ref" name="form.arpxs_a_ref" value="@{request.queryString.getOrElse("arpxs_a_ref", "")}" />
+                            <input type="hidden" id="arpxs_b" name="browser.arpxs_b" value="@{request.queryString.getOrElse("arpxs_b", "")}" />
+                            <input type="hidden" id="gclid" name="browser.gclid" value="@{request.queryString.getOrElse("gclid", "")}" />
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div>
+        <div id="footer">
+            <div class="container">
+                <div class="row">
+                    <div>
+                        <p>
+                            <label><input type="hidden" id="leadid_tcpa_disclosure" />By clicking the submit button, you agree to our <a target="_blank" href="/privacy-policy">privacy policy</a> and authorize Easier Solar and its network of <a target="_blank" href="/installers">service providers</a> to contact you at the phone number you entered using automated technology including auto-dialers, pre-recorded messages, and text messages, even if your phone is a mobile number or is currently listed on any state, federal, or corporate "Do Not Call" lists, and you are not required to give your consent as a condition of service.</label>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="tab-container">
+            <div class="icons-container cf">
+                <div class="icons-tile" id="goSolar">
+                    <div class="icon-image icon-active"></div>
+                    <h3 class="tab-active">WHY GO SOLAR?</h3>
+                </div>
+                <div class="icons-tile" id="goSave">
+                    <div class="icon-image"></div>
+                    <h3>HOW MUCH CAN YOU SAVE?</h3>
+                </div>
+                <div class="icons-tile" id="goPlan">
+                    <div class="icon-image"></div>
+                    <h3>SOLAR PLANS AND SERVICES</h3>
+                </div>
+            </div>
+            <div class="description-container">
+                <div id="goSolarDescription" class="description-wrapper show-description cf">
+                    <div class="description-sub-container sub-container-left">
+                        <p><strong>Is Solar Right for Me?</strong> At Easier Solar, we help homeowners to determine if solar makes sense for their home. When it does, we offer an independent comparison of both leading national providers and local installers completely free. Whether you are a fit comes down to three factors, location, power usage, and sun exposure. Of those three, the most important factor is where you live.</p>
+                        <p>If your state is green in the map below, it is very likely you are a fit for solar and you&#39;re able to save a substantial amount on your power today. To make things easier, the government is handing out billions of dollars to encourage homeowners like you to adopt this transformational technology.</p>
+                    </div>
+                    <div class="description-sub-container sub-container-right">
+                        <h2>What do I need to qualify?</h2>
+                        <ul>
+                            <li>Own a home in our coverage area</li>
+                            <li>Spend more othan $40/mo on power</li>
+                            <li>Part of your roof gets direct sunlight</li>
+                        </ul>
+                        <p><i>That's it, seriously</i></p>
+                    </div>
+                    <div class="description-image-container">
+                        <img src="@(configuration.getString("cloudfront.cdn.url"))images/us-map-coverage.png" />
+                    </div>
+                </div>
+                <div id="goSaveDescription" class="description-wrapper cf">
+                    <div class="description-sub-container sub-container-left">
+                        <p>Solar is a practical power solution that reduces power costs considerably, while protecting you from unpredictable cost increases for decades. It&#39;s no surprise the industry is exploding, almost doubling every year. The reason it is growing so fast is that solar isn&#39;t an expensive source of power that only makes sense for environmentalists anymore, thanks to a 73% decrease in panel costs since 2007 and government programs that cover at least 30% of system costs. There is no other product in the market like that.</p>
+                        <p>Want to explore your options? Easier Solar lets you see exactly how each purchase option compares to buying power from the grid. With a PPA you can immediately save about 20% off of your power bill with little to no upfront costs. You then lock in cheap, clean electricity for 20 years. If you purchase your system, you can cover all your costs in as few as 5 years, unlocking free power and a huge return.</p>
+                    </div>
+                    <div class="description-sub-container sub-container-right">
+                        <h2>How much do consumers typically save?</h2>
+                        <ul>
+                            <li>Homes in our coverage area save an average of 20% on a solar PPA</li>
+                            <li>Purchased systems cover all costs in 6-8 years in most solar states</li>
+                            <li>Lock in power price certainty</li>
+                        </ul>
+                    </div>
+                    <div class="description-image-container">
+                        <img src="@(configuration.getString("cloudfront.cdn.url"))images/residential-energy-cost-trends.png" />
+                    </div>
+                </div>
+                <div id="goPlanDescription" class="description-wrapper cf">
+                    <div class="description-sub-container sub-container-left">
+                        <p><strong>What are my options?</strong> Depending how you decide to purchase your system, you can reduce your power costs by around 20% with zero down, or purchase a system to unlock completely free power in as little as 6-8 years. Solar PPA plans offer the easiest path to solar. PPA stands for Power Purchase Agreement, it means a third party owns the panels and the only thing you pay for is power. If there are ever any issues with the system, it will be fixed at no cost to you. Plans typically price the power about 20% below your current (mostly fossil fuel) power costs.</p>
+                    </div>
+                    <div class="description-sub-container sub-container-right">
+                        <h2>What kinds of plans are available?</h2>
+                        <ul>
+                            <li><strong>PPAs</strong> are incredibly easy. Zero down, just pay for power, and save 20%.</li>
+                            <li><strong>Financing</strong> costs little to nothing up front, plus even more long term savings.</li>
+                            <li><strong>Purchase</strong> your system to unlock free power the fastest, best long term return.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="explore">
+            <p>Explore available products online, or have a conversation with an Easier Solar Advisor to learn more. States marked in green typically offer savings in excess of 20% for homeowners.</p>
+        </div>
+        <div class="cta-container">
+            <div class="cta-btn">
+                <p>See If You Qualify</p>
+            </div>
+        </div>
+        <div class="container hidden-xs">
+            <div class="row">
+                <div class="col-sm-12">
+                    <ul id="utilities">
+                        <li><a href="https://www.nationalgridus.com/masselectric/home/energyeff/4_grants.asp"
+                        target="_blank" title="National Grid Offers Solar Incentives"><img
+                        alt="National Grid Offers Solar Incentives"
+                        src="@(configuration.getString("cloudfront.cdn.url"))images/150129/national_grid_offers_solar_incentives-3133dd3f.jpg"/></a>
+                        </li>
+                        <li><a href="http://www.dsireusa.org/incentives/incentive.cfm?Incentive_Code=MA71F" target="_blank"
+                        title="NSTAR Solar Rebates and Incentives"><img alt="NSTAR Solar Rebates and Incentives"
+                        src="@(configuration.getString("cloudfront.cdn.url"))images/150129/nstar_solar_rebates_and_incentives-54468c69.jpg"/></a>
+                        </li>
+                        <li><a href="https://www.wmeco.com/energywise/rebates.aspx" target="_blank"
+                        title="Western Massachusetts Electric Company (WMECO) Offers Solar Incentives"><img
+                        alt="Western Massachusetts Electric Company (WMECO) Offers Solar Incentives"
+                        src="@(configuration.getString("cloudfront.cdn.url"))images/150129/western_massachusetts_electric_company_wmeco_offers_solar_incentives-dd0f418c.jpg"/></a>
+                        </li>
+                        <li><a href="http://www.dsireusa.org/incentives/incentive.cfm?Incentive_Code=MA71F" target="_blank"
+                        title="Unitil Energy Systems Solar Rebates and Incentives"><img
+                        alt="Unitil Energy Systems Solar Rebates and Incentives"
+                        src="@(configuration.getString("cloudfront.cdn.url"))images/150129/unitil_energy_systems_solar_rebates_and_incentives-adb41d32.jpg"/></a>
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="policy-section"></div>
+
+        <script src="http://code.jquery.com/jquery-1.10.2.min.js" type="text/javascript"></script>
+        <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+        <script type="text/javascript">
+                var template = 'get_quotes';
+                $(document).ready(function() {
+                    powerArray = [];
+                    $('body').on('click', '.icons-tile', function(e) {
+
+                        var goId = $(this).attr('id');
+                        var goIdText = '#'+ goId +'Description';
+                        var goBorders = $(this).find('h3');
+
+                        $('.icon-active').removeClass('icon-active');
+                        $(this).find('.icon-image').addClass('icon-active');
+
+                        $('.icons-tile h3').removeClass('tab-active');
+                        $(goBorders).addClass('tab-active');
+                        $('.description-wrapper').hide();
+                        $(goIdText).fadeIn();
+                        $(goIdText + 'div').fadeIn();
+
+                        e.preventDefault();
+                    });
+
+
+                    // Hero Home Radio Option
+
+                    $('body').on('click', '.radio', function() {
+
+                        $('.radio.radio-active').removeClass('radio-active');
+                        $(this).addClass('radio-active');
+                        $(this).find('input[name="'+escapeSelector('form.property_ownership')+'"]').prop('checked', true);
+                    })
+
+                    $('#form').on('keyup keypress', function(e) {
+                        var keyCode = e.keyCode || e.which;
+                        if (keyCode === 13) {
+                            e.preventDefault();
+                            return false;
+                        }
+                    });
+
+
+                });
+        </script>
+        @views.html.snippets._application_js()
+        <script src='@(configuration.getString("cloudfront.cdn.url"))javascripts/c160801.js'></script>
+        <script src='@(configuration.getString("cloudfront.cdn.url"))javascripts/track.js?t=1460151968'></script>
+    </div>
+<div class="modal-bg"></div>
+}

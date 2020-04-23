@@ -1,0 +1,80 @@
+@()(implicit configuration: play.api.Configuration)
+<div id="header">
+    <div class="container">
+        <div class='row'>
+            <div>
+                <div id="logo" style="display:inline-block;">
+                    <a class="navbar-brand" href="/" title="Easier Solar" rel="home">
+                        <img src="@(configuration.getString("cloudfront.cdn.url"))images/EasierSolar-Logo-recolor.png" alt="Easier Solar" />
+                    </a>
+                </div><!-- end of #logo -->
+                <a class="save-button">
+                    <h1>Start Saving Now</h1>
+                </a>
+                <div class="renters-nav">
+                    <h1>Renters</h1>
+                    <div class="renters-nav-modal">
+                        <div class="nav-modal-content">
+                            <span></span>
+                            <h2>Renters</h2>
+                            <p>
+                                As a general rule, you need to own your home in
+                                order to qualify for rooftop solar deals. You could
+                                buy the panels outright, but that isn’t something
+                                we recommend without a particularly long
+                                lease. If you have questions, <a href="mailto:ask@@easier-solar.com">email us</a>.
+                                <br />
+                                <br />
+                                We have brand new tools and content designed to better serve renters in the lab. In the next few weeks, we'd be delighted to share them with you. Sign up below and you're in.
+                            </p>
+                            <div class="modal-cta"><h4>Keep in Touch</h4></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="business-nav">
+                    <h1>Business & Government</h1>
+                    <div class="business-nav-modal">
+                        <div class="nav-modal-content">
+                            <span></span>
+                            <h2>Business & Government</h2>
+                            <p>
+                                We do not currently offer an online marketplace
+                                for largescale projects. If you’d like help selecting
+                                a partner for a commercial or government
+                                projects, simply email us and we will provide as
+                                much help as we can. We focus mostly on homes,
+                                but we’re committed to advancing solar energy
+                                for every rooftop.
+                            </p>
+                            <div class="modal-cta"><h4>Power Your Home</h4></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="incentives-nav">
+                    <h1>Federal Incentives</h1>
+                    <div class="incentives-nav-modal">
+                        <div class="nav-modal-content">
+                            <span></span>
+                            <h2>Federal Incentives</h2>
+                            <p>
+                                Because there is such a large social benefit to installing solar, the federal government currently pays 30% of every system sold through the <b>Solar Investment Tax Credit</b> (ITC)
+                            </p>
+                            <p>
+                                Quick Facts <br />
+                                - The ITC currently deducts a 30 percent tax credit for solar systems on residential and commercial properties (Sec 48) <br />
+                                - A tax credit is a dollar-for-dollar reduction in income taxes that a person would otherwise pay.
+                            </p>
+                            <div class="modal-cta"><h4>Talk to an Advisor</h4></div>
+                        </div>
+                    </div>
+                </div>
+                <!--  <div class="phone-container">
+                     <a href="tel:1-888-654-5110" id="callNow">
+                         <span id="phone_right"><br> <span class="phone_number" id="phone_number">888-654-5110</span>
+                         </span>
+                     </a>
+                 </div> -->
+            </div>
+        </div>
+    </div>
+</div>

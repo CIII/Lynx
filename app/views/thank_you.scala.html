@@ -1,0 +1,64 @@
+@()(implicit request: play.api.mvc.Request[AnyContent], configuration: play.api.Configuration)
+
+@views.html.headers.get_quotes_main("Quotes Are On The Way") {
+  <script type="text/javascript">
+          (function() {
+                    var field = 'xxTrustedFormCertUrl';
+                    var provideReferrer = false;
+                    var tf = document.createElement('script');
+                    tf.type = 'text/javascript'; tf.async = true;
+                    tf.src = 'http' + ('https:' == document.location.protocol ? 's' : '') +
+                            '://api.trustedform.com/trustedform.js?provide_referrer=' + escape(provideReferrer) + '&field=' + escape(field) + '&l='+new Date().getTime()+Math.random();
+                    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(tf, s); }
+          )();
+  </script>
+  <noscript>
+    <img src="http://api.trustedform.com/ns.gif" />
+  </noscript>
+        <!-- Google Tag Manager -->
+    <noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-MPNBKF"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+            new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+            j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+            '//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-MPNBKF');</script>
+        <!-- End Google Tag Manager -->
+  <script type="text/javascript">
+          var data = {arpxs_a: browserId};
+          var landingPixelId = 79077;
+          var step3PixelId = 79080;
+  </script>
+  <noscript>
+    <img height="1" width="1" style="display :none;" alt="" src="//@{configuration.getString("nexus.uri")}/pixel/79077?script=0"/>
+  </noscript>
+  <noscript>
+    <img height="1" width="1" style="display :none;" alt="" src="//@{configuration.getString("nexus.uri")}/pixel/79080?script=0"/>
+  </noscript>
+  <div id="header">
+    <div class="container">
+      <div class='row'>
+        <div class="col-sm-12">
+          <div id="logo" style="display:inline-block;">
+            <a class="navbar-brand" href="/" title="Easier Solar" rel="home">
+              <img src="@(configuration.getString("cloudfront.cdn.url"))images/EasierSolar-Logo1.0.png" height="60" width="200" alt="Easier Solar" />
+            </a>
+          </div><!-- end of #logo -->
+
+          <div class="pull-right hidden-xs">
+            <a href="tel:+1-888-654-5110" id="callNow">
+              <span id="phone_right"><span class="glyphicon glyphicon-earphone" aria-hidden="true"></span><span
+              class="smaller ">Call for a FREE Quote</span><br> <span
+              class="phone_number" id="phone_number">888-654-5110</span>
+              </span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="form-container">
+    <div class="typeform-widget" data-url="https://gregsalwitz.typeform.com/to/IQ3SJu?gclid=xxxxx&amp;fname=xxxxx&amp;state=xxxxx" data-text="Easier Solar Post-form Survey" style="width:100%;height:100%;"></div>
+  </div>
+  <script>(function(){var qs,js,q,s,d=document,gi=d.getElementById,ce=d.createElement,gt=d.getElementsByTagName,id='typef_orm',b='https://s3-eu-west-1.amazonaws.com/share.typeform.com/';if(!gi.call(d,id)){js=ce.call(d,'script');js.id=id;js.src=b+'widget.js';q=gt.call(d,'script')[0];q.parentNode.insertBefore(js,q)}})()</script>
+}

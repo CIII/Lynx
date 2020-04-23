@@ -1,0 +1,440 @@
+@(siteSettings: utils.templates.SiteSettings)(implicit request: play.api.mvc.Request[AnyContent], configuration: play.api.Configuration, environment: play.api.Environment)
+@import utils.utilities.construct_url
+<!DOCTYPE html>
+<html>
+<head>
+    <!--<base href="/">-->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta http-equiv="X-UA-Compatible" content="IE=10" />
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Terms of Use</title>
+    <script type="text/javascript" src="http://www.googleadservices.com/pagead/conversion_async.js" charset="utf-8"></script>
+
+    <link rel="stylesheet" type="text/css" href="@(construct_url("bower_components/bootstrap/dist/css/bootstrap.min.css"))">
+
+    <!--<link rel="stylesheet" type="text/css" href="/assets/bower_components/ng-scrollbar/dist/ng-scrollbar.min.css">-->
+    <link rel="stylesheet" type="text/css" href="@(construct_url("bower_components/angular-ui-router-anim-in-out/css/anim-in-out.css"))">
+    <link rel="stylesheet" type="text/css" href="@(construct_url("bower_components/sweetalert/dist/sweetalert.css"))">
+    <link rel="stylesheet" href="@(construct_url("bower_components/angular-google-places-autocomplete/src/autocomplete.css"))">
+    <link rel="stylesheet" type="text/css" href="@(construct_url("bower_components/angucomplete-alt/angucomplete-alt.css"))">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="@(construct_url(utils.templates.TemplateSettings.get_css_path(siteSettings)))">
+    <link rel="stylesheet" type="text/css" href="@(construct_url("app/css/font/stylesheet.css"))">
+    <link rel="stylesheet" href="@(construct_url("stylesheets/privacy_policy_style.css"))" type="text/css" media="all">
+    <!-- favicon -->
+    <link rel="shortcut icon" href="@(construct_url("images/favicon.png"))" type="image/png"/>
+    <link type="image/ico" rel="icon" href="@(construct_url("images/favicon.png"))"/>
+
+    <!-- social link -->
+    @{views.html.metadata.social_links("Compare solar quotes from top local and national installers | " + utils.templates.TemplateSettings.get_capital_site_name(siteSettings),"Get competitive quotes in minutes. Installers compete for your business, you get the best deal & save fast. Talk to an advisor or shop online today.", construct_url("educational/easiersolar_test_template1/images/Share_Image_Solar.png"))}
+
+</head>
+<body data-ng-app="solar" ng-style="stateName != 'home' && {'overflow':'hidden'}">
+<div id="header">
+    @views.html.angular.header.header(siteSettings, utils.templates.HeaderSettings(true))
+</div>
+<div id="content" class="site-content container">
+    <div class="container-fluid top-marg" >
+        <main id="main" class="site-main" role="main">
+
+
+            <article id="post-113" class="post-113 page type-page status-publish hentry">
+                <header class="entry-header page-header">
+                    <h1 class="entry-title">Terms of Use</h1>
+                </header>
+                <!-- .entry-header -->
+
+                <div class="entry-content">
+                    <h3 style="text-align: justify"><strong>(1) ACCEPTANCE OF TERMS</strong></h3>
+
+                    <p style="text-align: justify">Welcome to @(utils.templates.TemplateSettings.get_capital_site_name(siteSettings)).com! Your use of @(utils.templates.TemplateSettings.get_capital_site_name(siteSettings)).com (the “Site”) is subject to these Terms of Use
+                        (these “Terms”). By using the Site, you agree to be bound by, and use the Site in compliance
+                        with, these Terms. IF YOU DO NOT AGREE TO THESE TERMS OF USE, DO NOT USE THE SITE.</p>
+
+                    <p style="text-align: justify">We may make changes to these Terms from time to time. It is your
+                        responsibility to review these Terms frequently and to remain informed of any changes to them.
+                        You agree that your continued use of the Site after any such changes have been published to the
+                        Site shall constitute your acceptance of the Terms as revised.</p>
+
+                    <p style="text-align: justify">Special terms may apply to some services and activities offered on
+                        the Site. These terms are posted in connection with the applicable service. Any such terms are
+                        in addition to these Terms, and in the event of a conflict, prevail over these Terms.</p>
+
+                    <h3 style="text-align: justify"><strong>(2) LICENSE TO USE THE SITE</strong></h3>
+
+                    <p style="text-align: justify">Subject to these Terms, we grant to you a limited, personal,
+                        non-exclusive, non-transferable license to use the Site for your personal use and not for resale
+                        or further distribution. Your right to use the Site is limited by the terms set forth in these
+                        Terms.</p>
+
+                    <p style="text-align: justify">Except for your pre-existing rights and this license granted to you,
+                        we and our licensors retain all right, title and interest in and to the Site, including all
+                        related intellectual property rights. The Site is protected by applicable intellectual property
+                        laws, including United States copyright law and international treaties.</p>
+
+                    <p style="text-align: justify">Except as otherwise explicitly provided in these Terms or as may be
+                        expressly permitted by applicable law, you will not, and will not permit or authorize third
+                        parties to: (a) reproduce, modify, translate, enhance, decompile, disassemble, reverse engineer
+                        or create derivative works of the Site; (b) rent, lease or sublicense access to the Site; nor
+                        (c) circumvent or disable any security or technological features or measures of the Site.</p>
+
+                    <h3 style="text-align: justify"><strong>(3) ACCESS TO THE SITE; MODIFICATIONS TO THE SITE</strong>
+                    </h3>
+
+                    <p style="text-align: justify">We do not provide you with the equipment to access the Site. You are
+                        responsible for all fees charged by third parties to access the Site (e.g., charges by internet
+                        service providers).</p>
+
+                    <p style="text-align: justify">We reserve the right to modify or discontinue, temporarily or
+                        permanently, all or a part of the Site without notice. We will not be liable to you or to any
+                        third party for any modification, suspension, or discontinuance of the Site.</p>
+
+                    <p style="text-align: justify">We also reserve the right, in our sole discretion, to reject, refuse
+                        to post, or remove any posting (including private messages) by you, and to restrict, suspend, or
+                        terminate your access to the Site at any time, for any or no reason, with or without prior
+                        notice, and without liability.</p>
+
+                    <h3 style="text-align: justify"><strong>(4) SITE RESTRICTIONS</strong></h3>
+
+                    <p style="text-align: justify">You must comply with all applicable laws when using the Site. Except
+                        as may be expressly permitted by applicable law or authorized by us in writing, you will not,
+                        and will not permit anyone else to: (a) store, copy, modify, distribute, or resell any of the
+                        information; audio, visual, and audiovisual works; or other content made available on the Site
+                        (“Site Content”) or compile or collect any Site Content as part of a database or other work; (b)
+                        use any automated tool (e.g., robots, spiders) to use the Site or store, copy, modify,
+                        distribute, or resell any Site Content; (c) rent, lease, or sublicense your access to the Site
+                        to another person; (d) use the Site or Site Content for any purpose except for your own personal
+                        use; (e) circumvent or disable any digital rights management, usage rules, or other security
+                        features of the Site; (f) use the Site in a manner that threatens the integrity, performance, or
+                        availability of the Site; or (g) remove, alter, or obscure any proprietary notices (including
+                        copyright notices) on any portion of the Site or Site Content.</p>
+
+                    <h3 style="text-align: justify"><strong>(5) PRIVACY POLICY</strong></h3>
+
+                    <p style="text-align: justify">We may collect, sell, rent or otherwise dispose of registration and
+                        other information about you through the Site. Our collection and use of this information is
+                        governed by our privacy policy, available at www.@(utils.templates.TemplateSettings.get_capital_site_name(siteSettings)).com/privacy-policy which is
+                        incorporated by reference herein (the &#8220;Privacy Policy&#8221;).</p>
+
+                    <h3 style="text-align: justify"><strong>(6) LINKING TO THIS SITE</strong></h3>
+
+                    <p style="text-align: justify">If you link to this Site, you are permitted to link only to the home
+                        page at @(utils.templates.TemplateSettings.get_capital_site_name(siteSettings)).com. Deep linking to internal parts of this Site, framing of this
+                        Site as part of other Web sites, and in-line linking or any other manner of incorporating parts
+                        of this Site as part of another Web site is not permitted without our prior written consent.</p>
+
+                    <h3 style="text-align: justify"><strong>(7) LINKS AND THIRD PARTY CONTENT</strong></h3>
+
+                    <p style="text-align: justify">The Site may contain links to third party products, services, and Web
+                        sites. We exercise no control over the third party products, services, and Web sites and we are
+                        not responsible for their performance, do not endorse them, and are not responsible or liable
+                        for any content, advertising, or other materials available through the third party products,
+                        services, and Web sites. We are not be responsible or liable, directly or indirectly, for any
+                        damage or loss caused to you by your use of or reliance on any goods or services available
+                        through the third party products, services, and Web sites.</p>
+
+                    <h3 style="text-align: justify"><strong>(8) RESTRICTED AREAS OF THE SITE</strong></h3>
+
+                    <p style="text-align: justify">Certain areas of the Site may be password restricted to registered
+                        users (“Password-Protected Areas”). If you have registered as an authorized user to gain access
+                        to these Password-Protected Areas, you agree that you are entirely responsible for maintaining
+                        the confidentiality of your password, and agree to notify us if the password is lost, stolen,
+                        disclosed to an unauthorized third party, or otherwise may have been compromised. You agree that
+                        you are entirely responsible for any and all activities that occur under your account, whether
+                        or not you are the individual who undertakes such activities. You agree to immediately notify us
+                        of any unauthorized use of your account or any other breach of security in relation to your
+                        password or the Site that is known to you.</p>
+
+                    <h3 style="text-align: justify"><strong>(9) SUBMISSIONS</strong></h3>
+
+                    <p style="text-align: justify">Users of the Site may have the opportunity to post information to the
+                        Site, including reviews, comments, and other information and materials. Any opinions, advice,
+                        statements, services, offers, or other information that constitutes part of the content
+                        expressed or made available by third parties on the Site are those of the respective authors or
+                        producers and not of us or our sponsors or their respective shareholders, directors, officers,
+                        employees, agents, or representatives. We do not control the content posted by third parties via
+                        the Site and do not guarantee the accuracy, integrity or quality of such content. You understand
+                        that by using the Site, you may be exposed to content that is offensive, indecent, or
+                        objectionable. Under no circumstances will we, our sponsors or their respective shareholders,
+                        directors, officers, employees, agents, or representatives be held liable for any loss or damage
+                        caused by your reliance on information obtained through the Site. It is your responsibility to
+                        evaluate the information, opinion, advice, or other content available.</p>
+
+                    <p style="text-align: justify">You agree that we are free to use any comments, information, ideas,
+                        concepts, reviews, or techniques or any other material contained in any communication you may
+                        send or provide to us (each, a “Submission”), including, without limitation, responses to
+                        questionnaires or through postings to the Site without further compensation, acknowledgement, or
+                        payment to you for any purpose whatsoever including, but not limited to, developing,
+                        manufacturing and marketing products and creating, modifying or improving the Site and our
+                        products and services.</p>
+
+                    <p style="text-align: justify">Furthermore, by posting any Submission on the Site, submitting
+                        information to us, or in responding to questionnaires or other means for providing Submissions
+                        to us, you grant us a perpetual, non-exclusive, fully paid, royalty-free, irrevocable,
+                        sublicenseable, worldwide license and right to display, use, perform, reproduce, modify,
+                        distribute and create derivative works of the Submission or information submitted in any media,
+                        software, or technology of any kind now existing or developed in the future.</p>
+
+                    <p style="text-align: justify">BY POSTING OR PROVIDING ANY SUBMISSION OR OTHER INFORMATION, YOU
+                        REPRESENT AND WARRANT THAT PUBLIC POSTING AND USE OF YOUR SUBMISSION OR INFORMATION BY US WILL
+                        NOT INFRINGE ON OR VIOLATE THE RIGHTS OF ANY THIRD PARTY.</p>
+
+                    <h3 style="text-align: justify"><strong>(10) USE POLICIES</strong></h3>
+
+                    <p style="text-align: justify">You are solely responsible for any content and other material that
+                        you submit, publish or display on the Site or transmit to other members and/or other users of
+                        the Site.</p>
+
+                    <p style="text-align: justify">You will not use the Site to: (a) upload, post, email, or otherwise
+                        transmit any Submission that contains unlawful, harmful, threatening, abusive, harassing,
+                        tortious, defamatory, vulgar, obscene, libelous, invasive of another’s privacy, hateful, or
+                        racially, ethnically or otherwise objectionable; (b) harm us or third parties in any way; (c)
+                        impersonate any person or entity, or otherwise misrepresent your affiliation with a person or
+                        entity; (d) upload, post, email, or otherwise transmit any Submission that you do not have a
+                        right to transmit under any law or under contractual or fiduciary relationships (such as inside
+                        information, proprietary and confidential information learned or disclosed as part of employment
+                        relationships or under nondisclosure agreements); (e) upload, post, email or otherwise transmit
+                        any Submission that infringes any patent, trademark, trade secret, copyright, or other right of
+                        any party; (f) upload, post, email, or otherwise transmit any unsolicited or unauthorized
+                        advertising, promotional materials, “junk mail,” “spam,” “chain letters,” “pyramid schemes,” or
+                        any other forms of solicitation; (g) upload, post, email, or otherwise transmit any material
+                        that contains software viruses or any other computer code, files, or programs designed to
+                        interrupt, destroy, or limit the functionality of any computer software or hardware or
+                        telecommunications equipment; (h) interfere with or disrupt the Site or servers or networks
+                        connected to the Site, or disobey any requirements, procedures, policies or regulations of
+                        networks connected to the Site; (i) intentionally or unintentionally violate any applicable
+                        local, state, national or international law or regulation; (j) “stalk” or otherwise harass
+                        another; or (k) collect or store personal data about other users.</p>
+
+                    <h3 style="text-align: justify"><strong>(11) FEEDBACK</strong></h3>
+
+                    <p style="text-align: justify">We may provide you with a mechanism to provide feedback, suggestions,
+                        and ideas, if you choose, about the Site (“Feedback”). You agree that we may, in our sole
+                        discretion, use the Feedback you provide to us in any way, including in future modifications to
+                        the Site. You hereby grant to us and our assigns a perpetual, worldwide, fully transferable,
+                        irrevocable, royalty free license to use, reproduce, modify, create derivative works from,
+                        distribute, and display the Feedback in any manner any for any purpose.</p>
+
+                    <h3 style="text-align: justify"><strong>(12) INFORMATIONAL DISCLAIMERS RELATED TO YOUR USE OF THE
+                        SITE<br/>
+                    </strong></h3>
+
+                    <p style="text-align: justify">Please note that some of the services provided on the Site are
+                        designed to provide consumers an opportunity to request information regarding certain products
+                        and services, including without limitation, solar energy. As a result, please note the
+                        following:</p>
+                    <ul style="text-align: justify">
+                        <li style="text-align: justify">@(utils.templates.TemplateSettings.get_capital_site_name(siteSettings)).com is a lead generation service that
+                            matches requests from potential customers with service providers that offer products or
+                            services that may be able to meet such potential customers’ request. We are not involved in
+                            the actual transaction between potential customers and service providers. Consequently, we
+                            cannot ensure that a transaction will occur. Further, if a transaction does occur between a
+                            potential customer who submits their information and a service provider with whom we work,
+                            we have no control over the quality, safety or legality of the item or service sold. If we
+                            are unable to match your request to businesses within our network, we retain the right to
+                            match you to businesses outside our network through our approved partners.
+                        </li>
+                        <li style="text-align: justify">The information furnished on the Site and any interactive
+                            responses are not intended to be professional advice and are not intended to replace
+                            personal consultation with a qualified home improvement service provider, solar energy
+                            specialist or other service professional. You must always seek the advice of a qualified
+                            professional for questions related to implementing and/or using energy-related products in
+                            your home. You should never disregard professional advice or delay in seeking professional
+                            advice related to your home or the implementing and/or using energy-related products in your
+                            home because of something you have read on this site. The application of information on
+                            @(utils.templates.TemplateSettings.get_capital_site_name(siteSettings)).com may not be applicable to your specific circumstances.
+                        </li>
+                        <li style="text-align: justify">It is your responsibility to always confirm applicable licensing
+                            requirements with each service provider you talk to and the applicable state and local
+                            licensing authorities.
+                        </li>
+                        <li style="text-align: justify">While information on the Site has been obtained from sources
+                            believed to be reliable, neither we nor the content providers warrant the accuracy of
+                            product content, or other data of any nature contained on this website. Neither we nor the
+                            content providers guarantee that the content on this Site covers all possible uses,
+                            directions, precautions, or adverse effects that may be associated with any energy-related
+                            product.
+                        </li>
+                        <li style="text-align: justify">@(utils.templates.TemplateSettings.get_capital_site_name(siteSettings)).com AND OUR SPONSORS AND LICENSORS MAKE NO
+                            WARRANTIES OF ANY KIND, WHETHER EXPRESS OR IMPLIED, (INCLUDING, WITHOUT LIMITATION,
+                            WARRANTIES OF QUALITY, PERFORMANCE, NON-INFRINGEMENT, MERCHANTABILITY OR FITNESS FOR A
+                            PARTICULAR PURPOSE) RELATING TO (1) ANY RECOMMENDATIONS/REFERRALS PROVIDED TO YOU VIA THE
+                            SITE AND (2) ANY PRODUCTS OR SERVICES PROVIDED BY ANY OF OUR RECOMMENDED PARTNERS, INCLUDING
+                            WITHOUT LIMITATION, SOLAR ENERGY PROVIDERS, ENERGY CONSULTANTS OR HOME IMPROVEMENT SERVICE
+                            PROVIDERS.
+                        </li>
+                    </ul>
+                    <h3 style="text-align: justify"><strong>(13) USERS UNDER AGE 13<br/>
+                    </strong></h3>
+
+                    <p style="text-align: justify">It is our policy that visitors to the Site who are under the age of
+                        13 should not post or provide information on the Site without the consent of their parents. The
+                        Child Online Privacy and Protection Act (COPPA) regulates online collection of information from
+                        persons under the age of 13. It is our policy to refrain from knowingly collecting or
+                        maintaining personal information relating to any person under the age of 18. If you are under
+                        the age of 18, please do not supply any personal information through the site. If you are under
+                        the age of 18 and have already provided personal information through the site, please have your
+                        parent or guardian contact us immediately, so that we can remove such information from our
+                        files. You may contact us at the address below.</p>
+
+                    <h3 style="text-align: justify"><strong>(14) SECURITY</strong></h3>
+
+                    <p style="text-align: justify">We use reasonable security measures that are designed to protect
+                        personal information from loss, misuse, and unauthorized access, disclosure, alteration, or
+                        destruction. Please note, however, that no data security measures can be guaranteed to be
+                        completely effective. Consequently, we cannot ensure or warrant the security of any personal
+                        information or other information. You transmit personal information to us at your own risk.</p>
+
+                    <h3 style="text-align: justify"><strong>(15) LIMITATION OF LIABILITY<br/>
+                    </strong></h3>
+
+                    <p style="text-align: justify">YOUR USE OF THE SITE IS AT YOUR OWN RISK, INCLUDING WITHOUT
+                        LIMITATION, ANY PRODUCTS OR SERVICES PROVIDED BY ANY OF OUR RECOMMENDED PARTNERS. ACCORDINGLY,
+                        TO THE FULLEST EXTENT PERMITTED BY LAW, @(utils.templates.TemplateSettings.get_capital_site_name(siteSettings)).com AND OUR SPONSORS AND LICENSORS
+                        WILL NOT BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, OR EXEMPLARY
+                        DAMAGES, INCLUDING BUT NOT LIMITED TO, DAMAGES FOR LOSS OF PROFITS, GOODWILL, USE, DATA OR OTHER
+                        INTANGIBLE LOSSES (EVEN IF EITHER PARTY HAS BEEN ADVISED OF THE POSSIBILITY OF THESE DAMAGES),
+                        RESULTING FROM THE USE OF ANY RECOMMENDATIONS/REFERRALS PROVIDED THROUGH THE SITE OR FROM THE
+                        PURCHASE OF PRODUCTS OR SERVICES PROVIDED BY ANY OF THE REFERRED PARTNERS, INCLUDING WITHOUT
+                        LIMITATION ANY SOLAR ENERGY PROVIDERS, ENERGY CONSULTANTS OR HOME IMPROVEMENT SERVICE
+                        PROVIDERS.</p>
+
+                    <p style="text-align: justify">TO THE FULLEST EXTENT PERMITTED BY LAW, UNDER NO CIRCUMSTANCES WILL
+                        THE TOTAL LIABILITY OF @(utils.templates.TemplateSettings.get_capital_site_name(siteSettings)).com AND OUR SPONSORS AND LICENSORS OF ALL KINDS
+                        ARISING OUT OF OR RELATED TO YOUR USE OF THE SITE (INCLUDING BUT NOT LIMITED TO WARRANTY
+                        CLAIMS), REGARDLESS OF THE FORUM AND REGARDLESS OF WHETHER ANY ACTION OR CLAIM IS BASED ON
+                        CONTRACT, TORT, OR OTHERWISE, EXCEED THE AMOUNTS, IF ANY, THAT YOU HAVE PAID TO
+                        @(utils.templates.TemplateSettings.get_capital_site_name(siteSettings)).com.</p>
+
+                    <h3 style="text-align: justify"><strong>(16) INDEMNIFICATION</strong></h3>
+
+                    <p style="text-align: justify">You agree to indemnify and hold harmless @(utils.templates.TemplateSettings.get_capital_site_name(siteSettings)).com, its
+                        affiliates, its officers, directors, agents and employees against any asserted claims or suits
+                        made by any third party or any regulatory action brought by any entity, for any and all damages,
+                        losses, judgments, suits, claims or liabilities (including but not limited to reasonable
+                        attorneys’ fees) arising from or relating to: (i) any actual or alleged breach of these terms by
+                        you (ii) any content, data or material that you submit, post or otherwise provide to
+                        @(utils.templates.TemplateSettings.get_capital_site_name(siteSettings)).com.</p>
+
+                    <h3 style="text-align: justify"><strong>(17) CHOICE OF LAW &amp; LEGAL FORUM<br/>
+                    </strong></h3>
+
+                    <p style="text-align: justify">These Terms, Privacy Policy and your use of the Site, including all
+                        claims or causes of action (whether in contract or tort) that may be based upon or arise out of
+                        or relate to the Terms, Privacy Policy and your use of the Site, will be governed by California
+                        law, excluding its conflict and choice of law principles. The exclusive jurisdiction and venue
+                        for any claims arising out of or related to these Terms and the Privacy Policy or your use of
+                        the Site will lie in the State and Federal courts located in the State of California, and you
+                        irrevocably agree to submit to the jurisdiction of such courts. Our failure to enforce any right
+                        or provision in these Terms of the Privacy Policy will not constitute a waiver of such right or
+                        provision unless acknowledged and agreed to by us in writing. In the event that a court of
+                        competent jurisdiction finds any provision of these Terms or the Privacy Policy to be illegal,
+                        invalid, or unenforceable, the remaining provisions will remain in full force and effect.</p>
+
+                    <h3 style="text-align: justify"><strong>(18) <strong>ARBITRATION</strong><br/>
+                    </strong></h3>
+
+                    <p style="text-align: justify">Any controversy or claim arising out of or relating to (i) these
+                        Terms or the Privacy Policy, (ii) our use of your personal information, or (iii) your use of the
+                        Site, shall be resolved by arbitration in accordance with the rules of the J.A.M.S., and
+                        judgment upon an award arising in connection therewith may be entered in any court of competent
+                        jurisdiction. Any arbitration, mediation, court action, or other adjudicative proceeding arising
+                        out of or relating to this Agreement shall be held in Los Angeles County, California, or, if
+                        such proceeding cannot be lawfully held in such location, as near thereto as applicable law
+                        permits. You agree that regardless of any statute or law to the contrary, any claim or cause of
+                        action arising out of, related to or connected with (i) these Terms or the Privacy Policy, (ii)
+                        our use of your personal information, or (iii) your use of the Site, must be filed within one
+                        (1) year after such claim or cause of action arose or be forever banned.</p>
+
+                    <h3 style="text-align: justify"><strong>(19) ENTIRE AGREEMENT<br/>
+                    </strong></h3>
+
+                    <p style="text-align: justify">These Terms and the Privacy Policy contain the entire agreement
+                        between the parties and supersedes all previous agreements and proposals, oral or written, and
+                        all negotiations, representations, warranties, conversations, or discussions between the parties
+                        relating to your use of the Site. You acknowledge that you have not relied on any
+                        representations or statements by @(utils.templates.TemplateSettings.get_capital_site_name(siteSettings)).com not included in these Terms and Privacy
+                        Policy. The Terms and the Privacy Policy may only be amended in a writing signed by
+                        @(utils.templates.TemplateSettings.get_capital_site_name(siteSettings)).com.</p>
+
+                    <h3 style="text-align: justify"><strong>(20) UPDATES TO THESE TERMS<br/>
+                    </strong></h3>
+
+                    <p style="text-align: justify">We may occasionally update the Site and these Terms. When we do, we
+                        will revise the “last updated” date on these Terms. You should check this Site and these Terms
+                        frequently to see recent changes. The then-current version of these Terms will supersede all
+                        earlier versions.</p>
+
+                    <h3 style="text-align: justify"><strong>(21) CONTACTING US</strong></h3>
+
+                    <p style="text-align: justify">If you have any questions or concerns about the Site or these Terms,
+                        you may contact us at <a class="__cf_email__" href="contact@@@utils.templates.TemplateSettings.get_host(siteSettings)"
+                                                 data-cfemail="25464a4b5144465165764a49445708644840574c46440b4a5742">contact@@@utils.templates.TemplateSettings.get_host(siteSettings)</a>
+                        <script data-cfhash='f9e31' type="text/javascript">
+                            /* <![CDATA[ */!function(t,e,r,n,c,a,p){try{t=document.currentScript||function(){for(t=document.getElementsByTagName('script'),e=t.length;e--;)if(t[e].getAttribute('data-cfhash'))return t[e]}();if(t&&(c=t.previousSibling)){p=t.parentNode;if(a=c.getAttribute('data-cfemail')){for(e='',r='0x'+a.substr(0,2)|0,n=2;a.length-n;n+=2)e+='%'+('0'+('0x'+a.substr(n,2)^r).toString(16)).slice(-2);p.replaceChild(document.createTextNode(decodeURIComponent(e)),c)}p.removeChild(t)}}catch(u){}}()/* ]]> */
+                        </script>
+                        or mail us at:
+                    </p>
+                    <p style="text-align: justify">@utils.templates.TemplateSettings.get_host(siteSettings)
+                        31 St James Ave 6th Floor<br>
+                        Boston, MA 02116</p>
+
+                    <p style="text-align: justify">Last Updated June 3, 2016.</p>
+                </div>
+                <!-- .entry-content -->
+            </article>
+            <!-- #post-## -->
+
+
+        </main>
+        <!-- #main -->
+    </div>
+    <!-- #primary -->
+
+
+</div>
+<!-- #content -->
+
+<div id="footer-area">
+    <div class="container footer-inner">
+
+    </div>
+
+
+    <div id="partners">
+        <div class="container">
+
+        </div>
+    </div>
+    <!-- #colophon -->
+</div>
+</div><!-- #page -->
+<div class="bottom-container">
+    <div id="bottomText">
+        <div class="container">
+            <small>All site content including any recommendations, financial estimates, custom savings plans or estimated
+                energy savings is for general informational purposes only and is not intended to be professional advice.
+                Furthermore, nothing on this site is intended to imply or infer a contract for services or otherwise between
+                us and you in any way, nor is it intended to replace advice from a qualified energy specialist or other
+                professional. Before implementing and/or using energy-related products in your home or business, you must
+                always seek the advice of a qualified professional. Any custom plans or energy savings are only
+                representative examples and your actual needs and results may vary depending on product specifications,
+                product use, product pricing, government rebates, local utility prices, local weather and individual
+                behavior.
+            </small>
+        </div>
+    </div>
+</div>
+<footer>
+    <div class="footer-container">
+        <a href="/"><img src="@(construct_url(utils.templates.TemplateSettings.get_footer_logo_path(siteSettings)))" alt=""></a>
+    </div>
+</footer>
+<div class="modal-bg">
+</div>
+</div>
+</body>
+</html>

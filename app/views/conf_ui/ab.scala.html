@@ -1,0 +1,171 @@
+@()(implicit configuration: play.api.Configuration, environment: play.api.Environment)
+@import utils.utilities.construct_url
+<!--- Config View --->
+<div id="ab-view">
+    <div class="row">
+        <div class="col-sm-1"></div>
+        <div class="col-sm-4">Experiment Name</div>
+    </div>
+    <div class="row">
+        <div class="col-sm-1"></div>
+        <div class="col-sm-4" id="experiment-section">
+            <div id="current-experiment">
+                <select ng-model="ctrl.current_experiment" ng-options="x.name for x in ctrl.experiments" ng-change="ctrl.updateCurrentExperimentView();"></select>
+            </div>
+        </div>
+        <div class="col-sm-7">
+            <div class="row">
+                <div class="col-sm-4">
+                    <button class="btn btn-secondary" ng-click="ctrl.createNewExperimentModal();">Create New Experiment</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-1"></div>
+        <div class="col-sm-4">AB Test Name</div>
+    </div>
+    <div class="row">
+        <div class="col-sm-1"/>
+        <div class="col-sm-4" id="ab-test-section">
+            <div id="current-ab-test">
+                <select ng-model="ctrl.current_ab_test" ng-change="ctrl.updateCurrentABTestView()" ng-options="x.definition for x in ctrl.current_experiment_status.test_definitions"></select>
+            </div>
+        </div>
+        <div class="col-sm-7">
+            <div class="row">
+                <div class="col-sm-4">
+                    <button class="btn btn-secondary" ng-click="ctrl.createNewABTestModal();">Create New Test</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-1"/>
+        <div class="col-sm-10" id="configuration-section">
+            <uib-tabset active="active">
+                <uib-tab index="0" heading="Experiment Yaml">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <textarea id="test-yaml" type="text" ng-model="ctrl.current_experiment.yaml"/>
+                        </div>
+                    </div>
+                </uib-tab>
+                <uib-tab index="1" heading="Forms">
+                    <div ng-repeat="x in ctrl.current_test_assignments track by $index" ng-mouseover="ctrl.selectCondition(x);">
+                        <div class="row filler nopadding ab-form-section-header text-center"><div class="col-sm-12" style="font-weight:bold;">Assignment Set {{$index + 1}}</div></div>
+                        <div class="ab-form-section">
+                            <div class="row nopadding">
+                                <div class="col-sm-3">Variable</div>
+                                <div class="col-sm-2">Operation</div>
+                                <div class="col-sm-4">Value</div>
+                                <div class="col-sm-3"/>
+                            </div>
+                            <div class="row test-conditions nopadding" ng-repeat="c in x.conditions track by $index">
+                                <div class="col-sm-3"><input class="form-control" ng-model="c.var"/></div>
+                                <div class="col-sm-2">
+                                    <select class="form-control" ng-model="c.op">
+                                        <option value="equals">equals</option>
+                                        <option value="not equals">not equals</option>
+                                    </select>
+                                </div>
+                                <div class="col-sm-4"><input class="form-control" ng-model="c.val"/></div>
+                                <div class="col-sm-1"><button class="btn btn-danger" ng-click="ctrl.removeCondition($parent.$index, $index)">-</button></div>
+                                <div class="col-sm-2"/>
+                            </div>
+                            <div class="row nopadding">
+                                <div class="col-sm-8"/>
+                                <button class="btn btn-success col-sm-3" ng-click="ctrl.addNewCondition($index)">Add Condition</button>
+                                <div class="col-sm-1"/>
+                            </div>
+                        </div>
+                        <div class="ab-form-section">
+                            <div ng-repeat="c in x.vars track by $index">
+                                <div class="row nopadding">
+                                    <div class="col-sm-1"/>
+                                    <div class="col-sm-2">Variable</div>
+                                    <div class="col-sm-1">Group</div>
+                                    <div class="col-sm-2">Operation</div>
+                                    <div class="col-sm-1">Type</div>
+                                    <div class="col-sm-5 nopadding">
+                                        <div class="row nopadding">
+                                            <div class="col-sm-2 nopadding" ng-if="c.op == 'weightedChoice'">Weight</div>
+                                            <div ng-class="{'col-sm-8': c.op != 'weightedChoice', 'col-sm-6': c.op == 'weightedChoice'}">Value</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row test-vars nopadding">
+                                    <div class="col-sm-1"><button class="btn btn-danger" ng-click="ctrl.removeVariable($index)">-</button></div>
+                                    <div class="col-sm-2 nopadding"><input class="form-control" ng-model="c.var"/></div>
+                                    <div class="col-sm-1 nopadding"><input class="form-control" ng-model="c.group"/></div>
+                                    <div class="col-sm-2 nopadding">
+                                        <select class="form-control" ng-model="c.op">
+                                            <option value="uniformChoice">uniformChoice</option>
+                                            <option value="weightedChoice">weightedChoice</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-sm-1 nopadding">
+                                        <select class="form-control" ng-model="c.type">
+                                            <option value="String">String</option>
+                                            <option value="Array_Number">Array_Number</option>
+                                            <option value="Array_String">Array_String</option>
+                                            <option value="Image">Image</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-sm-5 nopadding">
+                                        <fieldset class="array-input" data-ng-repeat="value in c.choices track by $index">
+                                            <div class="row" style="margin-left: 0px; margin-right: 0px;">
+                                                <div class="col-sm-2 nopadding" ng-if="c.op == 'weightedChoice'"><input class="form-control" ng-model="value.weight"/></div>
+                                                <div class="nopadding" ng-class="{'col-sm-8': c.op != 'weightedChoice', 'col-sm-6': c.op == 'weightedChoice'}">
+                                                    <div ng-if="c.type != 'Image'">
+                                                        <input class="form-control" ng-model="value.value" name="">
+                                                    </div>
+                                                    <div ng-if="c.type == 'Image'" class="input-group">
+                                                        <input style="width:75%"ng-model="value.value" type="text" placeholder="Type to search" aria-describedby="sizing-addon1" ng-model="ctrl.current_configuration[key]" typeahead-show-hint="false" typeahead-min-length="0" uib-typeahead="image for image in ctrl.available_images | filter:$viewValue" class="form-control" typeahead-on-select="ctrl.onCompanySelect()" typeahead-editable="false"/>
+                                                        <span>
+                                                            <button class="btn btn-info" ng-click="ctrl.previewImageModal(value.value)">
+                                                                <img src="@(construct_url("images/preview_button.png"))"/>
+                                                            </button>
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-4">
+                                                    <button class="btn btn-danger" ng-click="ctrl.removeChoice($parent.$index, $index)">-</button>
+                                                </div>
+                                            </div>
+                                        </fieldset>
+                                        <button class="btn btn-success" ng-click="ctrl.addChoice($index)">Add Choice</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-2"/>
+                                <button class="btn btn-success col-sm-4" ng-click="ctrl.addVariable()">Add Variable</button>
+                                <div class="col-sm-2"/>
+                            </div>
+                        </div>
+                        <div class="row filler nopadding"/>
+                    </div>
+                    <div class="row" style="margin: 5vh 0 5vh 0;">
+                        <div class="col-sm-4"/>
+                        <button class="btn btn-success col-sm-4" ng-click="ctrl.addNewAssignment()">Add Assignment Set</button>
+                        <div class="col-sm-4"/>
+                    </div>
+                    <div class="row" style="margin: 5vh 0 5vh 0;">
+                        <div class="col-sm-4"/>
+                        <button class="btn btn-success col-sm-4" ng-click="ctrl.persistToYaml()">Translate To Yaml</button>
+                        <div class="col-sm-4"/>
+                    </div>
+                </uib-tab>
+                <uib-tab index="2" heading="Tests Status">
+                    <div class="row" ng-repeat="definition in ctrl.current_experiment_status.test_definitions">
+                        <div class="col-sm-4">{{definition.definition}}</div>
+                        <div class="col-sm-2"><button class="btn" ng-click="ctrl.setActiveTest(definition.definition)" ng-class="{'btn-success':definition.definition==ctrl.current_experiment_status.active_test.definition, 'btn-danger':definition.definition!=ctrl.current_experiment_status.active_test.definition}"/></div>
+                        <div class="col-sm-6"/>
+                    </div>
+                </uib-tab>
+            </uib-tabset>
+        </div>
+        <div class="col-sm-1"/>
+    </div>
+</div>

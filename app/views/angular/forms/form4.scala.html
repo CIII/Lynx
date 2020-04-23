@@ -1,0 +1,35 @@
+@(siteSettings: utils.templates.SiteSettings)(implicit configuration: play.api.Configuration, environment: play.api.Environment)
+@if(utils.templates.TemplateSettings.show_solar_cal(siteSettings)){
+<div class="col-xs-12 col-sm-12 col-md-8 col-lg-9 y-scroll">
+}else{
+<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 y-scroll">
+}
+<div name="form-4" ng-init="ctrl.formPageLoaded('Power Company')">
+    <div class="form-right-col">
+        <div class="inner address-block" ng-style="{
+                '-webkit-transition-duration': ctrl.speed + 'ms',
+                '-moz-transition-duration': ctrl.speed + 'ms',
+                '-ms-transition-duration': ctrl.speed + 'ms',
+                '-o-transition-duration': ctrl.speed + 'ms',
+                'transition-duration': ctrl.speed + 'ms'
+            }">
+            <h1>What electric company do you use?</h1>
+            <form class="address-block" name="">
+                <div class="input-group input-group-lg" ng-init="ctrl.getCompanyList()">
+                    <input name="company-dropdown" type="text" placeholder="Type to search" aria-describedby="sizing-addon1" data-ng-model="ctrl.form.electric_company" typeahead-show-hint="false" typeahead-min-length="0" uib-typeahead="company for company in ctrl.CompanyList | filter:$viewValue" class="form-control" typeahead-on-select="ctrl.onCompanySelect()" typeahead-editable="false"  onkeydown="if(event.keyCode == 13) document.getElementById('continueBtn').click()" />
+                    <div class="input-group-btn">
+                        <button class="btn btn-default" type="submit">
+                            <i class="fa fa-search" aria-hidden="true"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    <button class="continue-button" id="continueBtn" ng-class="{'continue-button-active': ctrl.form.electric_company}" ng-disabled="!ctrl.form.electric_company" data-ng-click="ctrl.submitInfoForm([ctrl.BASE_CONSTS.POWER_COMPANY_COMPLETED]);"><div class="loader" ng-show="ctrl.$rootScope.loading && ctrl.form.electric_company" >Loading...</div>Continue</button>
+                </div>
+                <input type="hidden" id="leadid_token" name="form.leadid_token" data-ng-model="ctrl.form.leadid_token" />
+            </form>
+        </div><!-- 4 form end-->
+    </div>
+@views.html.angular.forms.back_reset()
+</div>
+</div>

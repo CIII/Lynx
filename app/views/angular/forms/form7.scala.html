@@ -1,0 +1,106 @@
+@(siteSettings: utils.templates.SiteSettings)(implicit configuration: play.api.Configuration, environment: play.api.Environment)
+@import utils.utilities.construct_url
+@if(utils.templates.TemplateSettings.show_solar_cal(siteSettings)){
+<div class="col-xs-12 col-sm-12 col-md-8 col-lg-9 y-scroll">
+}else{
+<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 y-scroll">
+}
+<div name="form-7">
+  <div class="form-right-col">
+    <div class="inner report-block" ng-style="{
+    '-webkit-transition-duration': ctrl.speed + 'ms',
+    '-moz-transition-duration': ctrl.speed + 'ms',
+    '-ms-transition-duration': ctrl.speed + 'ms',
+    '-o-transition-duration': ctrl.speed + 'ms',
+    'transition-duration': ctrl.speed + 'ms'
+  }">
+  <h1 class="text-center">We're building your personalized savings report using independent sources to ensure accuracy.
+  </h1>
+  <div class="info-slide">
+    <div class="row" data-ng-init="ctrl.replaceSpinner()">
+      <div class="col-md-4 col-sm-4">
+        <div class="info-block">
+          <img src="@construct_url("app/images/power.png")" alt="">
+          <h3>power usage</h3>
+          <div id="{{ (ctrl.rotateSpinner_1) ? 'spin' : '' }}">
+            <img ng-src="@construct_url("app/images/{{ (ctrl.rotateSpinner_1) ? 'sppiner.png' : 'ok-icon.png' }}")" alt="">
+          </div>
+
+<!--<div data-ng-if="!ctrl.rotateSpinner_1">
+<img src="@construct_url("app/images/ok-icon.png")" alt="">
+</div>-->
+</div>
+</div>
+<div class="col-md-4 col-sm-4">
+  <div class="info-block">
+    <img src="@construct_url("app/images/home.png")" alt="">
+    <h3>home profile</h3>
+    <div id="{{ (ctrl.rotateSpinner_2) ? 'spin' : '' }}">
+      <img src="@construct_url("app/images/{{ (ctrl.rotateSpinner_2) ? 'sppiner.png' : 'ok-icon.png' }}")" alt="">
+    </div>
+
+<!--<div data-ng-if="!ctrl.rotateSpinner_2">
+<img src="@construct_url("app/images/ok-icon.png")" alt="">
+</div>-->
+
+</div>
+</div>
+<div class="col-md-4 col-sm-4" >
+  <div class="info-block">
+    <img src="@construct_url("app/images/sun-weather.png")" alt="">
+    <h3>sun & weather</h3>
+    <div id="{{ (ctrl.rotateSpinner_3) ? 'spin' : '' }}">
+      <img src="@construct_url("app/images/{{ (ctrl.rotateSpinner_3) ? 'sppiner.png' : 'ok-icon.png' }}")" alt="">
+    </div>
+
+<!--<div data-ng-if="!ctrl.rotateSpinner_3">
+<img src="@construct_url("app/images/ok-icon.png")" alt="">
+</div>-->
+
+</div>
+</div>
+</div>
+<div class="row com-logo">
+  <div class="col-md-3 col-sm-3">
+    <img src="@construct_url("app/images/nrel.png")" alt="">
+  </div>
+  <div class="col-md-3 col-sm-3">
+    <img src="@construct_url("app/images/eia.png")" alt="">
+  </div>
+  <div class="col-md-3 col-sm-3">
+    <img src="@construct_url("app/images/sunshot.png")" alt="">
+  </div>
+  <div class="col-md-3 col-sm-3">
+    <img class="pull-right" src="@construct_url("app/images/openei.png")" alt="">
+  </div>
+  <div class="col-md-12">
+    <p>
+      <label><input type="hidden" id="leadid_tcpa_disclosure"/>By clicking the submit button, you agree to our <a
+              target="_blank" href="/privacy-policy">privacy policy</a> and authorize Easier Solar and its network of <a
+              target="_blank" href="/installers">service providers</a> to contact you at the phone number you entered
+        using automated technology including auto-dialers, pre-recorded messages, and text messages, even if your phone
+        is a mobile number or is currently listed on any state, federal, or corporate "Do Not Call" lists, and you are
+        not required to give your consent as a condition of service.</label>
+    </p>
+  </div>
+</div>
+</div>
+</div><!-- 6 form end-->
+
+<!--<div class="row">
+<div class="col-md-12 col-sm-12 col-xs-12">
+<button class="continue-button continue-button-active" data-ng-click="ctrl.ping('state_seven');" ><div class="loader" ng-show="ctrl.loading" >Loading...</div>Continue</button>
+</div>
+</div>-->
+</div>
+<!-- <div class="row">
+<div class="col-md-12 col-xs-12">
+<div class="bttn-block">
+<a ui-sref="state_five" class="back-bttn" ><img src="@construct_url("app/images/form-back.png")" alt=""></a>
+
+<a href="javascript:void(0)" data-ng-click="ctrl.resetForms();" class="reset-bttn"><img src="@construct_url("app/images/reset-form.png")" alt=""></a>
+</div>
+</div>
+</div>-->
+</div>
+</div>

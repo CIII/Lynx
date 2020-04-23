@@ -1,0 +1,53 @@
+logs
+target
+/.idea
+/.idea_modules
+/.classpath
+/.project
+/.settings
+/RUNNING_PID
+*.class
+.DS_Store
+
+# Mobile Tools for Java (J2ME)
+.mtj.tmp/
+
+# Package Files #
+*.jar
+*.war
+*.ear
+
+# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
+hs_err_pid*
+log/*
+webdis.log
+
+.dbeaver-data-sources.xml
+/bin
+
+bower_components/
+node_modules/
+bower_components/
+
+libexec
+libexec/*
+
+abTest/*
+abTest/
+
+# built files
+public/app/build
+public/app/css/**/*.min.css
+
+npm-debug.log
+
+templates_conf/
+templates_conf/*
+
+spinners.css.map*
+
+.sass-cache/
+.sass-cache/*
+
+/Scripts
+/bin-eclipse

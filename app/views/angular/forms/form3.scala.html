@@ -1,0 +1,40 @@
+@(siteSettings: utils.templates.SiteSettings)(implicit configuration: play.api.Configuration, environment: play.api.Environment)
+@if(utils.templates.TemplateSettings.show_solar_cal(siteSettings)){
+<div class="col-xs-12 col-sm-12 col-md-8 col-lg-9 y-scroll">
+}else{
+<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 y-scroll">
+}
+<div name="form-3" ng-init="ctrl.formPageLoaded('Power Bill')">
+    <div class="form-right-col">
+        <div class="inner address-block" ng-style="{
+        '-webkit-transition-duration': ctrl.speed + 'ms',
+        '-moz-transition-duration': ctrl.speed + 'ms',
+        '-ms-transition-duration': ctrl.speed + 'ms',
+        '-o-transition-duration': ctrl.speed + 'ms',
+        'transition-duration': ctrl.speed + 'ms'
+    }">
+    <h1>How much is your typical electric bill?</h1>
+    <div class="elec-bil-wrap">
+        <form>
+<!--<div class="form-group">
+<input type="text" class="form-control input-type-1"  id="">
+<label for="" >/mo</label>
+</div>-->
+<div class="form-group">
+    <select class="form-control" id="sel1" name="form.electric_bill" ng-model="ctrl.form.electric_bill">
+        <option ng-repeat="bill in ctrl.electricBillData" value="{{bill.id}}">{{bill.label}}</option>
+    </select>
+      <div class="col-md-12 col-sm-12 col-xs-12">
+        <button id="continueBtn" class="continue-button" data-ng-click="ctrl.submitInfoForm([ctrl.BASE_CONSTS.POWER_BILL_COMPLETED]);" ng-class="{'continue-button-active':ctrl.form.electric_bill}" ng-disabled="!ctrl.form.electric_bill"><div class="loader" ng-show="ctrl.$rootScope.loading" >Loading...</div>Continue</button>
+    </div>
+</div>
+<input type="hidden" id="leadid_token" name="form.leadid_token" data-ng-model="ctrl.form.leadid_token" />
+</form>
+</div>
+</div><!-- 3 form end-->
+
+
+</div>
+@views.html.angular.forms.back_reset()
+</div>
+</div>

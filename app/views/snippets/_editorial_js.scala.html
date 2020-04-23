@@ -1,0 +1,33 @@
+<script type="text/javascript">
+
+    $('body').on('change', '#electric_bill', function(e) {
+        var billRaw = $('#electric_bill').val();
+        var bill = billRaw.split("-");
+        var firstBillRaw = bill[0];
+        var firstBillCleansed = firstBillRaw.replace("$", "");
+        var firstBillFinal = firstBillCleansed * 2.4;
+        var secondBillRaw = bill[1] * 2.4;
+        var firstBill = Math.round(firstBillFinal);
+        var secondBill = Math.round(secondBillRaw);
+
+        if (billRaw == '$801+') {
+            $('#estimatedSavings').text('$9,612+')
+        } else {
+            $('#estimatedSavings').text('$' + firstBill + '-' + secondBill + '/yr');
+        }
+
+        e.preventDefault();
+    })
+    
+	function postEmailToSubscriptionService(email){
+        $.ajax({
+            url: "/subscribe_email",
+            type: 'POST',
+            contentType: 'application/x-www-form-urlencoded',
+            data: $("#email-capture-form").serializeArray(),
+            async: true,
+            success: function() {}
+        });
+	}
+
+</script>

@@ -1,0 +1,89 @@
+@()(implicit configuration: play.api.Configuration)
+@import utils.utilities.construct_url
+<div id="configuration-view">
+    <!-- individual config action -->
+    <div class="row" style="height:7.5vh;">
+        <div class="col-sm-2"/>
+        <div class="col-sm-3 filler">
+            <button class="btn btn-secondary v-center" ng-click="ctrl.save_current_configuration()">Save Current Url</button>
+        </div>
+        <div class="col-sm-5 filler">
+            <button class="btn btn-secondary v-center" id="url-preview" ng-click="ctrl.preview();">Preview Current Config</button>
+            <a ng-show="ctrl.flags.preview_generated" ng-href="{{ctrl.preview_url}}" target="_blank" id="url-preview">
+                <button class="btn btn-secondary v-center">Preview Page</button>
+            </a>
+        </div>
+        <div class="col-sm-2"/>
+    </div>
+    <div class="row" style="height:5vh" ng-if="ctrl.flags.is_flushing || ctrl.flags.is_invalidating || ctrl.flags.is_generating_preview"/>
+    <div class="row" style="height:15vh;" ng-if="ctrl.flags.is_flushing || ctrl.flags.is_invalidating || ctrl.flags.is_generating_preview">
+        <div class="col-sm-2"/>
+        <div id="loading-status" class="col-sm-8">
+            <div id="is-flushing" ng-show="ctrl.flags.is_flushing && !ctrl.flags.is_generating_preview">
+                <div><span class="spinner-dot-in loading-spinner"></span></div>
+                <div class="loading-text">Flushing</div>
+            </div>
+            <div id="is-invalidating" ng-show="ctrl.flags.is_invalidating && !ctrl.flags.is_generating_preview">
+                <div><span class="spinner-dot-in loading-spinner"></span></div>
+                <div class="loading-text">Invalidating -> {{ctrl.pending_invalidations.toString()}}</div>
+            </div>
+            <div id="is-generating-preview" ng-show="ctrl.flags.is_generating_preview">
+                <div><span class="spinner-dot-in loading-spinner"></span></div>
+                <div class="loading-text">Generating Preview for: {{ctrl.current_url.url}}</div>
+            </div>
+        </div>
+        <div class="col-sm-2"/>
+    </div>
+    <div class="row" style="height:5vh"/>
+    <!--- current url -->
+    <div class="row">
+        <div class="col-sm-2"></div>
+        <div class="col-sm-4" id="url-section">
+            <div id="current-url">
+                <select ng-model="ctrl.current_url" ng-change="ctrl.update_current_configuration(); ctrl.flags.preview_generated = false;" ng-options="x.url for x in ctrl.existing_urls"></select>
+            </div>
+        </div>
+        <div class="col-sm-6"/>
+    </div>
+    <!--- configuration section -->
+    <div class="row">
+        <div class="col-sm-2"></div>
+        <div class="col-sm-8" id="configuration-section">
+            <div class="row configuration-list" ng-if="ctrl.current_configuration.length != 0" ng-repeat="(key,value) in ctrl.current_configuration">
+                <div class="col-sm-6 current-config-section">
+                    <div style="font-weight: bold;">{{key}}</div>
+                    <input type="text" ng-if="ctrl.conf_var_types[key] == 'String'" ng-model="ctrl.current_configuration[key]" class="config-input"></input>
+                    <div ng-if="ctrl.conf_var_types[key] == 'Boolean'">
+                        <label>
+                            <input type="radio" ng-model="ctrl.current_configuration[key]" ng-value="true">
+                            True
+                        </label>
+                        <label>
+                            <input type="radio" ng-model="ctrl.current_configuration[key]" ng-value="false">
+                            False
+                        </label>
+                    </div>
+                    <div ng-if="ctrl.conf_var_types[key] == 'Array_String' || ctrl.conf_var_types[key] == 'Array_Number'">
+                        <fieldset class="array-input" data-ng-repeat="value in ctrl.current_configuration[key] track by $index">
+                            <input type="text" ng-model="value.value" name="" ng-if="ctrl.conf_var_types[key] == 'Array_String'">
+                            <input type="number" ng-model="value.value" name="" ng-if="ctrl.conf_var_types[key] == 'Array_Number'">
+                            <button class="btn btn-danger" ng-click="ctrl.removeInput(key,$index)">-</button>
+                        </fieldset>
+                        <button class="btn btn-success" ng-click="ctrl.addNewInput(key)">Add input</button>
+                    </div>
+                    <div ng-if="ctrl.conf_var_types[key] == 'Image'" ng-init="ctrl.show_image[key] = false;">
+                        <input type="text" placeholder="Type to search" aria-describedby="sizing-addon1" ng-model="ctrl.current_configuration[key]" typeahead-show-hint="false" typeahead-min-length="0" uib-typeahead="image for image in ctrl.available_images | filter:$viewValue" class="form-control" typeahead-on-select="ctrl.onCompanySelect()" typeahead-editable="false"/>
+                        <img ng-show="ctrl.show_image[key]" ng-src="{{ctrl.cdn_url}}{{ctrl.current_configuration[key]}}"/>
+                        <button class="preview-toggle-button btn btn-info btn-block" ng-click="ctrl.show_image[key] = !ctrl.show_image[key];">Toggle Image</button>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 homepage-example">
+                    <div><span style="font-weight: bold;">{{key}}:</span> {{ctrl.homepage_configuration[key]}}
+                        <img ng-if="ctrl.conf_var_types[key] == 'Image'" ng-show="ctrl.show_image[key]" ng-src="{{ctrl.cdn_url}}{{ctrl.homepage_configuration[key]}}"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-2"></div>
+    </div>
+</div>

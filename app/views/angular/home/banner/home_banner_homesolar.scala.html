@@ -1,0 +1,12 @@
+@(landingSettings: utils.templates.LandingSettings)(implicit configuration: play.api.Configuration)
+@import utils.utilities.construct_url
+    <section class="box-banner">
+        <div class="box-bannerPara" ng-show="ctrl.BASE_CONSTS.home_queried" ng-style="{'background-image':'url(' + ctrl.hero_image_path() + ')'}">
+            <div class="box-bannerParaInn">
+                <div class="box-banParaInn" ng-init="ctrl.nextStateName = ctrl.getNextState()">
+                    <span class="home_title">@utils.templates.TemplateSettings.get_default_header(landingSettings)</span>
+                    <button type="button" class="link-seeSaving main-cta" data-ng-click="ctrl.submitLandingPage(ctrl.nextStateName)">@utils.templates.TemplateSettings.get_cta_text(landingSettings)</button>
+                </div>
+            </div>
+        </div>
+    </section>

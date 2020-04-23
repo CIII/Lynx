@@ -1,0 +1,15 @@
+@()(implicit configuration: play.api.Configuration)
+@import utils.utilities.construct_url
+<!--- Selection Menu --->
+<div id="navigation-view">
+    <div class="row">
+        <div class="col-sm-1"></div>
+        <div class="col-sm-5">
+            <button ng-click="ctrl.loadState('config')" class="btn-1">Configuration</button>
+        </div>
+        <div class="col-sm-5">
+            <button ng-click="ctrl.loadState('ab')" class="btn-1">AB TEST</button>
+        </div>
+        <div class="col-sm-1"></div>
+    </div>
+</div>

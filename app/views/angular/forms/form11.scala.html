@@ -1,0 +1,34 @@
+@(siteSettings: utils.templates.SiteSettings)(implicit configuration: play.api.Configuration, environment: play.api.Environment)
+@if(utils.templates.TemplateSettings.show_solar_cal(siteSettings)){
+<div class="col-xs-12 col-sm-12 col-md-8 col-lg-9 y-scroll">
+}else{
+<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 y-scroll">
+}
+<div name="form-11" ng-init="ctrl.formPageLoaded('Email');">
+    <div class="form-right-col">
+        <div class="inner address-block anim-slide-left" ng-style="{
+        '-webkit-transition-duration': ctrl.speed + 'ms',
+        '-moz-transition-duration': ctrl.speed + 'ms',
+        '-ms-transition-duration': ctrl.speed + 'ms',
+        '-o-transition-duration': ctrl.speed + 'ms',
+        'transition-duration': ctrl.speed + 'ms'
+    }">
+    <h1 class="text-center">Where can we send your report?</h1>
+    <form class="row get-quotes" name="emailPhoneFrm">                        
+        <div class="col-xs-12 col-sm-offset-2 col-sm-8 col-md-8 col-md-offset-2">
+            <input type="text" class="form-control input-type-2" name="email" placeholder="Email" id="email" ng-model="ctrl.form.email" autocomplete="off" ng-class="{'error-border': emailPhoneFrm.email.$invalid && ctrl.form.email}" ng-pattern='/^(([^<>()[\]\\.,;:\s@@\"]+(\.[^<>()[\]\\.,;:\s@@\"]+)*)|(\".+\"))@@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/' onkeydown="if(event.keyCode == 13) document.getElementById('continueBtn').click()">
+            <label class="error" ng-show="emailPhoneFrm.email.$invalid && emailPhoneFrm.email.$touched">Please enter valid email</label>      
+        </div>
+    <div class="col-md-12 col-sm-12 col-xs-12" ng-init="ctrl.nextStateName = ctrl.getNextState()">
+        <button id="continueBtn" class="continue-button" data-ng-click="ctrl.submitInfoForm([ctrl.BASE_CONSTS.EMAIL_COMPLETED]);" ng-class="{'continue-button-active':ctrl.form.email && emailPhoneFrm.$valid}" ng-disabled="!ctrl.form.email || !emailPhoneFrm.$valid">
+            <div class="loader" ng-show="ctrl.$rootScope.loading" >Loading...</div>Send Report
+        </button>
+    </div>
+    <input type="hidden" id="leadid_token" name="form.leadid_token" data-ng-model="ctrl.form.leadid_token" />
+    </form>
+</div><!-- 7 form end-->
+</div>
+
+</div>
+@views.html.angular.forms.back_reset()
+</div>

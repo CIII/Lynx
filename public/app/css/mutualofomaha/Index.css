@@ -1,0 +1,310 @@
+.highTile {
+	font-family: 'ff-meta-web-pro', Arial, sans-serif;
+	border-bottom: 10px solid #105fa8;
+	border-radius: 10px 10px 3px 3px;
+	box-shadow: #414141 0 3px 7px -1px;
+	box-shadow: rgba(65, 65, 65, .6) 0 3px 8px 0;
+	text-align: center;
+	height: 202px;
+	font-size: 18px;
+	line-height: 23px;
+	margin: 0 0 20px;
+}
+
+.highTile-icon {
+	margin: 0 auto;
+	text-align: center;
+	padding: 10px 0 0;
+}
+
+.highTile-text {
+	color: #105fa8;
+	padding: 0 8px 5px;
+	font-weight: bold;
+}
+
+.highTile .icon-handshake, .highTile .icon-stethoscope, .highTile .icon-financeDollar
+	{
+	color: #747278;
+	font-size: 65px;
+}
+
+@media only screen and (max-width:550px) {
+	.highTile {
+		margin: 0 15px 20px;
+		height: 168px;
+	}
+	.highTile-text {
+		padding: 5px 20px;
+	}
+	.highTile.highTile-1 .highTile-text {
+		padding: 5px 50px;
+	}
+}
+
+@media only screen and (min-width:551px) and (max-width:768px) {
+	.highTileWrap {
+		width: 22.22222222%;
+	}
+}
+
+@media only screen and (min-width:551px) and (max-width:768px) {
+	body {
+		margin-top: 71px;
+	}
+	#PageHead {
+		height: 71px;
+	}
+	.nav-site-list {
+		top: 71px;
+	}
+}
+
+@media only screen and (max-width:550px) {
+	body {
+		margin-top: 88px;
+	}
+	#PageHead {
+		height: 88px;
+	}
+	.nav-site-list {
+		top: 88px;
+	}
+	.pagehead-logoSubtext {
+		display: block;
+	}
+	body:not (.sticky ) .pagehead-logo {
+		top: 10px;
+	}
+	.sticky .pagehead-logoSubtext {
+		display: none;
+	}
+	.sticky .pagehead-tfn {
+		display: inline-block;
+	}
+	.sticky #PageHead {
+		height: 66px;
+	}
+	.sticky body {
+		margin-top: 66px;
+	}
+	.sticky .nav-site-list {
+		top: 66px;
+	}
+}
+
+.heroWrap {
+	background: #fff;
+	font-size: 18px;
+}
+
+.hero1 {
+	font-family: 'ff-meta-web-pro', Arial, sans-serif;
+	background: url('../../images/mutualofomaha/heroBg1.jpg') no-repeat 0 0;
+	background-size: cover;
+	image-rendering: -webkit-optimize-contrast;
+	-ms-interpolation-mode: nearest-neighbor;
+	min-height: 480px;
+	position: relative;
+}
+
+.hero1-title {
+	color: #fff;
+	font-size: 30px;
+	font-weight: bold;
+	line-height: 1.2;
+	padding: 0 20px 0 0;
+	margin: 70px 0 15px;
+}
+
+.hero1 .btn-primary {
+	width: 100%;
+}
+
+.hero1-banner {
+	background: rgba(210, 221, 230, .8);
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	padding: 10px 0;
+	text-align: center;
+	color: #105fa8;
+	line-height: 22px;
+}
+
+@media screen and (min-width:768px) and (max-width:921px) {
+	.hero1-title {
+		margin-top: 50px;
+	}
+}
+
+@media only screen and (min-width:551px) and (max-width:768px) {
+	.hero1 {
+		background-position: -206px -20px;
+		background-size: auto 125%;
+	}
+	.hero1-title {
+		margin-top: 60px;
+	}
+}
+
+@media only screen and (max-width:550px) {
+	.hero1 {
+		background-position: -160px 0;
+		background-size: cover;
+		min-height: 495px;
+	}
+	.hero1-title {
+		font-size: 26px;
+	}
+}
+
+.hero2 {
+	text-align: center;
+	padding: 0 0 46px;
+}
+
+.hero2-title {
+	margin-top: 60px;
+	font-size: 30px;
+}
+
+.hero3 {
+	background: url('../../images/mutualofomaha/heroBg3.jpg') no-repeat 50% 20%;
+	background-size: cover;
+	image-rendering: -webkit-optimize-contrast;
+	-ms-interpolation-mode: nearest-neighbor;
+	min-height: 670px;
+	color: #fff;
+}
+
+.hero3-title {
+	font-size: 30px;
+	color: #fff;
+	margin: 130px 0 1em 0;
+}
+
+@media only screen and (max-width:550px) {
+	.hero3 {
+		min-height: 0;
+		padding-bottom: 80px;
+		background-position: 74% 0;
+	}
+	.hero3-title {
+		margin-top: 50px;
+	}
+}
+
+.hero4 {
+	font-family: 'ff-meta-web-pro', Arial, sans-serif;
+	background: #e7f5fd;
+	padding: 79px 0 62px;
+}
+
+.hero4-title {
+	font-size: 23px;
+}
+
+@media only screen and (max-width:768px) {
+	.hero4 {
+		padding: 60px 0;
+	}
+}
+
+.hero5 {
+	padding: 60px 0;
+	font-size: 16px;
+}
+
+.hero5-bluebox {
+	font-family: 'ff-meta-web-pro', Arial, sans-serif;
+	border-radius: 3px;
+	background: #105fa8;
+	padding: 40px 15px;
+	color: #fff;
+}
+
+.hero5-blueboxPhone {
+	font-size: 28px;
+	font-weight: bold;
+	text-decoration: none;
+	color: #fff;
+}
+
+@media only screen and (max-width:550px) {
+	.hero5 {
+		padding: 30px 0 85px;
+	}
+	.hero5-blueboxPhone {
+		display: inline-block;
+		font-size: 15px;
+		font-weight: bold;
+		line-height: 54px;
+		background: #fc7e22;
+		border-radius: 3px;
+		padding: 0 40px;
+	}
+}
+
+.qaBox {
+	line-height: 30px;
+}
+
+.qaBox dt {
+	cursor: pointer;
+	position: relative;
+	padding-right: 30px;
+}
+
+.qaBox dt:after {
+	content: '+';
+	font-family: 'ff-meta-web-pro', Arial, sans-serif;
+	font-weight: normal;
+	position: absolute;
+	top: -15px;
+	right: 0;
+	font-size: 30px;
+	color: #105fa8;
+	cursor: pointer;
+	pointer-events: auto;
+}
+
+.qaBox dt.active:after {
+	content: '–';
+}
+
+.qaBox dt.active+dd .qaBox-ellipsis {
+	display: none;
+}
+
+.qaBox dt.active+dd .qaBox-answerStub {
+	display: inline;
+}
+
+.qaBox dd {
+	position: relative;
+	padding-right: 30px;
+}
+
+.qaBox dd:before {
+	font-weight: bold;
+}
+
+.qaBox dt:hover {
+	color: #218cef;
+}
+
+.qaBox-answerStub {
+	display: none;
+}
+
+#StateInfo_Hero1Banner {
+	padding: 0 50px;
+}
+
+@media only screen and (max-width:550px) {
+	#StateInfo_Hero1Banner {
+		padding: 0 30px;
+	}
+}

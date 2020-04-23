@@ -1,0 +1,181 @@
+@(homeSettings: utils.templates.LandingSettings)(implicit configuration: play.api.Configuration, environment: play.api.Environment)
+@import utils.utilities.construct_url
+
+<main id="PageMain">
+<div class="heroWrap">
+    <section class="hero1">
+        <div class="grid pageWrap">
+            <div class="row">
+                <div class="col-lg-4 col-lg-offset-7 col-md-6 col-md-offset-5 col-md-noPadLeft">
+<form action="/" method="post" novalidate="novalidate">                        <h1 class="hero1-title home_title">@utils.templates.TemplateSettings.get_default_header(homeSettings)</h1>
+<label class="u-hiddenVisually" for="State">State</label><span class="field-validation-valid" data-valmsg-for="State" data-valmsg-replace="true"></span><select class="ffselect" data-val="true" data-val-required="Please select your State" id="State" name="State" ng-model="ctrl.form.state"><option value="">Select Your State</option>
+<option value="AK">Alaska</option>
+<option value="AL">Alabama</option>
+<option value="AR">Arkansas</option>
+<option value="AZ">Arizona</option>
+<option value="CA">California</option>
+<option value="CO">Colorado</option>
+<option value="CT">Connecticut</option>
+<option value="DC">District of Columbia</option>
+<option value="DE">Delaware</option>
+<option value="GA">Georgia</option>
+<option value="HI">Hawaii</option>
+<option value="IA">Iowa</option>
+<option value="ID">Idaho</option>
+<option value="IL">Illinois</option>
+<option value="IN">Indiana</option>
+<option value="KS">Kansas</option>
+<option value="KY">Kentucky</option>
+<option value="LA">Louisiana</option>
+<option value="MD">Maryland</option>
+<option value="ME">Maine</option>
+<option value="MI">Michigan</option>
+<option value="MO">Missouri</option>
+<option value="MS">Mississippi</option>
+<option value="MT">Montana</option>
+<option value="NC">North Carolina</option>
+<option value="NE">Nebraska</option>
+<option value="NJ">New Jersey</option>
+<option value="NM">New Mexico</option>
+<option value="NV">Nevada</option>
+<option value="OH">Ohio</option>
+<option value="OK">Oklahoma</option>
+<option value="OR">Oregon</option>
+<option value="PA">Pennsylvania</option>
+<option value="RI">Rhode Island</option>
+<option value="SC">South Carolina</option>
+<option value="SD">South Dakota</option>
+<option value="TN">Tennessee</option>
+<option value="TX">Texas</option>
+<option value="UT">Utah</option>
+<option value="VA">Virginia</option>
+<option value="VT">Vermont</option>
+<option value="WV">West Virginia</option>
+<option value="WY">Wyoming</option>
+</select>                        <button type="button" class="btn-primary" ng-click="ctrl.submitLandingPage(ctrl.nextStateName)">Get Started</button>
+</form>                </div>
+            </div>
+        </div>
+        <div class="hero1-banner">
+            <div id="StateInfo_Hero1Banner" class="col-lg-8 col-lg-offset-2">
+                        <strong>Mutual of Omaha</strong> has served Medicare Supplement Insurance policy holders for over 50 years.
+
+            </div>
+        </div>
+    </section>
+    <section class="hero2">
+        <div class="grid pageWrap">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    <h1 class="hero2-title">Benefits of Having a Medicare Supplement Policy</h1>
+                    <p>There are <strong>10 standardized Medicare Supplement Insurance plans</strong> available in most states.* Medicare Supplement Insurance works to support your Original Medicare benefits in the following ways:</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12 col-md-2 col-md-offset-1 col-md-noPad col-lg-2 col-lg-offset-2 col-lg-noPad highTileWrap">
+                    <div class="highTile highTile-1">
+                        <div class="highTile-icon">
+                            <div class="icon-financeDollar"></div>
+                        </div>
+                        <div class="highTile-text">
+                            Low<br class="show-md show-lg">
+                            Out-of-Pocket<br>
+                            Costs
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-12 col-md-2 col-md-offset-1 col-md-noPad col-lg-2 col-lg-offset-1 col-lg-noPad highTileWrap">
+                    <div class="highTile">
+                        <div class="highTile-icon">
+                            <div class="icon-stethoscope"></div>
+                        </div>
+                        <div class="highTile-text">
+                            Keep Your<br class="show-md show-lg">
+                            Doctor That<br>
+                            Accepts Medicare<br class="show-md show-lg">
+                            Patients
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-12 col-md-2 col-md-offset-1 col-md-noPad col-lg-2 col-lg-offset-1 col-lg-noPad highTileWrap">
+                    <div class="highTile">
+                        <div class="highTile-icon">
+                            <div class="icon-handshake"></div>
+                        </div>
+                        <div class="highTile-text">
+                            Guaranteed<br class="show-md show-lg">
+                            Renewable<br>
+                            Coverage in<br class="show-md show-lg">
+                            Many Cases
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    <h2 class="hero2-title h1">Medicare Supplement Insurance Basics</h2>
+                    <p>Original Medicare helps cover the costs of a wide range of medical services and supplies. However, it includes out-of-pocket costs such as coinsurance, copayments and deductibles that can add up quickly. Medicare Supplement Insurance plans are sold by private insurance companies to help pay for these costs, filling in some of those coverage gaps.</p>
+                    <a href="/WhatIs" class="btn-secondary">Learn More</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="hero3">
+        <div class="grid pageWrap">
+            <div class="row">
+                <div class="col-lg-4 col-lg-offset-2 col-md-6 col-md-offset-1">
+                    <h1 class="hero3-title">Why Us?</h1>
+                    <p id="StateInfo_WhyUs" class="hero3-body">
+                                <strong>Mutual of Omaha</strong> has been helping our customers build a strong financial future for themselves for over 100 years. Our history is one of demonstrated stability and continued security and success, always striving to meet the needs of our policyholders. We are proud of our strong marks from leading financial rating agencies, including Moody's Investors Service, A.M. Best Company, Inc. and Standard &amp; Poor's.
+
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <div class="hero4">
+        <div class="pageWrap u-txtCenter">
+            <span class="hero4-title">Find an Affordable Medicare Supplement Insurance Plan Today!</span><br>
+            Compare free quotes from each type of plan in your area.
+            <br><br>
+            <a href="#MGetStarted" class="btn-primary c-modalLink">Get Started</a>
+        </div>
+    </div>
+    <section class="hero5">
+        <div class="grid pageWrap">
+            <div class="row">
+                <div class="col-lg-5 col-lg-offset-2 col-md-8">
+                    <h1>Support Center</h1>
+                    <dl class="qaBox">
+                        <dt>What is Medicare Supplement Insurance?</dt>
+                        <dd>    <span class="qaBox-ellipsis">Medicare Supplement Insurance is also referred to as Medigap...</span>
+    <span class="qaBox-answerStub">Medicare Supplement Insurance is also referred to as Medigap. It is sold by private insurance companies and helps pay for some of the out-of-pocket costs associated with Original Medicare, such as deductibles, copayments, coinsurance and other fees.There are 10 standardized Medigap plans available in most states.</span>
+</dd>
+
+                        <dt>Am I Eligible for Medicare Supplement Insurance?</dt>
+                        <dd>    <span class="qaBox-ellipsis">If you are enrolled in Medicare Part A or Part B and are 65 years or older, or have...</span>
+    <span class="qaBox-answerStub">If you are enrolled in Medicare Part A or Part B and are 65 years or older, or have a qualifying disability, you are likely eligible to purchase Medicare Supplement Insurance. If you apply during your Medigap open enrollment period, you cannot be denied coverage or charged more for your policy based on your health.</span>
+</dd>
+
+                        <dt>What does Original Medicare cover?</dt>
+                        <dd>    <span class="qaBox-ellipsis">The U.S. federal government provides Original Medicare...</span>
+    <span class="qaBox-answerStub">The U.S. federal government provides Original Medicare (Medicare Part A and Part B) health coverage to people who are age 65 or older, and younger people who are disabled or are suffering from ESRD. Original Medicare covers hospital care and other health insurance costs such as visits to the doctor and medical supplies, among others.</span>
+</dd>
+                    </dl>
+                </div>
+                <div class="col-lg-3 col-md-4 u-txtCenter">
+                    <div class="hero5-bluebox">
+                        <p>There are a number of factors to consider when deciding the best Medicare Supplement Insurance plan for you.</p>
+                        <p class="u-txtBold">
+                            Chat with an agent**<br>
+                            to learn more.
+                        </p>
+
+                        <a href="tel:844-379-5382" class="hero5-blueboxPhone invocaTelLink" tabindex="-1" data-invoca-campaign-id="8002239185"><span data-invoca-campaign-id="8002239185" class="invocaNumber">1-844-379-5382</span></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+</main>

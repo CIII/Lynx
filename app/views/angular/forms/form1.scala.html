@@ -1,0 +1,46 @@
+@(siteSettings: utils.templates.SiteSettings)(implicit configuration: play.api.Configuration, environment: play.api.Environment)
+@import utils.utilities.construct_url
+
+@if(utils.templates.TemplateSettings.show_solar_cal(siteSettings)){
+<div class="col-xs-12 col-sm-12 col-md-8 col-lg-9 y-scroll">
+}else{
+<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 y-scroll">
+}
+
+<div name="form-1" ng-init="ctrl.formPageLoaded('Address')">
+    <div class="form-right-col">
+        <div class="inner address-block" ng-style="{
+        '-webkit-transition-duration': ctrl.speed + 'ms',
+        '-moz-transition-duration': ctrl.speed + 'ms',
+        '-ms-transition-duration': ctrl.speed + 'ms',
+        '-o-transition-duration': ctrl.speed + 'ms',
+        'transition-duration': ctrl.speed + 'ms'
+    }">
+    <form>
+        <h1>What is your address?</h1>
+        <div class="map-wrap" data-ng-if="ctrl.form.hasValidAddress && ctrl.form.lat && ctrl.form.lng && ctrl.flags.isPlaceChange" ng-class="{'map-open': ctrl.form.address, 'hidden-xs': true, 'hidden-sm': true, 'hidden-md': true}">
+            <ng-map zoom="10" center="[{{ctrl.form.lat}}, {{ctrl.form.lng}}]">
+                <marker position="[{{ctrl.form.lat}}, {{ctrl.form.lng}}]" title="{{ctrl.form.address}}" centered="true"></marker>
+            </ng-map>
+            <!-- <div id="googleMap"></div> -->
+        </div>                          
+        <div class="error-Msg" ng-show="!ctrl.form.hasValidAddress && ctrl.form.address && ctrl.flags.isPlaceChange"><i class="fa fa-info-circle" aria-hidden="true"></i>Address must contain street name and unit number</div>
+        <div class="input-group">
+            <input type="text"  id="addressField" placeholder="Enter your home address" g-places-autocomplete options="ctrl.autocompleteOptions" ng-change="ctrl.validateAddress();" typeahead-on-select="ctrl.validateAddress();" ng-model="ctrl.form.address" autocomplete="off"/>
+            <div class="input-group-btn">
+                <button class="btn btn-default" type="submit">
+                    <i class="fa fa-search" aria-hidden="true"></i>
+                </button>    
+            </div>
+        </div>
+    <div class="col-md-12 col-sm-12 col-xs-12" ng-init="ctrl.nextStateName = ctrl.getNextState()">
+        <button id="continueBtn" class="continue-button" data-ng-click="ctrl.submitAddressForm(ctrl.nextStateName,ctrl.isValidAddress);" ng-class="{'continue-button-active': ctrl.form.hasValidAddress}" ng-disabled="!ctrl.form.hasValidAddress"><div class="loader" ng-show="ctrl.$rootScope.loading && ctrl.IsPlaceChange" >Loading...</div>Continue</button>
+    </div>
+    </form>
+</div><!-- 1 form end-->
+<div class="row">
+</div>
+</div>
+@views.html.angular.forms.back_reset()
+</div>
+</div>

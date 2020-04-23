@@ -1,0 +1,98 @@
+@(siteSettings: utils.templates.SiteSettings)(implicit configuration: play.api.Configuration, environment: play.api.Environment)
+@import utils.utilities.construct_url
+
+@if(utils.templates.TemplateSettings.show_solar_cal(siteSettings)) {
+<div class="col-xs-12 col-sm-12 col-md-8 col-lg-9 y-scroll">
+} else {
+<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 y-scroll">
+}
+<main id="PageMain">
+        
+
+<section class="box-style1">
+    <div class="form-wrap">
+<form novalidate="novalidate">            <div class="grid">
+                <div class="row">
+                    <div class="col-lg-6 col-lg-offset-3 col-md-8 col-md-offset-2 formType1">
+                        <div class="row">
+                            <div class="col-sm-12 u-txtCenter">
+                                <h1>
+                                    Simply complete the form below to request your FREE no-obligation quote
+                                </h1>
+                                <div class="h1-sub">* must be answered</div>
+                                <div class="validation-summary-valid" data-valmsg-summary="true"><ul><li style="display:none"></li>
+</ul></div>
+                                <input data-val="true" data-val-length="The field First Name must be a string with a minimum length of 2 and a maximum length of 25." data-val-length-max="25" data-val-length-min="2" data-val-required="Please enter a First Name." id="Person_FirstName" name="form.first_name" type="hidden" value="">
+                                <input data-val="true" data-val-length="The field Last Name must be a string with a minimum length of 2 and a maximum length of 25." data-val-length-max="25" data-val-length-min="2" data-val-required="Please enter a Last Name." id="Person_LastName" name="form.last_name" type="hidden" value="">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-12 col-lg-4 labelWrap">
+                                <label for="form.full_name">Full Name</label> <span class="frm-imp">*</span>
+                            </div>
+                            <div class="col-sm-12 col-lg-6">
+                                <input class="masked mask-fullname" data-val="true" data-val-length="Please enter between 2 and 25 characters" data-val-length-max="25" data-val-length-min="2" data-val-regex="Please enter your full name, including first and last name." data-val-regex-pattern="^\s*\w+\s+[\w\s]+$" data-val-required="Please enter your full name, including first and last name." id="Person_FullName" name="form.full_name" type="text" value="" style="background-image: url(&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABHklEQVQ4EaVTO26DQBD1ohQWaS2lg9JybZ+AK7hNwx2oIoVf4UPQ0Lj1FdKktevIpel8AKNUkDcWMxpgSaIEaTVv3sx7uztiTdu2s/98DywOw3Dued4Who/M2aIx5lZV1aEsy0+qiwHELyi+Ytl0PQ69SxAxkWIA4RMRTdNsKE59juMcuZd6xIAFeZ6fGCdJ8kY4y7KAuTRNGd7jyEBXsdOPE3a0QGPsniOnnYMO67LgSQN9T41F2QGrQRRFCwyzoIF2qyBuKKbcOgPXdVeY9rMWgNsjf9ccYesJhk3f5dYT1HX9gR0LLQR30TnjkUEcx2uIuS4RnI+aj6sJR0AM8AaumPaM/rRehyWhXqbFAA9kh3/8/NvHxAYGAsZ/il8IalkCLBfNVAAAAABJRU5ErkJggg==&quot;); background-repeat: no-repeat; background-attachment: scroll; background-size: 16px 18px; background-position: 98% 50%;" ng-model="ctrl.form.full_name">
+                                <span class="field-validation-valid" data-valmsg-for="form.full_name" data-valmsg-replace="true"></span>
+                            </div>
+                        </div>
+<input data-val="true" data-val-required="Please enter your State." id="Person_Address_State" name="Person.Address.State" type="hidden" value="MD">                        <div class="row">
+                            <div class="col-sm-12 col-lg-4 labelWrap">
+                                <label for="form.state">ZIP Code</label> <span class="frm-imp">*</span>
+                            </div>
+                            <div class="col-sm-12 col-lg-6">
+                                <input class="colwidth--5 masked mask-zip" data-val="true" data-val-length="Please enter a valid Zip Code." data-val-length-max="5" data-val-length-min="5" data-val-regex="Enter digits only." data-val-regex-pattern="^\d+$" data-val-required="Please enter a valid Zip Code." id="Person_Address_Zip" maxlength="5" name="form.zip" type="text" value="" aria-required="true" ng-model="ctrl.form.zip">
+                                <span class="field-validation-valid" data-valmsg-for="form.state" data-valmsg-replace="true"></span>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-12 col-lg-4 labelWrap">
+                                <label for="form.dob">Date of Birth</label> <span class="frm-imp">*</span><div class="form-explain hide-sm hide-md show-lg">ex: mm/dd/yyyy</div>
+                            </div>
+                            <div class="col-sm-12 col-lg-6">
+                                <input value="" class="masked mask-date colwidth--8" data-val="true" data-val-date="Please enter a valid date (MM/DD/YYYY)." data-val-required="We need your date of birth for an accurate quote." id="Person_DateOfBirth_Date" name="form.dob" type="text" aria-required="true" ng-model="ctrl.form.dob">
+                                <div class="form-explain show-sm hide-lg lowItem">ex: mm/dd/yyyy</div>
+                                <span class="field-validation-valid" data-valmsg-for="form.dob" data-valmsg-replace="true"></span>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-12 col-lg-4 labelWrap">
+                                <label for="form.phone_home">Phone Number</label> <span class="frm-imp">*</span>
+                            </div>
+                            <div class="col-sm-12 col-lg-6">
+                                <input class="masked mask-telephone colwidth--8" data-val="true" data-val-length="Please enter a valid phone number." data-val-length-max="10" data-val-length-min="10" data-val-regex="Please enter a valid phone number." data-val-regex-pattern="^[^0]\d+$" data-val-required="We need your phone number to call with your free quote." id="Person_PhoneNumber_Number" name="phone_home" type="tel" value="" ng-model="ctrl.form.phone_home">
+                                <span class="field-validation-valid" data-valmsg-for="phone_home" data-valmsg-replace="true"></span>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-12 col-lg-4 labelWrap">
+                                <label for="form.email">Email Address</label> <span class="frm-imp">*</span>
+                            </div>
+                            <div class="col-sm-12 col-lg-6">
+                                <input class="colwidth--10" data-val="true" data-val-email="Please enter a valid email address." data-val-required="We need your email address to share your free quote." id="Person_EmailAddress" name="form.email" type="text" value="" ng-model="ctrl.form.email">
+                                <span class="field-validation-valid" data-valmsg-for="form.email" data-valmsg-replace="true"></span>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-sm-12 col-lg-5 col-lg-offset-4">
+                                <button class="btn-primary" type="button" ng-click="ctrl.submitInfoForm([ctrl.BASE_CONSTS.EMAIL_COMPLETED, ctrl.BASE_CONSTS.PHONE_COMPLETED, ctrl.BASE_CONSTS.ADDRESS_COMPLETED]);">
+                                    Get Quotes
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-sm-12 col-lg-offset-1 col-lg-10 txt-disclaim">
+                                By pressing �Get Quotes� above, I sign and agree to receive phone calls or text messages from a licensed insurance agent* on behalf of Omaha Insurance Company at the phone number above, including my wireless number, if provided. I understand these calls may utilize pre-recorded or artificial voice messages and may be generated using an automated dialing technology. I understand that agreeing to this consent is not required to make a purchase.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+<input type="hidden" name="xxTrustedFormToken" id="xxTrustedFormToken_0" value="https://cert.trustedform.com/aeb1bc9f0f3357533d54b496c36f8ee2ac0938e7"><input type="hidden" name="xxTrustedFormCertUrl" id="xxTrustedFormCertUrl_0" value="https://cert.trustedform.com/aeb1bc9f0f3357533d54b496c36f8ee2ac0938e7"></form>    </div>
+</section>
+
+
+    </main>
+    @views.html.angular.mutualofomahamedicareplans.footer()
+</div>

@@ -1,0 +1,56 @@
+@(siteSettings: utils.templates.SiteSettings)(implicit configuration: play.api.Configuration, environment: play.api.Environment)
+@import utils.utilities.construct_url
+@if(utils.templates.TemplateSettings.show_solar_cal(siteSettings)){
+<div class="col-xs-12 col-sm-12 col-md-8 col-lg-9 y-scroll" ng-init="ctrl.formPageLoaded('Thank You')">
+}else{
+<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 y-scroll" ng-init="ctrl.formPageLoaded('Thank You')">
+}
+    <div class="form-right-col" style=" padding-top: 18px;">
+        <div class="inner thanks-slide" ng-style="{
+        '-webkit-transition-duration': ctrl.speed + 'ms',
+        '-moz-transition-duration': ctrl.speed + 'ms',
+        '-ms-transition-duration': ctrl.speed + 'ms',
+        '-o-transition-duration': ctrl.speed + 'ms',
+        'transition-duration': ctrl.speed + 'ms'
+    }">
+
+    <div name="form-9" class="thanks-wrap" data-ng-init="ctrl.getListings()">
+        <div class="thanks-block thanks-green esti-show" data-ng-repeat="(userInfoKey, userInfoValue) in ctrl.userInfo | orderBy:'section_type'">
+            <div class="img-block">
+                <img data-ng-src="{{userInfoValue.image_url}}" onerror="this.src='@construct_url("app/images/not_available_icon.jpg")'">
+            </div>
+            <div class="content-block">
+                <h2 data-ng-bind="userInfoValue.title"></h2>
+                <p data-ng-bind-html="userInfoValue.desc">
+                </p>
+                <!-- <button class="btn bttn-green" ng-click="ctrl.showModal(userInfoValue.section_type | lowercase)" data-ng-bind="'Update '+userInfoValue.section_type"></button>  -->
+            </div>
+        </div>
+
+        <div class="thanks-block thanks-blue esti-show" data-ng-repeat="(listKey, listValue) in ctrl.list">
+            <div class="img-block">
+                <img data-ng-src="{{listValue.image_url}}" onerror="this.src='@construct_url("app/images/not_available_icon.jpg")'">
+                <div class="tag-no">
+                    <h3 data-ng-bind="$index + 1"></h3>
+                </div>
+            </div>
+            <div class="content-block">
+                <div class="our-score">
+                    <p>OUR SCORE</p>
+                    <h1 data-ng-bind="listValue.score | number:1"></h1>
+                </div>
+                <h2 data-ng-bind="listValue.title">
+                    <a data-ng-href="listValue.site_url">Visit Site</a>
+                </h2>
+                <ul>    
+                    <li data-ng-repeat="(descKey, descValue) in listValue.desc">{{ ctrl.$sce.trustAsHtml(descValue) }}</li>
+                </ul>
+                <div class="reviews-de" ng-if="listValue.review_count">
+                    <p data-ng-bind="listValue.review_count"></p>
+                    <span data-ng-bind="'REAL REVIEWS'"></span>
+                </div> 
+            </div>
+        </div>
+
+    </div>                                        
+</div>
